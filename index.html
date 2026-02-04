@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HCC High School, Solapur - Excellence in Education. Admissions Open for 2026-27.">
+    <meta name="keywords" content="HCC High School, Solapur, Education, Admissions, School">
+    <meta name="theme-color" content="#220707">
+    <title>HCC High School, Solapur | Excellence in Education</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --maroon-dark: #220707;
+            --maroon-primary: #531C22;
+            --neutral-warm: #AC9185;
+            --neutral-light: #E7D8CA;
+            --bg-light: #F9F3ED;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--maroon-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 243, 237, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(34, 7, 7, 0.08);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .school-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--maroon-dark);
+        }
+
+        .school-location {
+            font-size: 0.85rem;
+            color: var(--neutral-warm);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--maroon-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--maroon-primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--maroon-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, var(--neutral-light) 0%, var(--bg-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(83, 28, 34, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, -30px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--neutral-warm);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--maroon-primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--maroon-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(83, 28, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--maroon-primary);
+            border: 2px solid var(--maroon-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--maroon-primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 0.8s ease 0.3s backwards;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 500px;
+            /* background: linear-gradient(135deg, var(--neutral-warm), var(--neutral-light)); */
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* color: var(--white); */
+            font-size: 1.2rem;
+            box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Quick Highlights */
+        .highlights {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .highlights-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 3rem;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--maroon-primary);
+            box-shadow: 0 15px 40px rgba(83, 28, 34, 0.15);
+        }
+
+        .highlight-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover .highlight-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card p {
+            color: var(--neutral-warm);
+            line-height: 1.8;
+        }
+
+        /* Gallery Preview */
+        .gallery-preview {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(135deg, var(--neutral-light), var(--neutral-warm));
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item::after {
+            content: 'Gallery Image';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(34, 7, 7, 0.8), transparent);
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .view-all {
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon-dark);
+            color: var(--bg-light);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--neutral-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--maroon-primary);
+            border-radius: 4px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--maroon-primary);
+            color: var(--neutral-light);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                max-width: 400px;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
+                transition: right 0.4s ease;
+                gap: 1.5rem;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .image-placeholder {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .school-name {
+                font-size: 1rem;
+            }
+
+            .school-location {
+                font-size: 0.75rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* SVG Icons Inline */
+        .svg-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="hcclogo.jpg" alt="HCC Logo" style="width: 50px; height: 50px; border-radius: 8px;">
+                <div>
+                    <div class="school-name">HCC High School</div>
+                    <div class="school-location">Solapur</div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="infrastructure.html">Infrastructure</a></li>
+                    <li><a href="gallery.html">Image Gallery</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to HCC High School</h1>
+                <p>Empowering minds, shaping futures. Excellence in education since 1990.</p>
+                <div class="cta-buttons">
+                    <a href="admission.html" class="btn btn-primary">Admissions Open 2026-27</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="hcc.jpg" 
+     alt="HCC High School Building" 
+     style="width: 100%; 
+            height: 500px; 
+            object-fit: cover; 
+            object-position: center;
+            border-radius: 16px; 
+            box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;">
+</div>
+        </div>
+    </section>
+
+    <!-- Quick Highlights -->
+    <section class="highlights">
+        <div class="highlights-container">
+            <h2 class="section-title">Why Choose HCC High School</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+                        </svg>
+                    </div>
+                    <h3>Expert Faculty</h3>
+                    <p>Highly qualified and experienced teachers dedicated to student success and holistic development.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7V11C2 16.55 6.84 21.74 12 23C17.16 21.74 22 16.55 22 11V7L12 2ZM12 11H20C19.91 15.13 16.88 18.78 12 19.93V13H4V8.3L12 4.19V11Z"/>
+                        </svg>
+                    </div>
+                    <h3>Modern Infrastructure</h3>
+                    <p>State-of-the-art classrooms, laboratories, library, and sports facilities for comprehensive learning.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/>
+                        </svg>
+                    </div>
+                    <h3>Academic Excellence</h3>
+                    <p>Consistent track record of outstanding results and successful alumni across diverse fields.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="gallery-preview">
+        <div class="gallery-container">
+            <h2 class="section-title">Campus Glimpses</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+            </div>
+            <div class="view-all">
+                <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>HCC High School</h3>
+                <p>Excellence in education since 1990</p>
+                <p>Shaping young minds for a brighter tomorrow</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="admission.html">Admissions</a>
+                <a href="staff.html">Faculty</a>
+                <a href="achievements.html">Achievements</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>123 School Road, Solapur, Maharashtra</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>+91 1234567890</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>info@hccschool.edu.in</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 HCC High School, Solapur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Header hide on scroll down, show on scroll up
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu after clicking
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
