@@ -727,612 +727,624 @@
     </footer>
 
         <script>
-        // ============================================
-        // SUPABASE CONFIGURATION
-        // ============================================
-        const SUPABASE_URL = 'https://tqpjyqrlawhjuzugosyh.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxcGp5cXJsYXdoanV6dWdvc3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxOTI4NzQsImV4cCI6MjA4NTc2ODg3NH0.Qsajz9iar_Qu0N7UHTm5ltjnUtVzNSpapJf1xnqGJLQ';
+    // ============================================
+    // SUPABASE CONFIGURATION
+    // ============================================
+    const SUPABASE_URL = 'https://tqpjyqrlawhjuzugosyh.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxcGp5cXJsYXdoanV6dWdvc3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxOTI4NzQsImV4cCI6MjA4NTc2ODg3NH0.Qsajz9iar_Qu0N7UHTm5ltjnUtVzNSpapJf1xnqGJLQ';
 
-        const { createClient } = supabase;
-        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Mobile Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navMenu = document.getElementById('navMenu');
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
 
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+
+    // Header hide on scroll down, show on scroll up
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.style.transform = 'translateY(0)';
+            return;
+        }
+        
+        if (currentScroll > lastScroll && currentScroll > 80) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
             }
         });
+    });
 
-        // Header hide on scroll down, show on scroll up
-        let lastScroll = 0;
-        const header = document.querySelector('header');
+    // ============================================
+    // PUSH NOTIFICATION SETUP
+    // ============================================
+    const VAPID_PUBLIC_KEY = 'BMjWrT4Mo49qpPCXXx_qWNS8VJfVNE5-laD52FT-usDylWdolRBv4qU1EpzdwK-PUAqj2JKB4ZAFvfABhZxMyKs';
 
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
+    // Convert VAPID key
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding)
+            .replace(/\-/g, '+')
+            .replace(/_/g, '/');
+
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+
+    // Subscribe to push notifications
+    async function subscribeToPush() {
+        try {
+            const registration = await navigator.serviceWorker.ready;
             
-            if (currentScroll <= 0) {
-                header.style.transform = 'translateY(0)';
-                return;
-            }
-            
-            if (currentScroll > lastScroll && currentScroll > 80) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-            }
-            
-            lastScroll = currentScroll;
-        });
+            let subscription = await registration.pushManager.getSubscription();
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }
-            });
-        });
-
-        // ============================================
-        // SERVICE WORKER REGISTRATION
-        // ============================================
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
-                    .then((registration) => {
-                        console.log('✅ SW registered:', registration.scope);
-
-                        // Check for updates every 5 minutes
-                        setInterval(() => {
-                            registration.update();
-                        }, 5 * 60 * 1000);
-
-                        // Listen for new service worker
-                        registration.addEventListener('updatefound', () => {
-                            const newWorker = registration.installing;
-                            newWorker.addEventListener('statechange', () => {
-                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                    if (confirm('New version available! Reload to update?')) {
-                                        newWorker.postMessage({ type: 'SKIP_WAITING' });
-                                        window.location.reload();
-                                    }
-                                }
-                            });
-                        });
-                    })
-                    .catch((error) => {
-                        console.error('❌ SW registration failed:', error);
-                    });
-
-                // Reload when new SW takes control
-                navigator.serviceWorker.addEventListener('controllerchange', () => {
-                    window.location.reload();
+            if (!subscription) {
+                subscription = await registration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
                 });
+            }
+
+            await saveSubscriptionToDatabase(subscription);
+            console.log('✅ Push subscription saved');
+            return subscription;
+
+        } catch (error) {
+            console.error('❌ Failed to subscribe to push:', error);
+            return null;
+        }
+    }
+
+    // Save subscription to Supabase
+    async function saveSubscriptionToDatabase(subscription) {
+        const subscriptionJson = subscription.toJSON();
+        
+        const deviceType = /Mobile|Android|iPhone/i.test(navigator.userAgent) 
+            ? 'mobile' 
+            : 'desktop';
+
+        const { data, error } = await supabaseClient
+            .from('push_subscriptions')
+            .upsert({
+                endpoint: subscription.endpoint,
+                p256dh: subscriptionJson.keys.p256dh,
+                auth: subscriptionJson.keys.auth,
+                user_agent: navigator.userAgent,
+                device_type: deviceType,
+                is_active: true,
+                last_used: new Date().toISOString()
+            }, {
+                onConflict: 'endpoint'
             });
+
+        if (error) {
+            console.error('❌ Failed to save subscription:', error);
+        }
+    }
+
+    // Request notification permission
+    async function requestNotificationPermission() {
+        if (!('Notification' in window)) {
+            console.log('❌ Notifications not supported');
+            return false;
         }
 
-        // ============================================
-        // NOTIFICATION SETTINGS
-        // ============================================
-        const notificationSettings = {
-            blogs: localStorage.getItem('notify_blogs') !== 'false',
-            achievements: localStorage.getItem('notify_achievements') !== 'false',
-            enabled: localStorage.getItem('notifications_enabled') === 'true'
-        };
+        if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+            console.log('❌ Push notifications not supported');
+            return false;
+        }
 
-        // ============================================
-        // PUSH NOTIFICATION SETUP
-        // ============================================
-        const VAPID_PUBLIC_KEY = 'BMjWrT4Mo49qpPCXXx_qWNS8VJfVNE5-laD52FT-usDylWdolRBv4qU1EpzdwK-PUAqj2JKB4ZAFvfABhZxMyKs'; // Replace with your VAPID key
+        const permission = await Notification.requestPermission();
+        
+        if (permission === 'granted') {
+            console.log('✅ Notification permission granted');
+            localStorage.setItem('notifications_enabled', 'true');
+            await subscribeToPush();
+            return true;
+        } else {
+            console.log('❌ Notification permission denied');
+            localStorage.setItem('notifications_enabled', 'false');
+            return false;
+        }
+    }
 
-        async function requestNotificationPermission() {
-            if (!('Notification' in window)) {
-                console.log('❌ Notifications not supported');
-                return false;
+    // Unsubscribe from push notifications
+    async function unsubscribeFromPush() {
+        try {
+            const registration = await navigator.serviceWorker.ready;
+            const subscription = await registration.pushManager.getSubscription();
+
+            if (subscription) {
+                await subscription.unsubscribe();
+                
+                await supabaseClient
+                    .from('push_subscriptions')
+                    .update({ is_active: false })
+                    .eq('endpoint', subscription.endpoint);
+                
+                console.log('✅ Unsubscribed from push notifications');
             }
 
-            if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
-                console.log('❌ Push notifications not supported');
-                return false;
-            }
+            localStorage.setItem('notifications_enabled', 'false');
+        } catch (error) {
+            console.error('❌ Failed to unsubscribe:', error);
+        }
+    }
 
-            const permission = await Notification.requestPermission();
-            
-            if (permission === 'granted') {
-                console.log('✅ Notification permission granted');
-                localStorage.setItem('notifications_enabled', 'true');
-                await subscribeToPush();
-                return true;
+    // Show notification settings modal
+    function showNotificationSettings() {
+        const modal = document.createElement('div');
+        modal.id = 'notificationSettingsModal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 7, 7, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        `;
+
+        const isEnabled = localStorage.getItem('notifications_enabled') === 'true';
+        const blogsEnabled = localStorage.getItem('notify_blogs') !== 'false';
+        const achievementsEnabled = localStorage.getItem('notify_achievements') !== 'false';
+
+        modal.innerHTML = `
+            <div style="
+                background: white;
+                padding: 2rem;
+                border-radius: 16px;
+                max-width: 450px;
+                width: 90%;
+                animation: slideUp 0.4s ease;
+            ">
+                <h2 style="color: #220707; margin-bottom: 1.5rem; font-size: 1.6rem;">Notification Settings</h2>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer; margin-bottom: 0.5rem;">
+                        <span style="color: #220707; font-weight: 600;">Enable Notifications</span>
+                        <input type="checkbox" id="enableNotifications" ${isEnabled ? 'checked' : ''} style="width: 20px; height: 20px; cursor: pointer;">
+                    </label>
+                    <p style="color: #AC9185; font-size: 0.85rem; padding-left: 1rem;">Receive updates about school notices and achievements</p>
+                </div>
+
+                <div style="margin-bottom: 1rem; opacity: ${isEnabled ? '1' : '0.5'};">
+                    <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer; margin-bottom: 0.5rem;">
+                        <div>
+                            <div style="color: #220707; font-weight: 600;">📢 Notices & Updates</div>
+                            <div style="color: #AC9185; font-size: 0.85rem;">Get notified about new school notices</div>
+                        </div>
+                        <input type="checkbox" id="notifyBlogs" ${blogsEnabled ? 'checked' : ''} ${!isEnabled ? 'disabled' : ''} style="width: 20px; height: 20px; cursor: pointer;">
+                    </label>
+
+                    <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer;">
+                        <div>
+                            <div style="color: #220707; font-weight: 600;">🏆 Achievements</div>
+                            <div style="color: #AC9185; font-size: 0.85rem;">Get notified about new achievements</div>
+                        </div>
+                        <input type="checkbox" id="notifyAchievements" ${achievementsEnabled ? 'checked' : ''} ${!isEnabled ? 'disabled' : ''} style="width: 20px; height: 20px; cursor: pointer;">
+                    </label>
+                </div>
+
+                <button id="saveSettings" style="
+                    padding: 1rem 2rem;
+                    background: #531C22;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                ">Save Settings</button>
+                
+                <button id="closeSettings" style="
+                    padding: 1rem 2rem;
+                    background: transparent;
+                    color: #531C22;
+                    border: 2px solid #E7D8CA;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                ">Close</button>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Toggle dependent checkboxes
+        document.getElementById('enableNotifications').addEventListener('change', (e) => {
+            const isChecked = e.target.checked;
+            document.getElementById('notifyBlogs').disabled = !isChecked;
+            document.getElementById('notifyAchievements').disabled = !isChecked;
+            document.getElementById('notifyBlogs').parentElement.parentElement.style.opacity = isChecked ? '1' : '0.5';
+        });
+
+        // Save settings
+        document.getElementById('saveSettings').addEventListener('click', async () => {
+            const enableNotifications = document.getElementById('enableNotifications').checked;
+            const notifyBlogs = document.getElementById('notifyBlogs').checked;
+            const notifyAchievements = document.getElementById('notifyAchievements').checked;
+
+            if (enableNotifications) {
+                const granted = await requestNotificationPermission();
+                if (granted) {
+                    localStorage.setItem('notify_blogs', notifyBlogs);
+                    localStorage.setItem('notify_achievements', notifyAchievements);
+                    alert('✅ Notification settings saved!');
+                }
             } else {
-                console.log('❌ Notification permission denied');
-                localStorage.setItem('notifications_enabled', 'false');
-                return false;
-            }
-        }
-
-        // Convert VAPID key
-        function urlBase64ToUint8Array(base64String) {
-            const padding = '='.repeat((4 - base64String.length % 4) % 4);
-            const base64 = (base64String + padding)
-                .replace(/\-/g, '+')
-                .replace(/_/g, '/');
-
-            const rawData = window.atob(base64);
-            const outputArray = new Uint8Array(rawData.length);
-
-            for (let i = 0; i < rawData.length; ++i) {
-                outputArray[i] = rawData.charCodeAt(i);
-            }
-            return outputArray;
-        }
-
-        // Subscribe to push notifications
-        async function subscribeToPush() {
-            try {
-                const registration = await navigator.serviceWorker.ready;
-                
-                let subscription = await registration.pushManager.getSubscription();
-
-                if (!subscription) {
-                    subscription = await registration.pushManager.subscribe({
-                        userVisibleOnly: true,
-                        applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
-                    });
-                }
-
-                await saveSubscriptionToDatabase(subscription);
-                console.log('✅ Push subscription saved');
-                return subscription;
-
-            } catch (error) {
-                console.error('❌ Failed to subscribe to push:', error);
-                return null;
-            }
-        }
-
-        // Save subscription to Supabase
-        async function saveSubscriptionToDatabase(subscription) {
-            const subscriptionJson = subscription.toJSON();
-            
-            const deviceType = /Mobile|Android|iPhone/i.test(navigator.userAgent) 
-                ? 'mobile' 
-                : 'desktop';
-
-            const { data, error } = await supabaseClient
-                .from('push_subscriptions')
-                .upsert({
-                    endpoint: subscription.endpoint,
-                    p256dh: subscriptionJson.keys.p256dh,
-                    auth: subscriptionJson.keys.auth,
-                    user_agent: navigator.userAgent,
-                    device_type: deviceType,
-                    is_active: true,
-                    last_used: new Date().toISOString()
-                }, {
-                    onConflict: 'endpoint'
-                });
-
-            if (error) {
-                console.error('❌ Failed to save subscription:', error);
-            }
-        }
-
-        // Unsubscribe from push notifications
-        async function unsubscribeFromPush() {
-            try {
-                const registration = await navigator.serviceWorker.ready;
-                const subscription = await registration.pushManager.getSubscription();
-
-                if (subscription) {
-                    await subscription.unsubscribe();
-                    
-                    // Remove from database
-                    await supabaseClient
-                        .from('push_subscriptions')
-                        .update({ is_active: false })
-                        .eq('endpoint', subscription.endpoint);
-                    
-                    console.log('✅ Unsubscribed from push notifications');
-                }
-
-                localStorage.setItem('notifications_enabled', 'false');
-            } catch (error) {
-                console.error('❌ Failed to unsubscribe:', error);
-            }
-        }
-
-        // Show notification settings modal
-        function showNotificationSettings() {
-            const modal = document.createElement('div');
-            modal.id = 'notificationSettingsModal';
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(34, 7, 7, 0.9);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 10000;
-                animation: fadeIn 0.3s ease;
-            `;
-
-            const isEnabled = localStorage.getItem('notifications_enabled') === 'true';
-            const blogsEnabled = localStorage.getItem('notify_blogs') !== 'false';
-            const achievementsEnabled = localStorage.getItem('notify_achievements') !== 'false';
-
-            modal.innerHTML = `
-                <div style="
-                    background: white;
-                    padding: 2rem;
-                    border-radius: 16px;
-                    max-width: 450px;
-                    width: 90%;
-                    animation: slideUp 0.4s ease;
-                ">
-                    <h2 style="color: #220707; margin-bottom: 1.5rem; font-size: 1.6rem;">Notification Settings</h2>
-                    
-                    <div style="margin-bottom: 1.5rem;">
-                        <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer; margin-bottom: 0.5rem;">
-                            <span style="color: #220707; font-weight: 600;">Enable Notifications</span>
-                            <input type="checkbox" id="enableNotifications" ${isEnabled ? 'checked' : ''} style="width: 20px; height: 20px; cursor: pointer;">
-                        </label>
-                        <p style="color: #AC9185; font-size: 0.85rem; padding-left: 1rem;">Receive updates about school notices and achievements</p>
-                    </div>
-
-                    <div style="margin-bottom: 1rem; opacity: ${isEnabled ? '1' : '0.5'};">
-                        <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer; margin-bottom: 0.5rem;">
-                            <div>
-                                <div style="color: #220707; font-weight: 600;">📢 Notices & Updates</div>
-                                <div style="color: #AC9185; font-size: 0.85rem;">Get notified about new school notices</div>
-                            </div>
-                            <input type="checkbox" id="notifyBlogs" ${blogsEnabled ? 'checked' : ''} ${!isEnabled ? 'disabled' : ''} style="width: 20px; height: 20px; cursor: pointer;">
-                        </label>
-
-                        <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer;">
-                            <div>
-                                <div style="color: #220707; font-weight: 600;">🏆 Achievements</div>
-                                <div style="color: #AC9185; font-size: 0.85rem;">Get notified about new achievements</div>
-                            </div>
-                            <input type="checkbox" id="notifyAchievements" ${achievementsEnabled ? 'checked' : ''} ${!isEnabled ? 'disabled' : ''} style="width: 20px; height: 20px; cursor: pointer;">
-                        </label>
-                    </div>
-
-                    <button id="saveSettings" style="
-                        padding: 1rem 2rem;
-                        background: #531C22;
-                        color: white;
-                        border: none;
-                        border-radius: 8px;
-                        font-size: 1rem;
-                        font-weight: 600;
-                        cursor: pointer;
-                        width: 100%;
-                        margin-bottom: 0.5rem;
-                    ">Save Settings</button>
-                    
-                    <button id="closeSettings" style="
-                        padding: 1rem 2rem;
-                        background: transparent;
-                        color: #531C22;
-                        border: 2px solid #E7D8CA;
-                        border-radius: 8px;
-                        font-size: 1rem;
-                        font-weight: 600;
-                        cursor: pointer;
-                        width: 100%;
-                    ">Close</button>
-                </div>
-            `;
-
-            document.body.appendChild(modal);
-
-            // Toggle dependent checkboxes
-            document.getElementById('enableNotifications').addEventListener('change', (e) => {
-                const isChecked = e.target.checked;
-                document.getElementById('notifyBlogs').disabled = !isChecked;
-                document.getElementById('notifyAchievements').disabled = !isChecked;
-                document.getElementById('notifyBlogs').parentElement.parentElement.style.opacity = isChecked ? '1' : '0.5';
-            });
-
-            // Save settings
-            document.getElementById('saveSettings').addEventListener('click', async () => {
-                const enableNotifications = document.getElementById('enableNotifications').checked;
-                const notifyBlogs = document.getElementById('notifyBlogs').checked;
-                const notifyAchievements = document.getElementById('notifyAchievements').checked;
-
-                if (enableNotifications) {
-                    const granted = await requestNotificationPermission();
-                    if (granted) {
-                        localStorage.setItem('notify_blogs', notifyBlogs);
-                        localStorage.setItem('notify_achievements', notifyAchievements);
-                        alert('✅ Notification settings saved!');
-                    }
-                } else {
-                    await unsubscribeFromPush();
-                    alert('✅ Notifications disabled');
-                }
-
-                modal.remove();
-            });
-
-            // Close button
-            document.getElementById('closeSettings').addEventListener('click', () => {
-                modal.remove();
-            });
-        }
-
-        // ============================================
-        // NOTIFICATION PERMISSION PROMPT
-        // ============================================
-        function showNotificationPrompt() {
-            // Don't show if already answered
-            if (localStorage.getItem('notification_prompt_shown') === 'true') {
-                return;
+                await unsubscribeFromPush();
+                alert('✅ Notifications disabled');
             }
 
-            // Don't show if permission already granted or denied
-            if (Notification.permission !== 'default') {
-                return;
-            }
-
-            const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(34, 7, 7, 0.9);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 10000;
-                animation: fadeIn 0.3s ease;
-            `;
-
-            modal.innerHTML = `
-                <div style="
-                    background: white;
-                    padding: 2rem;
-                    border-radius: 16px;
-                    max-width: 400px;
-                    width: 90%;
-                    text-align: center;
-                    animation: slideUp 0.4s ease;
-                ">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">🔔</div>
-                    <h2 style="color: #220707; margin-bottom: 1rem; font-size: 1.5rem;">Stay Updated!</h2>
-                    <p style="color: #AC9185; margin-bottom: 2rem; line-height: 1.6;">
-                        Enable notifications to receive important school notices, announcements, and achievement updates instantly - even when the app is closed.
-                    </p>
-                    <button id="allowNotifications" style="
-                        padding: 1rem 2rem;
-                        background: #531C22;
-                        color: white;
-                        border: none;
-                        border-radius: 8px;
-                        font-size: 1rem;
-                        font-weight: 600;
-                        cursor: pointer;
-                        width: 100%;
-                        margin-bottom: 0.5rem;
-                    ">Allow Notifications</button>
-                    <button id="notNow" style="
-                        padding: 1rem 2rem;
-                        background: transparent;
-                        color: #531C22;
-                        border: 2px solid #E7D8CA;
-                        border-radius: 8px;
-                        font-size: 1rem;
-                        font-weight: 600;
-                        cursor: pointer;
-                        width: 100%;
-                    ">Not Now</button>
-                    <button id="customizeNotifications" style="
-                        padding: 0.5rem;
-                        background: transparent;
-                        color: #AC9185;
-                        border: none;
-                        font-size: 0.9rem;
-                        cursor: pointer;
-                        width: 100%;
-                        margin-top: 0.5rem;
-                        text-decoration: underline;
-                    ">Customize Settings</button>
-                </div>
-            `;
-
-            document.body.appendChild(modal);
-
-            // Allow button
-            document.getElementById('allowNotifications').addEventListener('click', async () => {
-                modal.remove();
-                localStorage.setItem('notification_prompt_shown', 'true');
-                await requestNotificationPermission();
-            });
-
-            // Not now button
-            document.getElementById('notNow').addEventListener('click', () => {
-                modal.remove();
-                localStorage.setItem('notification_prompt_shown', 'true');
-            });
-
-            // Customize button
-            document.getElementById('customizeNotifications').addEventListener('click', () => {
-                modal.remove();
-                localStorage.setItem('notification_prompt_shown', 'true');
-                showNotificationSettings();
-            });
-        }
-
-        // ============================================
-        // PWA INSTALL PROMPT (2 TIMES DAILY)
-        // ============================================
-        let deferredPrompt;
-        const MAX_PROMPTS_PER_DAY = 2;
-
-        const installStats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
-        const today = new Date().toDateString();
-
-        if (installStats.lastPromptDate !== today) {
-            installStats.lastPromptDate = today;
-            installStats.promptCount = 0;
-            localStorage.setItem('pwaInstallStats', JSON.stringify(installStats));
-        }
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-
-            if (window.matchMedia('(display-mode: standalone)').matches) {
-                console.log('✅ App already installed');
-                return;
-            }
-
-            const currentHour = new Date().getHours();
-            const stats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
-
-            if (currentHour < 15 && stats.promptCount === 0) {
-                setTimeout(() => showInstallPrompt(), 5000);
-            }
-            
-            if (currentHour >= 15 && stats.promptCount === 1) {
-                setTimeout(() => showInstallPrompt(), 10000);
-            }
+            modal.remove();
         });
 
-        function showInstallPrompt() {
-            const stats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+        // Close button
+        document.getElementById('closeSettings').addEventListener('click', () => {
+            modal.remove();
+        });
+    }
 
-            if (stats.promptCount >= MAX_PROMPTS_PER_DAY || !deferredPrompt) {
-                return;
-            }
-
-            const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(34, 7, 7, 0.9);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 10000;
-                animation: fadeIn 0.3s ease;
-            `;
-
-            modal.innerHTML = `
-                <div style="
-                    background: white;
-                    padding: 2rem;
-                    border-radius: 16px;
-                    max-width: 400px;
-                    width: 90%;
-                    text-align: center;
-                    animation: slideUp 0.4s ease;
-                ">
-                    <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
-                    <h2 style="color: #220707; margin-bottom: 1rem; font-size: 1.5rem;">Install HCC School App</h2>
-                    <p style="color: #AC9185; margin-bottom: 2rem; line-height: 1.6;">
-                        Get quick access to admissions, gallery, and updates. Works offline!
-                    </p>
-                    <button id="installBtn" style="
-                        padding: 1rem 2rem;
-                        background: #531C22;
-                        color: white;
-                        border: none;
-                        border-radius: 8px;
-                        font-size: 1rem;
-                        font-weight: 600;
-                        cursor: pointer;
-                        width: 100%;
-                        margin-bottom: 0.5rem;
-                    ">Install Now</button>
-                    <button id="laterBtn" style="
-                        padding: 1rem 2rem;
-                        background: transparent;
-                        color: #531C22;
-                        border: 2px solid #E7D8CA;
-                        border-radius: 8px;
-                        font-size: 1rem;
-                        font-weight: 600;
-                        cursor: pointer;
-                        width: 100%;
-                    ">Maybe Later</button>
-                </div>
-            `;
-
-            document.body.appendChild(modal);
-
-            document.getElementById('installBtn').addEventListener('click', async () => {
-                modal.remove();
-                deferredPrompt.prompt();
-                const { outcome } = await deferredPrompt.userChoice;
-                
-                if (outcome === 'accepted') {
-                    console.log('✅ User installed the app');
-                    localStorage.setItem('pwaInstalled', 'true');
-                    // Show notification prompt after install
-                    setTimeout(() => showNotificationPrompt(), 2000);
-                }
-                
-                deferredPrompt = null;
-            });
-
-            document.getElementById('laterBtn').addEventListener('click', () => {
-                modal.remove();
-            });
-
-            stats.promptCount = (stats.promptCount || 0) + 1;
-            localStorage.setItem('pwaInstallStats', JSON.stringify(stats));
+    // Show notification permission prompt
+    function showNotificationPrompt() {
+        // Don't show if already answered
+        if (localStorage.getItem('notification_prompt_shown') === 'true') {
+            return;
         }
 
-        window.addEventListener('appinstalled', () => {
-            console.log('✅ PWA was installed');
-            localStorage.setItem('pwaInstalled', 'true');
-            setTimeout(() => showNotificationPrompt(), 2000);
+        // Don't show if permission already granted or denied
+        if (Notification.permission !== 'default') {
+            localStorage.setItem('notification_prompt_shown', 'true');
+            return;
+        }
+
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 7, 7, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        `;
+
+        modal.innerHTML = `
+            <div style="
+                background: white;
+                padding: 2rem;
+                border-radius: 16px;
+                max-width: 400px;
+                width: 90%;
+                text-align: center;
+                animation: slideUp 0.4s ease;
+            ">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔔</div>
+                <h2 style="color: #220707; margin-bottom: 1rem; font-size: 1.5rem;">Stay Updated!</h2>
+                <p style="color: #AC9185; margin-bottom: 2rem; line-height: 1.6;">
+                    Enable notifications to receive important school notices, announcements, and achievement updates instantly - even when the app is closed.
+                </p>
+                <button id="allowNotifications" style="
+                    padding: 1rem 2rem;
+                    background: #531C22;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                ">Allow Notifications</button>
+                <button id="notNow" style="
+                    padding: 1rem 2rem;
+                    background: transparent;
+                    color: #531C22;
+                    border: 2px solid #E7D8CA;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                ">Not Now</button>
+                <button id="customizeNotifications" style="
+                    padding: 0.5rem;
+                    background: transparent;
+                    color: #AC9185;
+                    border: none;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-top: 0.5rem;
+                    text-decoration: underline;
+                ">Customize Settings</button>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Allow button
+        document.getElementById('allowNotifications').addEventListener('click', async () => {
+            modal.remove();
+            localStorage.setItem('notification_prompt_shown', 'true');
+            await requestNotificationPermission();
         });
 
+        // Not now button
+        document.getElementById('notNow').addEventListener('click', () => {
+            modal.remove();
+            localStorage.setItem('notification_prompt_shown', 'true');
+        });
+
+        // Customize button
+        document.getElementById('customizeNotifications').addEventListener('click', () => {
+            modal.remove();
+            localStorage.setItem('notification_prompt_shown', 'true');
+            showNotificationSettings();
+        });
+    }
+
+    // ============================================
+    // PWA INSTALL PROMPT
+    // ============================================
+    let deferredPrompt;
+    const MAX_PROMPTS_PER_DAY = 2;
+
+    // Initialize install stats
+    let installStats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+    const today = new Date().toDateString();
+
+    if (installStats.lastPromptDate !== today) {
+        installStats.lastPromptDate = today;
+        installStats.promptCount = 0;
+        localStorage.setItem('pwaInstallStats', JSON.stringify(installStats));
+    }
+
+    // Show install prompt
+    function showInstallPrompt() {
+        const stats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+
+        if (stats.promptCount >= MAX_PROMPTS_PER_DAY || !deferredPrompt) {
+            console.log('⏸️ Install prompt conditions not met');
+            return;
+        }
+
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 7, 7, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        `;
+
+        modal.innerHTML = `
+            <div style="
+                background: white;
+                padding: 2rem;
+                border-radius: 16px;
+                max-width: 400px;
+                width: 90%;
+                text-align: center;
+                animation: slideUp 0.4s ease;
+            ">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
+                <h2 style="color: #220707; margin-bottom: 1rem; font-size: 1.5rem;">Install HCC School App</h2>
+                <p style="color: #AC9185; margin-bottom: 2rem; line-height: 1.6;">
+                    Get quick access to admissions, gallery, and updates. Works offline!
+                </p>
+                <button id="installBtn" style="
+                    padding: 1rem 2rem;
+                    background: #531C22;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                ">Install Now</button>
+                <button id="laterBtn" style="
+                    padding: 1rem 2rem;
+                    background: transparent;
+                    color: #531C22;
+                    border: 2px solid #E7D8CA;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                ">Maybe Later</button>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        document.getElementById('installBtn').addEventListener('click', async () => {
+            modal.remove();
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            if (outcome === 'accepted') {
+                console.log('✅ User installed the app');
+                localStorage.setItem('pwaInstalled', 'true');
+                // Show notification prompt after install
+                setTimeout(() => showNotificationPrompt(), 2000);
+            }
+            
+            deferredPrompt = null;
+        });
+
+        document.getElementById('laterBtn').addEventListener('click', () => {
+            modal.remove();
+        });
+
+        // Update stats
+        const newStats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+        newStats.promptCount = (newStats.promptCount || 0) + 1;
+        localStorage.setItem('pwaInstallStats', JSON.stringify(newStats));
+    }
+
+    // Capture install prompt event
+    window.addEventListener('beforeinstallprompt', (e) => {
+        console.log('📱 Install prompt event captured');
+        e.preventDefault();
+        deferredPrompt = e;
+
+        // Check if already installed
         if (window.matchMedia('(display-mode: standalone)').matches) {
-            console.log('✅ Running as installed PWA');
-            document.body.classList.add('pwa-mode');
+            console.log('✅ App already installed');
+            return;
         }
 
-        // ============================================
-        // INITIALIZE - Show notification prompt after 15 seconds
-        // ============================================
+        const currentHour = new Date().getHours();
+        const stats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+
+        // First prompt: Before 3 PM (if not shown today)
+        if (currentHour < 15 && stats.promptCount === 0) {
+            console.log('📱 Scheduling first install prompt');
+            setTimeout(() => showInstallPrompt(), 5000);
+        }
+        
+        // Second prompt: After 3 PM (if only 1 shown today)
+        if (currentHour >= 15 && stats.promptCount === 1) {
+            console.log('📱 Scheduling second install prompt');
+            setTimeout(() => showInstallPrompt(), 10000);
+        }
+    });
+
+    // App installed event
+    window.addEventListener('appinstalled', () => {
+        console.log('✅ PWA was installed');
+        localStorage.setItem('pwaInstalled', 'true');
+        setTimeout(() => showNotificationPrompt(), 2000);
+    });
+
+    // Check if running as installed app
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        console.log('✅ Running as installed PWA');
+        document.body.classList.add('pwa-mode');
+    }
+
+    // ============================================
+    // SERVICE WORKER REGISTRATION
+    // ============================================
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('✅ SW registered:', registration.scope);
+
+                    // Check for updates every 5 minutes
+                    setInterval(() => {
+                        registration.update();
+                    }, 5 * 60 * 1000);
+
+                    // Listen for new service worker
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                if (confirm('New version available! Reload to update?')) {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch((error) => {
+                    console.error('❌ SW registration failed:', error);
+                });
+
+            // Reload when new SW takes control
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                window.location.reload();
+            });
+        });
+    }
+
+    // ============================================
+    // INITIALIZE ON PAGE LOAD
+    // ============================================
+    window.addEventListener('DOMContentLoaded', () => {
+        console.log('🚀 Page loaded, initializing...');
+
+        // Show notification prompt after 15 seconds if not already shown
         setTimeout(() => {
+            console.log('⏰ Checking notification prompt conditions...');
             if (Notification.permission === 'default' && 
                 localStorage.getItem('notification_prompt_shown') !== 'true') {
+                console.log('🔔 Showing notification prompt');
                 showNotificationPrompt();
+            } else {
+                console.log('⏸️ Notification prompt already shown or permission set');
             }
         }, 15000);
+    });
 
-        // Make showNotificationSettings available globally for footer link
-        window.showNotificationSettings = showNotificationSettings;
-    </script>
-
+    // Make showNotificationSettings available globally
+    window.showNotificationSettings = showNotificationSettings;
+</script>
    </body>
 </html>
