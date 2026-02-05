@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply for admission to HCC High School, Solapur. Online admission form for 2026-27 academic year.">
+    <meta name="keywords" content="HCC High School Admission, School Admission Solapur, Online Admission Form">
+    <meta name="theme-color" content="#220707">
+    <title>Admissions 2026-27 | HCC High School, Solapur</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --maroon-dark: #220707;
+            --maroon-primary: #531C22;
+            --neutral-warm: #AC9185;
+            --neutral-light: #E7D8CA;
+            --bg-light: #F9F3ED;
+            --white: #FFFFFF;
+            --success: #2D7A3E;
+            --error: #B91C1C;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--maroon-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 243, 237, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(34, 7, 7, 0.08);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .school-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--maroon-dark);
+        }
+
+        .school-location {
+            font-size: 0.85rem;
+            color: var(--neutral-warm);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--maroon-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--maroon-primary);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--maroon-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon-primary) 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Info Section */
+        .info-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(34, 7, 7, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(83, 28, 34, 0.15);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            color: var(--maroon-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card p {
+            color: var(--neutral-warm);
+            line-height: 1.7;
+        }
+
+        /* Form Section */
+        .form-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--neutral-warm);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .admission-form {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(34, 7, 7, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--maroon-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-group label .required {
+            color: var(--error);
+            margin-left: 2px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.9rem 1rem;
+            border: 2px solid var(--neutral-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--maroon-dark);
+            background: var(--bg-light);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--maroon-primary);
+            box-shadow: 0 0 0 3px rgba(83, 28, 34, 0.1);
+        }
+
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: var(--error);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.1rem 2rem;
+            background: var(--maroon-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background: var(--maroon-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(83, 28, 34, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Success/Error Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 7, 7, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .modal-icon.success {
+            background: rgba(45, 122, 62, 0.1);
+            color: var(--success);
+        }
+
+        .modal-icon.error {
+            background: rgba(185, 28, 28, 0.1);
+            color: var(--error);
+        }
+
+        .modal h2 {
+            font-size: 2rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .modal p {
+            color: var(--neutral-warm);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .modal-btn {
+            padding: 0.9rem 2.5rem;
+            background: var(--maroon-primary);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn:hover {
+            background: var(--maroon-dark);
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: #25D366;
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1DA851;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon-dark);
+            color: var(--bg-light);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--neutral-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--maroon-primary);
+            border-radius: 4px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--maroon-primary);
+            color: var(--neutral-light);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                max-width: 400px;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
+                transition: right 0.4s ease;
+                gap: 1.5rem;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .admission-form {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .school-name {
+                font-size: 1rem;
+            }
+
+            .page-header {
+                padding: 3rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .admission-form {
+                padding: 1.5rem 1rem;
+            }
+
+            .modal-content {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .svg-icon {
+            width: 35px;
+            height: 35px;
+            fill: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="hcclogo.jpg" alt="HCC Logo" style="width: 50px; height: 50px; border-radius: 8px;">
+                
+                <div>
+                    <div class="school-name">HCC High School</div>
+                    <div class="school-location">Solapur</div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="admission.html" class="active">Admission</a></li>
+                    <li><a href="infrastructure.html">Infrastructure</a></li>
+                    <li><a href="gallery.html">Image Gallery</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Admissions Open 2026-27</h1>
+        <p>Join HCC High School and embark on a journey of academic excellence and holistic development</p>
+    </div>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM12 6C13.93 6 15.5 7.57 15.5 9.5C15.5 11.43 13.93 13 12 13C10.07 13 8.5 11.43 8.5 9.5C8.5 7.57 10.07 6 12 6ZM19 19H5V17.75C5 15.17 10.08 13.75 12 13.75C13.92 13.75 19 15.17 19 17.75V19Z"/>
+                    </svg>
+                </div>
+                <h3>Simple Process</h3>
+                <p>Fill out the online application form and our team will contact you within 24-48 hours.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V11H13V17ZM13 9H11V7H13V9Z"/>
+                    </svg>
+                </div>
+                <h3>All Classes</h3>
+                <p>Admissions open for classes 1st through 12th. Limited seats available.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">
+                    <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"/>
+                    </svg>
+                </div>
+                <h3>Instant Confirmation</h3>
+                <p>Receive instant confirmation and next steps via WhatsApp and email.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <h2 class="section-title">Application Form</h2>
+        <p class="section-subtitle">Fill in the details below to apply for admission</p>
+
+        <form class="admission-form" id="admissionForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="studentName">Student Name <span class="required">*</span></label>
+                    <input type="text" id="studentName" name="studentName" required>
+                    <span class="error-message" id="studentNameError">Please enter student's full name</span>
+                </div>
+
+                <!-- <div class="form-group">
+                    <label for="dateOfBirth">Date of Birth <span class="required">*</span></label>
+                    <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+                    <span class="error-message" id="dateOfBirthError">Please select date of birth</span>
+                </div> -->
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="parentName">Parent/Guardian Name <span class="required">*</span></label>
+                    <input type="text" id="parentName" name="parentName" required>
+                    <span class="error-message" id="parentNameError">Please enter parent's full name</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number <span class="required">*</span></label>
+                    <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{10}" required placeholder="10-digit mobile number">
+                    <span class="error-message" id="mobileNumberError">Please enter a valid 10-digit mobile number</span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="example@email.com">
+                    <span class="error-message" id="emailError">Please enter a valid email address</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="classApplying">Class Applying For <span class="required">*</span></label>
+                    <select id="classApplying" name="classApplying" required>
+                        <option value="">-- Select Class --</option>
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                        <option value="5th">5th</option>
+                        <option value="6th">6th</option>
+                        <option value="7th">7th</option>
+                        <option value="8th">8th</option>
+                        <option value="9th">9th</option>
+                        <option value="10th">10th</option>
+                        <option value="11th">11th</option>
+                        <option value="12th">12th</option>
+                    </select>
+                    <span class="error-message" id="classApplyingError">Please select a class</span>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="previousSchool">Previous School Name</label>
+                <input type="text" id="previousSchool" name="previousSchool" placeholder="Name of previous school (if applicable)">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="address">Residential Address</label>
+                <textarea id="address" name="address" required placeholder="Enter complete address"></textarea>
+                <span class="error-message" id="addressError">Please enter your address</span>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="message">Additional Information / Message</label>
+                <textarea id="message" name="message" placeholder="Any specific requirements or queries"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">Submit Application</button>
+        </form>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon success">✓</div>
+            <h2>Application Submitted!</h2>
+            <p>Thank you for applying to HCC High School. Your application has been successfully received. Our admissions team will contact you within 24-48 hours.</p>
+            <p><strong>Application ID:</strong> <span id="applicationId"></span></p>
+            <button class="modal-btn" onclick="closeModal()">Close</button>
+            <a href="#" class="whatsapp-btn" id="whatsappBtn" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67ZM8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8 12.27C8.14 12.44 9.76 14.94 12.25 16C12.84 16.27 13.3 16.42 13.66 16.53C14.25 16.72 14.79 16.69 15.22 16.63C15.7 16.56 16.68 16.03 16.89 15.45C17.1 14.87 17.1 14.38 17.04 14.27C16.97 14.17 16.81 14.11 16.56 14C16.31 13.86 15.09 13.26 14.87 13.18C14.64 13.1 14.5 13.06 14.31 13.3C14.15 13.55 13.67 14.11 13.53 14.27C13.38 14.44 13.24 14.46 13 14.34C12.74 14.21 11.94 13.95 11 13.11C10.26 12.45 9.77 11.64 9.62 11.39C9.5 11.15 9.61 11 9.73 10.89C9.84 10.78 10 10.6 10.1 10.45C10.23 10.31 10.27 10.2 10.35 10.04C10.43 9.87 10.39 9.73 10.33 9.61C10.27 9.5 9.77 8.26 9.56 7.77C9.36 7.29 9.16 7.35 9 7.34C8.86 7.34 8.7 7.33 8.53 7.33Z"/>
+                </svg>
+                Continue on WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <div class="modal-icon error">✕</div>
+            <h2>Submission Failed</h2>
+            <p id="errorMessage">Unable to submit your application. Please check your internet connection and try again.</p>
+            <button class="modal-btn" onclick="closeModal()">Try Again</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>HCC High School</h3>
+                <p>Excellence in education since 1990</p>
+                <p>Shaping young minds for a brighter tomorrow</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="admission.html">Admissions</a>
+                <a href="staff.html">Faculty</a>
+                <a href="achievements.html">Achievements</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>123 School Road, Solapur, Maharashtra</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>+91 1234567890</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>info@hccschool.edu.in</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 HCC High School, Solapur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+    // ============================================
+    // SUPABASE CONFIGURATION
+    // ============================================
+    const SUPABASE_URL = 'https://tqpjyqrlawhjuzugosyh.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxcGp5cXJsYXdoanV6dWdvc3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxOTI4NzQsImV4cCI6MjA4NTc2ODg3NH0.Qsajz9iar_Qu0N7UHTm5ltjnUtVzNSpapJf1xnqGJLQ';
+    // const WHATSAPP_NUMBER = '918766882442'; // Commented - for future use
+
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // ============================================
+    // FORM VALIDATION & SUBMISSION
+    // ============================================
+    const form = document.getElementById('admissionForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Validate form
+        if (!validateForm()) {
+            return;
+        }
+
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+
+        // Collect form data (optimized - only essential fields)
+       // Collect form data (null-safe - checks if elements exist)
+const studentName = document.getElementById('studentName');
+// const dateOfBirth = document.getElementById('dateOfBirth');
+const parentName = document.getElementById('parentName');
+const mobileNumber = document.getElementById('mobileNumber');
+const email = document.getElementById('email');
+const classApplying = document.getElementById('classApplying');
+const previousSchool = document.getElementById('previousSchool');
+const address = document.getElementById('address');
+const message = document.getElementById('message');
+
+const formData = {
+    student_name: studentName.value.trim(),
+    // date_of_birth: dateOfBirth ? (dateOfBirth.value || null) : null, // REMOVED
+    parent_name: parentName.value.trim(),
+    mobile_number: mobileNumber.value.trim(),
+    email: email ? (email.value.trim() || null) : null,
+    class_applying_for: classApplying.value,
+    previous_school: previousSchool ? (previousSchool.value.trim() || null) : null,
+    address: address ? (address.value.trim() || null) : null,
+    message: message ? (message.value.trim() || null) : null
+};
+
+
+
+        try {
+            // Submit to Supabase (faster - no .select())
+            const { data, error } = await supabaseClient
+                .from('admission_inquiries')
+                .insert([formData]);
+
+            if (error) {
+                throw error;
+            }
+
+            // Success - show modal without waiting
+            const applicationId = generateApplicationId();
+            showSuccessModal(applicationId, formData.student_name);
+            form.reset();
+
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            showErrorModal(error.message);
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Application';
+        }
+    });
+
+    // ============================================
+    // GENERATE APPLICATION ID (CLIENT-SIDE)
+    // ============================================
+    function generateApplicationId() {
+        const timestamp = Date.now().toString(36).toUpperCase();
+        const random = Math.random().toString(36).substring(2, 6).toUpperCase();
+        return `${timestamp}${random}`.substring(0, 8);
+    }
+
+    // ============================================
+    // FORM VALIDATION
+    // ============================================
+    function validateForm() {
+        let isValid = true;
+
+        // Student Name
+        const studentName = document.getElementById('studentName');
+        if (studentName.value.trim() === '') {
+            showError('studentName', 'studentNameError');
+            isValid = false;
+        } else {
+            hideError('studentName', 'studentNameError');
+        }
+
+        // Date of Birth (optional)
+        const dateOfBirth = document.getElementById('dateOfBirth');
+        if (dateOfBirth && dateOfBirth.value === '') {
+            // Optional - just hide error
+            hideError('dateOfBirth', 'dateOfBirthError');
+        }
+
+        // Parent Name
+        const parentName = document.getElementById('parentName');
+        if (parentName.value.trim() === '') {
+            showError('parentName', 'parentNameError');
+            isValid = false;
+        } else {
+            hideError('parentName', 'parentNameError');
+        }
+
+        // Mobile Number
+        const mobileNumber = document.getElementById('mobileNumber');
+        const mobilePattern = /^[0-9]{10}$/;
+        if (!mobilePattern.test(mobileNumber.value.trim())) {
+            showError('mobileNumber', 'mobileNumberError');
+            isValid = false;
+        } else {
+            hideError('mobileNumber', 'mobileNumberError');
+        }
+
+        // Email (optional but validate if provided)
+        const email = document.getElementById('email');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.value.trim() !== '' && !emailPattern.test(email.value.trim())) {
+            showError('email', 'emailError');
+            isValid = false;
+        } else {
+            hideError('email', 'emailError');
+        }
+
+        // Class Applying
+        const classApplying = document.getElementById('classApplying');
+        if (classApplying.value === '') {
+            showError('classApplying', 'classApplyingError');
+            isValid = false;
+        } else {
+            hideError('classApplying', 'classApplyingError');
+        }
+
+        // Address (NOW OPTIONAL)
+        const address = document.getElementById('address');
+        if (address && address.value.trim() === '') {
+            // Optional - just hide error
+            hideError('address', 'addressError');
+        }
+
+        return isValid;
+    }
+
+    function showError(fieldId, errorId) {
+        const field = document.getElementById(fieldId);
+        const error = document.getElementById(errorId);
+        if (field) field.classList.add('error');
+        if (error) error.classList.add('show');
+    }
+
+    function hideError(fieldId, errorId) {
+        const field = document.getElementById(fieldId);
+        const error = document.getElementById(errorId);
+        if (field) field.classList.remove('error');
+        if (error) error.classList.remove('show');
+    }
+
+    // ============================================
+    // MODAL FUNCTIONS
+    // ============================================
+    function showSuccessModal(applicationId, studentName) {
+        document.getElementById('applicationId').textContent = applicationId;
+        
+        // WHATSAPP COMMENTED OUT FOR NOW
+        /*
+        const whatsappMessage = encodeURIComponent(
+            `Hello! I have submitted an admission application for ${studentName}.\n\nApplication ID: ${applicationId}\n\nLooking forward to hearing from you.\n\nThank you!`
+        );
+        document.getElementById('whatsappBtn').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+        */
+        
+        // Hide WhatsApp button
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        if (whatsappBtn) {
+            whatsappBtn.style.display = 'none';
+        }
+        
+        document.getElementById('successModal').classList.add('show');
+    }
+
+    function showErrorModal(message) {
+        const errorMsg = document.getElementById('errorMessage');
+        if (errorMsg) {
+            errorMsg.textContent = message || 'Unable to submit your application. Please try again.';
+        }
+        document.getElementById('errorModal').classList.add('show');
+    }
+
+    function closeModal() {
+        document.getElementById('successModal').classList.remove('show');
+        document.getElementById('errorModal').classList.remove('show');
+    }
+
+    // ============================================
+    // MOBILE MENU & HEADER SCROLL
+    // ============================================
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    }
+
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+
+    if (header) {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    }
+</script>
+</body>
+</html>
