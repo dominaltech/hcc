@@ -588,14 +588,14 @@
             
             <nav>
                 <ul id="navMenu">
-                    <li><a href="#home">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="staff.html">Staff</a></li>
                     <li><a href="admission.html">Admission</a></li>
                     <li><a href="infrastructure.html">Infrastructure</a></li>
                     <li><a href="gallery.html">Image Gallery</a></li>
                     <li><a href="achievements.html">Achievements</a></li>
-                     <li><a href="notices.html" class="active">Notices</a></li>
+                    <li><a href="notices.html">Notices</a></li>
                 </ul>
             </nav>
 
@@ -611,25 +611,25 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Welcome to HCC High School</h1>
+                <h1>Welcome to HCC High School Solapur</h1>
                 <p>Empowering minds, shaping futures. Excellence in education since 1990.</p>
                 <div class="cta-buttons">
                     <a href="admission.html" class="btn btn-primary">Admissions Open 2026-27</a>
-                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                    <a href="about.html" class="btn btn-secondary">About Us</a>
                 </div>
             </div>
             <div class="hero-image">
                 <img src="hcc.jpg" 
-     alt="HCC High School Building" 
-     style="width: 100%; 
-            height: 500px; 
-            object-fit: cover; 
-            object-position: center;
-            border-radius: 16px; 
-            box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;">
-</div>
+                     alt="HCC High School Building" 
+                     style="width: 100%; 
+                            height: 500px; 
+                            object-fit: cover; 
+                            object-position: center;
+                            border-radius: 16px; 
+                            box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
+                            image-rendering: -webkit-optimize-contrast;
+                            image-rendering: crisp-edges;">
+            </div>
         </div>
     </section>
 
@@ -719,6 +719,14 @@
                     <span>info@hccschool.edu.in</span>
                 </div>
             </div>
+
+            <div class="footer-section">
+                <h3>Notifications</h3>
+                <a href="javascript:void(0)" onclick="window.showNotificationSettings()">🔔 Notification Settings</a>
+                <p style="font-size: 0.85rem; color: var(--neutral-light); margin-top: 0.5rem;">
+                    Manage your notification preferences
+                </p>
+            </div>
         </div>
 
         <div class="footer-bottom">
@@ -726,6 +734,12 @@
         </div>
     </footer>
 
+    <script>
+        if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+            window.location.reload();
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <script>
     // ============================================
     // SUPABASE CONFIGURATION
