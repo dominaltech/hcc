@@ -490,61 +490,281 @@
         }
 
         /* Mobile Responsive */
-        @media (max-width: 968px) {
-            nav ul {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                width: 100%;
-                max-width: 400px;
-                height: calc(100vh - 80px);
-                background: var(--white);
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
-                transition: right 0.4s ease;
-                gap: 1.5rem;
-            }
+        /* Mobile Responsive */
+@media (max-width: 968px) {
+    nav ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 100%;
+        max-width: 400px;
+        height: calc(100vh - 80px);
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
+        transition: right 0.4s ease;
+        gap: 1.5rem;
+    }
 
-            nav ul.active {
-                right: 0;
-            }
+    nav ul.active {
+        right: 0;
+    }
 
-            .hamburger {
-                display: flex;
-            }
+    .hamburger {
+        display: flex;
+    }
 
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
 
-            .timeline-line {
-                left: 30px;
-            }
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 
-            .achievement-marker {
-                left: 30px;
-            }
+    .stat-card {
+        padding: 1.5rem;
+    }
 
-            .achievement-item:nth-child(odd) .achievement-content,
-            .achievement-item:nth-child(even) .achievement-content {
-                margin-left: 70px;
-                margin-right: 0;
-                text-align: left;
-            }
+    .stat-icon {
+        font-size: 2rem;
+    }
 
-            .achievement-image {
-                height: 200px;
-            }
+    .stat-number {
+        font-size: 2rem;
+    }
 
-            .achievement-details {
-                padding: 1.5rem;
-            }
+    /* Mobile Timeline Adjustments */
+    .timeline-line {
+        left: 20px;
+        width: 2px;
+    }
 
-            .achievement-title {
-                font-size: 1.4rem;
-            }
-        }
+    .achievement-marker {
+        left: 20px;
+        width: 16px;
+        height: 16px;
+        border: 3px solid var(--white);
+        box-shadow: 0 0 0 4px var(--neutral-light);
+    }
+
+    .achievement-item {
+        margin-bottom: 3rem;
+    }
+
+    .achievement-item:nth-child(odd) .achievement-content,
+    .achievement-item:nth-child(even) .achievement-content {
+        margin-left: 50px;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    .achievement-image {
+        height: 200px;
+    }
+
+    .achievement-details {
+        padding: 1.5rem;
+    }
+
+    .achievement-title {
+        font-size: 1.4rem;
+    }
+
+    .achievement-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .nav-container {
+        padding: 1rem;
+    }
+
+    .school-name {
+        font-size: 1rem;
+    }
+
+    .page-header {
+        padding: 3rem 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .page-header p {
+        font-size: 1.1rem;
+    }
+
+    /* Stats Section Mobile */
+    .stats-section {
+        margin-top: -2rem;
+        padding: 0 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.2rem;
+    }
+
+    .stat-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+    }
+
+    /* Filter Section Mobile */
+    .filter-section {
+        padding: 3rem 1rem 1rem;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-btn {
+        width: 100%;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .filter-count {
+        font-size: 0.9rem;
+    }
+
+    /* Timeline Mobile Optimized */
+    .timeline-section {
+        padding: 2rem 1rem 3rem;
+    }
+
+    .timeline-line {
+        left: 15px;
+        width: 2px;
+    }
+
+    .achievement-marker {
+        left: 15px;
+        width: 14px;
+        height: 14px;
+        border: 2px solid var(--white);
+        box-shadow: 0 0 0 3px var(--neutral-light);
+    }
+
+    .achievement-item {
+        margin-bottom: 2.5rem;
+    }
+
+    .achievement-item:nth-child(odd) .achievement-content,
+    .achievement-item:nth-child(even) .achievement-content {
+        margin-left: 40px;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    .achievement-content {
+        border-radius: 12px;
+    }
+
+    .achievement-image {
+        height: 180px;
+    }
+
+    .achievement-details {
+        padding: 1.2rem;
+    }
+
+    .achievement-date {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .achievement-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .achievement-category {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .achievement-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* No Results Mobile */
+    .no-results {
+        padding: 3rem 1rem;
+    }
+
+    .no-results h3 {
+        font-size: 1.5rem;
+    }
+
+    .no-results p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 400px) {
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .page-header p {
+        font-size: 1rem;
+    }
+
+    .timeline-line {
+        left: 12px;
+    }
+
+    .achievement-marker {
+        left: 12px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .achievement-item:nth-child(odd) .achievement-content,
+    .achievement-item:nth-child(even) .achievement-content {
+        margin-left: 35px;
+    }
+
+    .achievement-image {
+        height: 160px;
+    }
+
+    .achievement-details {
+        padding: 1rem;
+    }
+
+    .achievement-title {
+        font-size: 1.1rem;
+    }
+
+    .achievement-description {
+        font-size: 0.85rem;
+    }
+}
 
         @media (max-width: 640px) {
             .nav-container {
