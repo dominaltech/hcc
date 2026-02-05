@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About HCC High School, Solapur - Our Vision, Mission, and History of Excellence in Education">
+    <meta name="theme-color" content="#220707">
+    <title>About Us | HCC High School, Solapur</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --maroon-dark: #220707;
+            --maroon-primary: #531C22;
+            --neutral-warm: #AC9185;
+            --neutral-light: #E7D8CA;
+            --bg-light: #F9F3ED;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--maroon-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation - Same as index.html */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 243, 237, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(34, 7, 7, 0.08);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .school-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--maroon-dark);
+        }
+
+        .school-location {
+            font-size: 0.85rem;
+            color: var(--neutral-warm);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--maroon-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--maroon-primary);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--maroon-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon-primary) 100%);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Section */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .content-grid.reverse {
+            direction: rtl;
+        }
+
+        .content-grid.reverse > * {
+            direction: ltr;
+        }
+
+        .content-text h2 {
+            font-size: 2.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .content-text p {
+            font-size: 1.1rem;
+            color: var(--neutral-warm);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .content-image {
+            position: relative;
+        }
+
+        .image-box {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--neutral-light), var(--neutral-warm));
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .image-box:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Values Cards */
+        .values-section {
+            background: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .values-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 3rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--maroon-primary);
+            box-shadow: 0 15px 40px rgba(83, 28, 34, 0.15);
+        }
+
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: var(--neutral-warm);
+            line-height: 1.8;
+        }
+
+        /* Statistics */
+        .stats-section {
+            background: var(--maroon-dark);
+            padding: 4rem 2rem;
+            color: var(--white);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--neutral-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon-dark);
+            color: var(--bg-light);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--neutral-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--maroon-primary);
+            border-radius: 4px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--maroon-primary);
+            color: var(--neutral-light);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                max-width: 400px;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
+                transition: right 0.4s ease;
+                gap: 1.5rem;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .content-grid.reverse {
+                direction: ltr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-text h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .svg-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-section">
+                <div class="logo-placeholder"> <img src="hcclogo.jpg" alt="HCC Logo" style="width: 50px; height: 50px; border-radius: 8px;">
+                </div>
+                <div>
+                    <div class="school-name">HCC High School</div>
+                    <div class="school-location">Solapur</div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="infrastructure.html">Infrastructure</a></li>
+                    <li><a href="gallery.html">Image Gallery</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                     <li><a href="notices.html" class="active">Notices</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>About HCC High School</h1>
+        <p>Building Tomorrow's Leaders Today</p>
+    </div>
+
+    <!-- Vision Section -->
+    <section class="content-section">
+        <div class="content-grid">
+            <div class="content-text">
+                <h2>Our Vision</h2>
+                <p>To be a center of excellence in education, nurturing young minds to become responsible, confident, and compassionate global citizens.</p>
+                <p>We envision a learning environment where every student discovers their potential, develops critical thinking skills, and cultivates a lifelong love for learning.</p>
+                <p>Our commitment extends beyond academics to holistic development, preparing students to face future challenges with resilience and integrity.</p>
+            </div>
+            <div class="content-image">
+                <div class="image-box"></div>
+            </div>
+        </div>
+
+        <!-- Mission Section -->
+        <div class="content-grid reverse">
+            <div class="content-text">
+                <h2>Our Mission</h2>
+                <p>To provide quality education that empowers students with knowledge, skills, and values necessary for personal and professional success.</p>
+                <p>We are committed to creating an inclusive, innovative, and inspiring learning atmosphere where every child feels valued and supported.</p>
+                <p>Through dedicated faculty, modern infrastructure, and student-centric approaches, we strive to foster academic excellence and character development.</p>
+            </div>
+            <div class="content-image">
+                <div class="image-box"></div>
+            </div>
+        </div>
+
+        <!-- History Section -->
+        <div class="content-grid">
+            <div class="content-text">
+                <h2>Our History</h2>
+                <p>Established in 1990, HCC High School has been a beacon of educational excellence in Solapur for over three decades.</p>
+                <p>From humble beginnings with just 50 students, we have grown into a thriving institution serving hundreds of families, while maintaining our core values and commitment to quality education.</p>
+                <p>Our journey has been marked by consistent academic achievements, expanding infrastructure, and the success stories of thousands of alumni who have made their mark in diverse fields.</p>
+            </div>
+            <div class="content-image">
+                <div class="image-box"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="values-section">
+        <div class="values-container">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7V11C2 16.55 6.84 21.74 12 23C17.16 21.74 22 16.55 22 11V7L12 2ZM12 11H20C19.91 15.13 16.88 18.78 12 19.93V13H4V8.3L12 4.19V11Z"/>
+                        </svg>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We uphold the highest standards of honesty, transparency, and ethical conduct in all our actions.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/>
+                        </svg>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We pursue continuous improvement and strive for the highest quality in education and character development.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 11C17.66 11 18.99 9.66 18.99 8C18.99 6.34 17.66 5 16 5C14.34 5 13 6.34 13 8C13 9.66 14.34 11 16 11ZM8 11C9.66 11 10.99 9.66 10.99 8C10.99 6.34 9.66 5 8 5C6.34 5 5 6.34 5 8C5 9.66 6.34 11 8 11ZM8 13C5.67 13 1 14.17 1 16.5V19H15V16.5C15 14.17 10.33 13 8 13ZM16 13C15.71 13 15.38 13.02 15.03 13.05C16.19 13.89 17 15.02 17 16.5V19H23V16.5C23 14.17 18.33 13 16 13Z"/>
+                        </svg>
+                    </div>
+                    <h3>Compassion</h3>
+                    <p>We foster empathy, kindness, and respect for all members of our diverse school community.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11.75C6.66 11.75 2 12.92 2 15.25V17H16V15.25C16 12.92 11.34 11.75 9 11.75ZM4.34 15C5.18 14.42 7.21 13.75 9 13.75C10.79 13.75 12.82 14.42 13.66 15H4.34ZM9 10C10.93 10 12.5 8.43 12.5 6.5C12.5 4.57 10.93 3 9 3C7.07 3 5.5 4.57 5.5 6.5C5.5 8.43 7.07 10 9 10ZM9 5C9.83 5 10.5 5.67 10.5 6.5C10.5 7.33 9.83 8 9 8C8.17 8 7.5 7.33 7.5 6.5C7.5 5.67 8.17 5 9 5ZM16.04 13.81C17.2 14.65 18 15.77 18 17H22V15.25C22 13.23 18.5 12.25 16.04 13.81ZM15 10C16.93 10 18.5 8.43 18.5 6.5C18.5 4.57 16.93 3 15 3C14.46 3 13.96 3.13 13.5 3.35C14.13 4.24 14.5 5.33 14.5 6.5C14.5 7.67 14.13 8.76 13.5 9.65C13.96 9.87 14.46 10 15 10Z"/>
+                        </svg>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We embrace creativity and encourage students to think differently and solve problems effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">36+</div>
+                <div class="stat-label">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2000+</div>
+                <div class="stat-label">Students Enrolled</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">95%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Expert Faculty</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>HCC High School</h3>
+                <p>Excellence in education since 1990</p>
+                <p>Shaping young minds for a brighter tomorrow</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="admission.html">Admissions</a>
+                <a href="staff.html">Faculty</a>
+                <a href="achievements.html">Achievements</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>123 School Road, Solapur, Maharashtra</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>+91 1234567890</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>info@hccschool.edu.in</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 HCC High School, Solapur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Header hide on scroll
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                header.style.transform = 'translateY(0)';
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

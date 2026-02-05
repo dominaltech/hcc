@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore HCC High School's world-class infrastructure including smart classrooms, laboratories, library, sports facilities, and more.">
+    <meta name="keywords" content="HCC High School Infrastructure, School Facilities, Solapur School">
+    <meta name="theme-color" content="#220707">
+    <title>Infrastructure & Facilities | HCC High School, Solapur</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --maroon-dark: #220707;
+            --maroon-primary: #531C22;
+            --neutral-warm: #AC9185;
+            --neutral-light: #E7D8CA;
+            --bg-light: #F9F3ED;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--maroon-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 243, 237, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(34, 7, 7, 0.08);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .school-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--maroon-dark);
+        }
+
+        .school-location {
+            font-size: 0.85rem;
+            color: var(--neutral-warm);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--maroon-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--maroon-primary);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--maroon-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon-primary) 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Introduction Section */
+        .intro-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .intro-section h2 {
+            font-size: 2.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-section p {
+            font-size: 1.15rem;
+            color: var(--neutral-warm);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search Section */
+        .search-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .search-container {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(34, 7, 7, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .search-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--neutral-warm);
+        }
+
+        #searchInput {
+            flex: 1;
+            padding: 0.9rem 1rem;
+            border: 2px solid var(--neutral-light);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            color: var(--maroon-dark);
+            transition: all 0.3s ease;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--maroon-primary);
+            box-shadow: 0 0 0 3px rgba(83, 28, 34, 0.1);
+        }
+
+        .search-count {
+            color: var(--neutral-warm);
+            font-size: 0.95rem;
+            min-width: 150px;
+            text-align: right;
+        }
+
+        /* Infrastructure Grid */
+        .infrastructure-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        .infrastructure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .infra-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(34, 7, 7, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .infra-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(83, 28, 34, 0.2);
+        }
+
+        .infra-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, var(--neutral-light), var(--neutral-warm));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .infra-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+            image-rendering: -webkit-optimize-contrast;
+        }
+
+        .infra-card:hover .infra-image img {
+            transform: scale(1.08);
+        }
+
+        .infra-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--maroon-primary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(83, 28, 34, 0.3);
+        }
+
+        .infra-content {
+            padding: 2rem;
+        }
+
+        .infra-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: var(--maroon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .infra-description {
+            font-size: 1rem;
+            color: var(--neutral-warm);
+            line-height: 1.8;
+        }
+
+        /* No Results */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 5rem 2rem;
+            grid-column: 1 / -1;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results h3 {
+            font-size: 2rem;
+            color: var(--neutral-warm);
+            margin-bottom: 1rem;
+        }
+
+        .no-results p {
+            font-size: 1.1rem;
+            color: var(--neutral-warm);
+        }
+
+        /* Loading Skeleton */
+        .skeleton {
+            animation: skeleton-loading 1.5s infinite ease-in-out;
+        }
+
+        @keyframes skeleton-loading {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon-dark);
+            color: var(--bg-light);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--neutral-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--maroon-primary);
+            border-radius: 4px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--maroon-primary);
+            color: var(--neutral-light);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                max-width: 400px;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
+                transition: right 0.4s ease;
+                gap: 1.5rem;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .page-header p {
+                font-size: 1.1rem;
+            }
+
+            .infrastructure-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-count {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .school-name {
+                font-size: 1rem;
+            }
+
+            .page-header {
+                padding: 3rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .intro-section h2 {
+                font-size: 2rem;
+            }
+
+            .infra-image {
+                height: 220px;
+            }
+
+            .infra-content {
+                padding: 1.5rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="hcclogo.jpg" alt="HCC Logo" style="width: 50px; height: 50px; border-radius: 8px;">
+                
+                <div>
+                    <div class="school-name">HCC High School</div>
+                    <div class="school-location">Solapur</div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="infrastructure.html" class="active">Infrastructure</a></li>
+                    <li><a href="gallery.html">Image Gallery</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="notices.html" class="active">Notices</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>World-Class Infrastructure</h1>
+        <p>State-of-the-art facilities designed to provide an exceptional learning experience for every student</p>
+    </div>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <h2>Our Facilities</h2>
+        <p>At HCC High School, we believe that a conducive learning environment is essential for academic excellence and overall development. Our campus is equipped with modern infrastructure that supports both academic and extracurricular activities, ensuring that every student has access to the best resources for their growth and success.</p>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.5 14H14.71L14.43 13.73C15.41 12.59 16 11.11 16 9.5C16 5.91 13.09 3 9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.59 15.41 13.73 14.43L14 14.71V15.5L19 20.49L20.49 19L15.5 14ZM9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14Z"/>
+            </svg>
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Search facilities (e.g., Library, Laboratory, Sports...)"
+                autocomplete="off"
+            >
+            <div class="search-count" id="searchCount">Showing all facilities</div>
+        </div>
+    </section>
+
+    <!-- Infrastructure Grid -->
+    <section class="infrastructure-section">
+        <div class="infrastructure-grid" id="infrastructureGrid">
+            <!-- Infrastructure cards will be loaded dynamically from Supabase -->
+        </div>
+        <div class="no-results" id="noResults">
+            <h3>No Facilities Found</h3>
+            <p>Try searching with different keywords</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>HCC High School</h3>
+                <p>Excellence in education since 1990</p>
+                <p>Shaping young minds for a brighter tomorrow</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="admission.html">Admissions</a>
+                <a href="staff.html">Faculty</a>
+                <a href="achievements.html">Achievements</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>123 School Road, Solapur, Maharashtra</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>+91 1234567890</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>info@hccschool.edu.in</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 HCC High School, Solapur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        // ============================================
+        // SUPABASE CONFIGURATION
+        // ============================================
+        const SUPABASE_URL = 'https://tqpjyqrlawhjuzugosyh.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxcGp5cXJsYXdoanV6dWdvc3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxOTI4NzQsImV4cCI6MjA4NTc2ODg3NH0.Qsajz9iar_Qu0N7UHTm5ltjnUtVzNSpapJf1xnqGJLQ';
+
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Global state
+        let allInfrastructure = [];
+
+        // ============================================
+        // LOAD INFRASTRUCTURE DATA FROM SUPABASE
+        // ============================================
+        async function loadInfrastructureData() {
+            try {
+                const { data: infrastructure, error } = await supabaseClient
+                    .from('infrastructure')
+                    .select('*')
+                    .eq('is_visible', true)
+                    .order('display_order', { ascending: true });
+
+                if (error) {
+                    console.error('Error loading infrastructure:', error);
+                    showErrorMessage();
+                    return;
+                }
+
+                if (infrastructure && infrastructure.length > 0) {
+                    allInfrastructure = infrastructure;
+                    renderInfrastructureCards(infrastructure);
+                    updateSearchCount(infrastructure.length, infrastructure.length);
+                } else {
+                    showEmptyState();
+                }
+            } catch (err) {
+                console.error('Failed to fetch infrastructure:', err);
+                showErrorMessage();
+            }
+        }
+
+        // ============================================
+        // RENDER INFRASTRUCTURE CARDS
+        // ============================================
+        function renderInfrastructureCards(data) {
+            const grid = document.getElementById('infrastructureGrid');
+            grid.innerHTML = '';
+
+            data.forEach(item => {
+                const card = createInfrastructureCard(item);
+                grid.appendChild(card);
+            });
+        }
+
+        // ============================================
+        // CREATE INDIVIDUAL INFRASTRUCTURE CARD
+        // ============================================
+        function createInfrastructureCard(item) {
+            const card = document.createElement('div');
+            card.className = 'infra-card';
+            card.setAttribute('data-title', item.title.toLowerCase());
+            card.setAttribute('data-description', (item.description || '').toLowerCase());
+
+            card.innerHTML = `
+                <div class="infra-image">
+                    ${item.image_url ? 
+                        `<img src="${item.image_url}" 
+                              alt="${item.title}" 
+                              loading="lazy"
+                              onerror="this.parentElement.innerHTML='<div style=\\'width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; font-weight: bold;\\'>${item.title.charAt(0)}</div>'">` 
+                        : 
+                        `<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; font-weight: bold;">
+                            ${item.title.charAt(0)}
+                        </div>`
+                    }
+                    <span class="infra-badge">Facility</span>
+                </div>
+                <div class="infra-content">
+                    <h3 class="infra-title">${item.title}</h3>
+                    <p class="infra-description">${item.description || 'Modern facility designed for student excellence.'}</p>
+                </div>
+            `;
+
+            return card;
+        }
+
+        // ============================================
+        // REAL-TIME SEARCH FUNCTIONALITY
+        // ============================================
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            
+            if (searchTerm === '') {
+                // Show all
+                const allCards = document.querySelectorAll('.infra-card');
+                allCards.forEach(card => {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.5s ease';
+                });
+                document.getElementById('noResults').classList.remove('show');
+                updateSearchCount(allInfrastructure.length, allInfrastructure.length);
+                return;
+            }
+
+            // Filter cards
+            const allCards = document.querySelectorAll('.infra-card');
+            let visibleCount = 0;
+
+            allCards.forEach(card => {
+                const title = card.getAttribute('data-title');
+                const description = card.getAttribute('data-description');
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.5s ease';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide no results message
+            if (visibleCount === 0) {
+                document.getElementById('noResults').classList.add('show');
+            } else {
+                document.getElementById('noResults').classList.remove('show');
+            }
+
+            updateSearchCount(visibleCount, allInfrastructure.length);
+        });
+
+        // ============================================
+        // UPDATE SEARCH COUNT
+        // ============================================
+        function updateSearchCount(visible, total) {
+            const searchCount = document.getElementById('searchCount');
+            if (visible === total) {
+                searchCount.textContent = `Showing all ${total} facilities`;
+            } else {
+                searchCount.textContent = `Showing ${visible} of ${total} facilities`;
+            }
+        }
+
+        // ============================================
+        // ERROR & EMPTY STATE HANDLING
+        // ============================================
+        function showEmptyState() {
+            const grid = document.getElementById('infrastructureGrid');
+            grid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+                    <h3 style="font-size: 1.5rem; color: var(--neutral-warm); margin-bottom: 1rem;">
+                        No infrastructure data available
+                    </h3>
+                    <p style="color: var(--neutral-warm);">
+                        Infrastructure information will be updated soon.
+                    </p>
+                </div>
+            `;
+        }
+
+        function showErrorMessage() {
+            const grid = document.getElementById('infrastructureGrid');
+            grid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+                    <h3 style="font-size: 1.5rem; color: var(--maroon-primary); margin-bottom: 1rem;">
+                        Unable to load infrastructure data
+                    </h3>
+                    <p style="color: var(--neutral-warm); margin-bottom: 1.5rem;">
+                        Please check your internet connection and try again.
+                    </p>
+                    <button onclick="loadInfrastructureData()" 
+                            style="padding: 0.8rem 2rem; background: var(--maroon-primary); 
+                                   color: white; border: none; border-radius: 8px; cursor: pointer; 
+                                   font-size: 1rem; font-weight: 600;">
+                        Retry
+                    </button>
+                </div>
+            `;
+        }
+
+        // ============================================
+        // MOBILE MENU & HEADER SCROLL
+        // ============================================
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
+
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        if (header) {
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll <= 0) {
+                    header.style.transform = 'translateY(0)';
+                    return;
+                }
+                
+                if (currentScroll > lastScroll && currentScroll > 80) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                
+                lastScroll = currentScroll;
+            });
+        }
+
+        // ============================================
+        // INITIALIZE ON PAGE LOAD
+        // ============================================
+        window.addEventListener('DOMContentLoaded', () => {
+            loadInfrastructureData();
+        });
+
+
+
+         if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('✅ SW registered:', registration.scope);
+
+                    // Check for updates every 5 minutes
+                    setInterval(() => {
+                        registration.update();
+                    }, 5 * 60 * 1000);
+
+                    // Listen for updates
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                if (confirm('New version available! Reload to update?')) {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch((error) => console.error('❌ SW registration failed:', error));
+
+            // Reload when new SW takes control
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                window.location.reload();
+            });
+        });
+    }
+    </script>
+</body>
+</html>

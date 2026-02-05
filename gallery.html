@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse through HCC High School's image gallery showcasing events, activities, infrastructure, and memorable moments.">
+    <meta name="keywords" content="HCC High School Gallery, School Photos, Events Gallery, Solapur School">
+    <meta name="theme-color" content="#220707">
+    <title>Image Gallery | HCC High School, Solapur</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --maroon-dark: #220707;
+            --maroon-primary: #531C22;
+            --neutral-warm: #AC9185;
+            --neutral-light: #E7D8CA;
+            --bg-light: #F9F3ED;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--maroon-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 243, 237, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(34, 7, 7, 0.08);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-placeholder {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-placeholder:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        .school-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--maroon-dark);
+        }
+
+        .school-location {
+            font-size: 0.85rem;
+            color: var(--neutral-warm);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--maroon-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--maroon-primary);
+        }
+
+        nav a:hover::after, nav a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--maroon-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Page Header */
+        .page-header {
+            margin-top: 80px;
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--maroon-dark) 0%, var(--maroon-primary) 100%);
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Category Filter */
+        .filter-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-btn {
+            padding: 0.8rem 2rem;
+            background: var(--white);
+            color: var(--maroon-dark);
+            border: 2px solid var(--neutral-light);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--maroon-primary);
+            color: var(--maroon-primary);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--maroon-primary);
+            color: var(--white);
+            border-color: var(--maroon-primary);
+        }
+
+        .filter-count {
+            text-align: center;
+            color: var(--neutral-warm);
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Gallery Grid */
+        .gallery-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            grid-auto-flow: dense;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            background: var(--neutral-light);
+            transition: all 0.4s ease;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .gallery-item.hide {
+            display: none;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(83, 28, 34, 0.25);
+        }
+
+        .gallery-item.wide {
+            grid-column: span 2;
+        }
+
+        .gallery-item.tall {
+            grid-row: span 2;
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item.tall .gallery-image {
+            height: 578px;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(34, 7, 7, 0.9), transparent);
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-title {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-category {
+            color: var(--neutral-light);
+            font-size: 0.85rem;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.4s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .lightbox-caption {
+            text-align: center;
+            color: var(--white);
+            padding: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 3rem;
+            color: var(--white);
+            cursor: pointer;
+            background: none;
+            border: none;
+            transition: transform 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: none;
+            padding: 1.5rem 1rem;
+            font-size: 2rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* No Results */
+        .no-results {
+            display: none;
+            text-align: center;
+            padding: 5rem 2rem;
+            grid-column: 1 / -1;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results h3 {
+            font-size: 2rem;
+            color: var(--neutral-warm);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon-dark);
+            color: var(--bg-light);
+            padding: 3rem 2rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--neutral-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--maroon-primary);
+            border-radius: 4px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--maroon-primary);
+            color: var(--neutral-light);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                max-width: 400px;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
+                transition: right 0.4s ease;
+                gap: 1.5rem;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .gallery-item.wide,
+            .gallery-item.tall {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            .gallery-item .gallery-image,
+            .gallery-item.tall .gallery-image {
+                height: 250px;
+            }
+
+            .lightbox-nav {
+                padding: 1rem 0.7rem;
+                font-size: 1.5rem;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .school-name {
+                font-size: 1rem;
+            }
+
+            .page-header {
+                padding: 3rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-btn {
+                width: 100%;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-section">
+               <img src="hcclogo.jpg" alt="HCC Logo" style="width: 50px; height: 50px; border-radius: 8px;">
+                
+                <div>
+                    <div class="school-name">HCC High School</div>
+                    <div class="school-location">Solapur</div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="infrastructure.html">Infrastructure</a></li>
+                    <li><a href="gallery.html" class="active">Image Gallery</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                     <li><a href="notices.html" class="active">Notices</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Image Gallery</h1>
+        <p>Capturing memorable moments and milestones from our vibrant school community</p>
+    </div>
+
+    <!-- Category Filter -->
+    <section class="filter-section">
+        <div class="filter-buttons" id="filterButtons">
+            <button class="filter-btn active" data-category="all">All</button>
+            <!-- Categories will be loaded dynamically from Supabase -->
+        </div>
+        <div class="filter-count" id="filterCount">Loading gallery...</div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery items will be loaded dynamically from Supabase -->
+        </div>
+        <div class="no-results" id="noResults">
+            <h3>No Images Found</h3>
+            <p>Try selecting a different category</p>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+            <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</button>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>HCC High School</h3>
+                <p>Excellence in education since 1990</p>
+                <p>Shaping young minds for a brighter tomorrow</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="admission.html">Admissions</a>
+                <a href="staff.html">Faculty</a>
+                <a href="achievements.html">Achievements</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>123 School Road, Solapur, Maharashtra</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>+91 1234567890</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"></div>
+                    <span>info@hccschool.edu.in</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 HCC High School, Solapur. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        // ============================================
+        // SUPABASE CONFIGURATION
+        // ============================================
+        const SUPABASE_URL = 'https://tqpjyqrlawhjuzugosyh.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxcGp5cXJsYXdoanV6dWdvc3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxOTI4NzQsImV4cCI6MjA4NTc2ODg3NH0.Qsajz9iar_Qu0N7UHTm5ltjnUtVzNSpapJf1xnqGJLQ';
+
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Global state
+        let allGalleryItems = [];
+        let currentImageIndex = 0;
+        let filteredImages = [];
+
+        // ============================================
+        // LOAD GALLERY DATA FROM SUPABASE
+        // ============================================
+        async function loadGalleryData() {
+            try {
+                const { data: gallery, error } = await supabaseClient
+                    .from('gallery')
+                    .select('*')
+                    .eq('is_visible', true)
+                    .order('display_order', { ascending: true });
+
+                if (error) {
+                    console.error('Error loading gallery:', error);
+                    showErrorMessage();
+                    return;
+                }
+
+                if (gallery && gallery.length > 0) {
+                    allGalleryItems = gallery;
+                    filteredImages = gallery;
+                    
+                    // Extract unique categories
+                    const categories = [...new Set(gallery.map(item => item.category))].filter(c => c);
+                    renderCategoryButtons(categories);
+                    
+                    renderGalleryGrid(gallery);
+                    updateCount(gallery.length, gallery.length);
+                } else {
+                    showEmptyState();
+                }
+            } catch (err) {
+                console.error('Failed to fetch gallery:', err);
+                showErrorMessage();
+            }
+        }
+
+        // ============================================
+        // RENDER CATEGORY BUTTONS
+        // ============================================
+        function renderCategoryButtons(categories) {
+            const filterButtons = document.getElementById('filterButtons');
+            
+            categories.forEach(category => {
+                const btn = document.createElement('button');
+                btn.className = 'filter-btn';
+                btn.setAttribute('data-category', category);
+                btn.textContent = category;
+                
+                btn.addEventListener('click', () => filterGallery(category));
+                
+                filterButtons.appendChild(btn);
+            });
+        }
+
+        // ============================================
+        // RENDER GALLERY GRID
+        // ============================================
+        function renderGalleryGrid(items) {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = '';
+
+            items.forEach((item, index) => {
+                const galleryItem = createGalleryItem(item, index);
+                grid.appendChild(galleryItem);
+            });
+        }
+
+        // ============================================
+        // CREATE INDIVIDUAL GALLERY ITEM
+        // ============================================
+        function createGalleryItem(item, index) {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.setAttribute('data-category', item.category || '');
+            
+            // Randomly assign wide/tall classes for visual interest
+            if (index % 5 === 0) {
+                div.classList.add('wide');
+            } else if (index % 7 === 0) {
+                div.classList.add('tall');
+            }
+
+            div.innerHTML = `
+                <img src="${item.image_url}" 
+                     alt="${item.title}" 
+                     class="gallery-image" 
+                     loading="lazy"
+                     onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect fill=%22%23E7D8CA%22 width=%22300%22 height=%22300%22/%3E%3Ctext fill=%22%23531C22%22 font-size=%2240%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22%3EImage%3C/text%3E%3C/svg%3E'">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">${item.title}</div>
+                    <div class="gallery-category">${item.category || 'Gallery'}</div>
+                </div>
+            `;
+
+            div.addEventListener('click', () => openLightbox(index));
+
+            return div;
+        }
+
+        // ============================================
+        // FILTER GALLERY BY CATEGORY
+        // ============================================
+        function filterGallery(category) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Filter items
+            if (category === 'all') {
+                filteredImages = allGalleryItems;
+            } else {
+                filteredImages = allGalleryItems.filter(item => item.category === category);
+            }
+
+            // Re-render grid
+            renderGalleryGrid(filteredImages);
+            updateCount(filteredImages.length, allGalleryItems.length);
+
+            // Show/hide no results
+            if (filteredImages.length === 0) {
+                document.getElementById('noResults').classList.add('show');
+            } else {
+                document.getElementById('noResults').classList.remove('show');
+            }
+        }
+
+        // ============================================
+        // UPDATE COUNT
+        // ============================================
+        function updateCount(visible, total) {
+            const countEl = document.getElementById('filterCount');
+            if (visible === total) {
+                countEl.textContent = `Showing all ${total} images`;
+            } else {
+                countEl.textContent = `Showing ${visible} of ${total} images`;
+            }
+        }
+
+        // ============================================
+        // LIGHTBOX FUNCTIONS
+        // ============================================
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const item = filteredImages[index];
+            
+            document.getElementById('lightboxImage').src = item.image_url;
+            document.getElementById('lightboxCaption').textContent = item.title;
+            document.getElementById('lightbox').classList.add('show');
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            
+            // Loop around
+            if (currentImageIndex < 0) {
+                currentImageIndex = filteredImages.length - 1;
+            } else if (currentImageIndex >= filteredImages.length) {
+                currentImageIndex = 0;
+            }
+            
+            const item = filteredImages[currentImageIndex];
+            document.getElementById('lightboxImage').src = item.image_url;
+            document.getElementById('lightboxCaption').textContent = item.title;
+        }
+
+        // Close lightbox on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                changeImage(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeImage(1);
+            }
+        });
+
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // ============================================
+        // ERROR & EMPTY STATE
+        // ============================================
+        function showEmptyState() {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+                    <h3 style="font-size: 1.5rem; color: var(--neutral-warm); margin-bottom: 1rem;">
+                        No images available
+                    </h3>
+                    <p style="color: var(--neutral-warm);">
+                        Gallery images will be added soon.
+                    </p>
+                </div>
+            `;
+            document.getElementById('filterCount').textContent = 'No images to display';
+        }
+
+        function showErrorMessage() {
+            const grid = document.getElementById('galleryGrid');
+            grid.innerHTML = `
+                <div style="grid-column: 1 / -1; text-align: center; padding: 4rem 2rem;">
+                    <h3 style="font-size: 1.5rem; color: var(--maroon-primary); margin-bottom: 1rem;">
+                        Unable to load gallery
+                    </h3>
+                    <p style="color: var(--neutral-warm); margin-bottom: 1.5rem;">
+                        Please check your internet connection and try again.
+                    </p>
+                    <button onclick="loadGalleryData()" 
+                            style="padding: 0.8rem 2rem; background: var(--maroon-primary); 
+                                   color: white; border: none; border-radius: 8px; cursor: pointer; 
+                                   font-size: 1rem; font-weight: 600;">
+                        Retry
+                    </button>
+                </div>
+            `;
+        }
+
+        // ============================================
+        // MOBILE MENU & HEADER SCROLL
+        // ============================================
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
+            });
+        }
+
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+
+        if (header) {
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset;
+                
+                if (currentScroll <= 0) {
+                    header.style.transform = 'translateY(0)';
+                    return;
+                }
+                
+                if (currentScroll > lastScroll && currentScroll > 80) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+                
+                lastScroll = currentScroll;
+            });
+        }
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+        window.addEventListener('DOMContentLoaded', () => {
+            loadGalleryData();
+        });
+    </script>
+</body>
+</html>
