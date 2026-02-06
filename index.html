@@ -525,18 +525,6 @@
             .hero-image {
                 order: -1;
             }
-            .hero-image {
-    width: 100vw; /* Uses 100% of the viewport width */
-    margin-left: calc(-50vw + 50%); /* Centers it if inside a narrow container */
-    margin-right: calc(-50vw + 50%);
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 0; /* Remove rounded corners for a full-bleed look */
-}
 
             .image-placeholder {
                 height: 350px;
@@ -584,6 +572,1175 @@
             height: 40px;
             fill: var(--white);
         }
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --maroon-dark: #220707;
+    --maroon-primary: #531C22;
+    --neutral-warm: #AC9185;
+    --neutral-light: #E7D8CA;
+    --bg-light: #F9F3ED;
+    --white: #FFFFFF;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--maroon-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(249, 243, 237, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(34, 7, 7, 0.08);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-placeholder {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: var(--white);
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.logo-placeholder:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.school-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--maroon-dark);
+}
+
+.school-location {
+    font-size: 0.85rem;
+    color: var(--neutral-warm);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--maroon-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--maroon-primary);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--maroon-primary);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--maroon-dark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Hero Section */
+.hero {
+    margin-top: 80px;
+    min-height: 90vh;
+    background: linear-gradient(135deg, var(--neutral-light) 0%, var(--bg-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(83, 28, 34, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-30px, -30px); }
+}
+
+.hero-content {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    color: var(--maroon-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--neutral-warm);
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.btn {
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--maroon-primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--maroon-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(83, 28, 34, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--maroon-primary);
+    border: 2px solid var(--maroon-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--maroon-primary);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.hero-image {
+    position: relative;
+    animation: fadeInRight 0.8s ease 0.3s backwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 500px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+/* Video Slider Section */
+.video-slider-section {
+    padding: 5rem 2rem;
+    background: var(--white);
+}
+
+.video-slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Video Filter Dropdown */
+.video-filter-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--maroon-dark);
+    font-size: 1.1rem;
+}
+
+.filter-label-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--maroon-primary);
+}
+
+.video-select {
+    padding: 0.8rem 2.5rem 0.8rem 1.2rem;
+    font-size: 1rem;
+    border: 2px solid var(--neutral-light);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--maroon-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23531C22'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 24px;
+    min-width: 280px;
+}
+
+.video-select:hover {
+    border-color: var(--maroon-primary);
+    box-shadow: 0 3px 12px rgba(83, 28, 34, 0.15);
+}
+
+.video-select:focus {
+    outline: none;
+    border-color: var(--maroon-primary);
+    box-shadow: 0 0 0 3px rgba(83, 28, 34, 0.1);
+}
+
+.video-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.video-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Limit maximum width */
+    margin: 0 auto; /* Center the video */
+    aspect-ratio: 16 / 9; /* Wide screen format */
+    background: var(--maroon-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(34, 7, 7, 0.25);
+    touch-action: pan-y pinch-zoom;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-caption {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--maroon-dark);
+    font-weight: 600;
+    min-height: 2rem;
+}
+
+.video-counter {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--neutral-warm);
+    font-weight: 500;
+}
+
+.slider-arrow {
+    width: 60px;
+    height: 60px;
+    background: var(--maroon-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease, opacity 0.3s ease;
+    flex-shrink: 0;
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(83, 28, 34, 0.3);
+    position: relative;
+}
+
+.slider-arrow:hover {
+    background: var(--maroon-dark);
+    transform: scale(1.15);
+}
+
+.slider-arrow:active {
+    transform: scale(0.95);
+}
+
+.slider-arrow:disabled,
+.slider-arrow[style*="opacity: 0.5"] {
+    pointer-events: none;
+}
+
+.slider-arrow svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--white);
+}
+
+/* Quick Highlights */
+.highlights {
+    padding: 5rem 2rem;
+    background: var(--white);
+}
+
+.highlights-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--maroon-dark);
+    margin-bottom: 3rem;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.highlight-card {
+    background: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+}
+
+.highlight-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--maroon-primary);
+    box-shadow: 0 15px 40px rgba(83, 28, 34, 0.15);
+}
+
+.highlight-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.highlight-card:hover .highlight-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.highlight-card h3 {
+    font-size: 1.5rem;
+    color: var(--maroon-dark);
+    margin-bottom: 1rem;
+}
+
+.highlight-card p {
+    color: var(--neutral-warm);
+    line-height: 1.8;
+}
+
+/* Alumni Section - FIXED */
+.alumni-section {
+    padding: 5rem 2rem;
+    background: var(--bg-light);
+}
+
+.alumni-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--neutral-warm);
+    font-size: 1.1rem;
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+}
+
+.alumni-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    overflow: hidden;
+    width: 100%; /* ADDED */
+}
+
+
+/* Ensure arrows are always visible */
+.alumni-slider-wrapper .slider-arrow {
+    flex-shrink: 0;
+    z-index: 100;
+    display: flex !important;
+    visibility: visible !important;
+}
+
+.alumni-slider-wrapper .slider-arrow-left,
+.alumni-slider-wrapper .slider-arrow-right {
+    flex-shrink: 0;
+    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Override any conflicting styles */
+#prevAlumni,
+#nextAlumni {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 100 !important;
+}
+
+.alumni-slider-track {
+    display: flex;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 2rem;
+    flex: 1;
+    min-width: 0; /* IMPORTANT: Allows proper flex sizing */
+    touch-action: pan-y pinch-zoom;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+
+.alumni-card {
+    min-width: 100%;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+    border: 2px solid var(--neutral-light);
+    box-shadow: 0 10px 30px rgba(34, 7, 7, 0.1);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.alumni-card:hover {
+    border-color: var(--maroon-primary);
+    box-shadow: 0 15px 40px rgba(83, 28, 34, 0.2);
+}
+
+.alumni-image {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    border: 5px solid var(--maroon-primary);
+    transition: transform 0.3s ease;
+}
+
+.alumni-card:hover .alumni-image {
+    transform: scale(1.05);
+}
+
+.alumni-name {
+    font-size: 1.8rem;
+    color: var(--maroon-dark);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.alumni-designation {
+    font-size: 1.1rem;
+    color: var(--maroon-primary);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.alumni-quote {
+    font-style: italic;
+    color: var(--neutral-warm);
+    line-height: 1.8;
+    position: relative;
+    padding: 1.5rem 0;
+    font-size: 1.05rem;
+}
+
+.alumni-quote::before {
+    content: '"';
+    font-size: 4rem;
+    color: var(--neutral-light);
+    position: absolute;
+    top: -15px;
+    left: 10px;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.alumni-quote::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--neutral-light);
+    position: absolute;
+    bottom: -35px;
+    right: 10px;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+/* Alumni Dots Navigation */
+.alumni-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2rem;
+}
+
+.alumni-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--neutral-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
+}
+
+.alumni-dot:hover {
+    background: var(--neutral-warm);
+    transform: scale(1.2);
+}
+
+.alumni-dot.active {
+    background: var(--maroon-primary);
+    width: 30px;
+    border-radius: 6px;
+}
+
+/* Desktop - Show 3 cards and arrows outside */
+/* Desktop - Show 1 card at a time */
+@media (min-width: 1025px) {
+    .alumni-slider-wrapper {
+        padding: 0;
+        gap: 2rem;
+    }
+    
+    .alumni-slider-wrapper .slider-arrow {
+        position: relative;
+    }
+    
+    .alumni-slider-wrapper .slider-arrow-left {
+        order: 1;
+    }
+    
+    .alumni-slider-track {
+        order: 2;
+        gap: 2rem;
+    }
+    
+    .alumni-slider-wrapper .slider-arrow-right {
+        order: 3;
+    }
+    
+    .alumni-card {
+        min-width: 100%; /* FIXED: Show 1 card */
+    }
+}
+
+/* Gallery Preview */
+.gallery-preview {
+    padding: 5rem 2rem;
+    background: var(--bg-light);
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.gallery-item {
+    height: 250px;
+    background: linear-gradient(135deg, var(--neutral-light), var(--neutral-warm));
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+}
+
+.gallery-item::after {
+    content: 'Gallery Image';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(34, 7, 7, 0.8), transparent);
+    color: var(--white);
+    font-weight: 500;
+}
+
+.view-all {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: var(--maroon-dark);
+    color: var(--bg-light);
+    padding: 3rem 2rem 1.5rem;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p, .footer-section a {
+    color: var(--neutral-light);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--white);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+    background: var(--maroon-primary);
+    border-radius: 4px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--maroon-primary);
+    color: var(--neutral-light);
+}
+
+/* SVG Icons Inline */
+.svg-icon {
+    width: 40px;
+    height: 40px;
+    fill: var(--white);
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Tablet Responsive (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .alumni-slider-wrapper {
+        padding: 0 4rem;
+        gap: 0;
+    }
+    
+    .alumni-slider-wrapper .slider-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    .alumni-slider-wrapper .slider-arrow-left {
+        left: 0;
+    }
+    
+    .alumni-slider-wrapper .slider-arrow-right {
+        right: 0;
+    }
+    
+    .alumni-slider-track {
+        gap: 2rem;
+    }
+    
+    .alumni-card {
+        min-width: 100%; /* FIXED: Show 1 card */
+        padding: 2.5rem 2rem;
+    }
+
+    
+    .alumni-image {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .alumni-name {
+        font-size: 1.5rem;
+    }
+
+    .alumni-designation {
+        font-size: 1rem;
+    }
+    
+    .alumni-quote {
+        font-size: 0.95rem;
+    }
+
+    .slider-arrow {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Mobile Responsive (max-width: 768px) */
+@media (max-width: 768px) {
+    nav ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 100%;
+        max-width: 400px;
+        height: calc(100vh - 80px);
+        background: var(--white);
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
+        transition: right 0.4s ease;
+        gap: 1.5rem;
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        order: -1;
+    }
+
+    .image-placeholder {
+        height: 350px;
+    }
+
+    /* Video Filter Mobile */
+    .video-filter-container {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin: 1.5rem 0 2rem;
+    }
+
+    .filter-label {
+        font-size: 1rem;
+    }
+
+    .filter-label-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .video-select {
+        min-width: 100%;
+        max-width: 100%;
+        font-size: 0.95rem;
+    }
+
+    .video-slider-section {
+        padding: 3rem 1rem;
+    }
+
+    .video-slider-wrapper {
+        gap: 0;
+    }
+
+    .slider-arrow {
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+        min-height: 45px;
+        z-index: 100;
+    }
+
+    .video-slider-wrapper .slider-arrow-left {
+        left: 10px;
+        top: 40%;
+        transform: translateY(-50%);
+    }
+
+    .video-slider-wrapper .slider-arrow-right {
+        right: 10px;
+        top: 40%;
+        transform: translateY(-50%);
+    }
+
+    .slider-arrow svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .video-caption {
+        font-size: 1.1rem;
+    }
+
+    .video-counter {
+        font-size: 0.9rem;
+    }
+
+    /* Alumni Mobile */
+    .alumni-section {
+        padding: 3rem 1rem;
+    }
+
+    .alumni-slider-wrapper {
+        gap: 0;
+        margin: 2rem 0;
+        padding: 0 55px; /* FIXED: Add padding for absolute arrows */
+    }
+
+    .alumni-slider-wrapper .slider-arrow {
+        position: absolute;
+        background: rgba(83, 28, 34, 0.9);
+        backdrop-filter: blur(5px);
+    }
+
+    .alumni-slider-wrapper .slider-arrow-left {
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .alumni-slider-wrapper .slider-arrow-right {
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .alumni-slider-track {
+        gap: 1rem;
+    }
+
+    .alumni-card {
+        min-width: 100%;
+        padding: 2rem 1.5rem;
+    }
+
+    .alumni-image {
+        width: 120px;
+        height: 120px;
+        border: 4px solid var(--maroon-primary);
+    }
+
+    .alumni-name {
+        font-size: 1.4rem;
+    }
+
+    .alumni-designation {
+        font-size: 1rem;
+    }
+
+    .alumni-quote {
+        font-size: 0.9rem;
+        padding: 1rem 0;
+    }
+
+    .alumni-quote::before,
+    .alumni-quote::after {
+        font-size: 3rem;
+    }
+
+    .alumni-dots {
+        gap: 0.6rem;
+        margin-top: 1.5rem;
+    }
+
+    .alumni-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .alumni-dot.active {
+        width: 24px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 1rem;
+    }
+
+    .school-name {
+        font-size: 1rem;
+    }
+
+    .school-location {
+        font-size: 0.75rem;
+    }
+
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem;
+    }
+
+    .video-select {
+        padding: 0.7rem 2rem 0.7rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+    .video-caption {
+        font-size: 1rem;
+    }
+
+    .video-counter {
+        font-size: 0.85rem;
+    }
+
+    .alumni-slider-wrapper {
+        padding: 0 48px;
+    }
+
+    .alumni-card {
+        padding: 1.8rem 1.2rem;
+    }
+
+    .alumni-name {
+        font-size: 1.3rem;
+    }
+
+    .alumni-designation {
+        font-size: 0.95rem;
+    }
+
+    .alumni-quote {
+        font-size: 0.85rem;
+    }
+
+    .alumni-quote::before {
+        left: 5px;
+    }
+
+    .alumni-quote::after {
+        right: 5px;
+    }
+
+    .alumni-dots {
+        gap: 0.5rem;
+    }
+
+    .alumni-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .alumni-dot.active {
+        width: 20px;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -623,8 +1780,8 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Welcome to HCC High School Solapur</h1>
-                <p>Empowering minds, shaping futures. Excellence in education since 1999.</p>
+                <h1>Welcome to HCC High School</h1>
+                <p>Empowering minds, shaping futures. Excellence in education since 1990.</p>
                 <div class="cta-buttons">
                     <a href="admission.html" class="btn btn-primary">Admissions Open 2026-27</a>
                     <a href="about.html" class="btn btn-secondary">About Us</a>
@@ -634,17 +1791,181 @@
                 <img src="hcc.jpg" 
                      alt="HCC High School Building" 
                      style="width: 100%; 
-                            height: auto; 
-                            aspect-ratio: 16 / 9; 
+                            height: 500px; 
                             object-fit: cover; 
                             object-position: center;
                             border-radius: 16px; 
-                            box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
-                            image-rendering: -webkit-optimize-contrast;
-                            image-rendering: crisp-edges;">
+                            box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);">
             </div>
         </div>
     </section>
+
+    <!-- Video Slider Section -->
+   <!-- Video Slider Section -->
+<!-- Video Slider Section --><!-- Video Slider Section -->
+<section class="video-slider-section">
+    <div class="video-slider-container">
+        <h2 class="section-title">School Life in Action</h2>
+        
+        <!-- Video Filter/Selector - Dropdown -->
+        <div class="video-filter-container">
+            <label for="videoSelect" class="filter-label">
+                <svg class="filter-label-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 3V5H16V3H8V5H6V3H4V21H6V19H8V21H16V19H18V21H20V3H18ZM12 15L8.5 12L12 9V15Z"/>
+                </svg>
+                Select Video:
+            </label>
+            <select id="videoSelect" class="video-select">
+                <!-- Options dynamically populated by JavaScript -->
+            </select>
+        </div>
+        
+        <!-- Video Player with Arrows -->
+        <div class="video-slider-wrapper">
+            <button class="slider-arrow slider-arrow-left" id="prevVideo" aria-label="Previous video">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"/>
+                </svg>
+            </button>
+
+            <div class="video-display">
+                <div class="video-container">
+                    <video id="mainVideo" controls playsinline>
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-caption" id="videoCaption">Loading...</div>
+                <div class="video-counter" id="videoCounter">0 / 0</div>
+            </div>
+
+            <button class="slider-arrow slider-arrow-right" id="nextVideo" aria-label="Next video">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.59L10 18L16 12L10 6L8.59 7.41L13.17 12L8.59 16.59Z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Alumni Section -->
+    <!-- Alumni Section -->
+<section class="alumni-section">
+    <div class="alumni-container">
+        <h2 class="section-title">Our Distinguished Alumni</h2>
+        <p class="section-subtitle">Proud graduates making an impact across the world</p>
+        
+        <div class="alumni-slider-wrapper">
+            <button class="slider-arrow slider-arrow-left" id="prevAlumni" aria-label="Previous alumni">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"/>
+                </svg>
+            </button>
+
+            <div class="alumni-slider-track" id="alumniSliderTrack">
+                <!-- Alumni 1 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni1.jpg" 
+                         alt="Dr. Rajesh Kumar" class="alumni-image">
+                    <h3 class="alumni-name">Dr. Rajesh Kumar</h3>
+                    <p class="alumni-designation">Chief Surgeon, Apollo Hospital</p>
+                    <p class="alumni-quote">HCC shaped my foundation in science and values that guide my medical practice today.</p>
+                </div>
+
+                <!-- Alumni 2 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni2.jpg" 
+                         alt="Priya Sharma" class="alumni-image">
+                    <h3 class="alumni-name">Priya Sharma</h3>
+                    <p class="alumni-designation">Software Engineer, Google</p>
+                    <p class="alumni-quote">The teachers at HCC inspired me to pursue technology and innovation fearlessly.</p>
+                </div>
+
+                <!-- Alumni 3 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni3.jpg" 
+                         alt="Amit Deshmukh" class="alumni-image">
+                    <h3 class="alumni-name">Amit Deshmukh</h3>
+                    <p class="alumni-designation">IAS Officer, Maharashtra Cadre</p>
+                    <p class="alumni-quote">HCC instilled discipline, leadership, and a sense of social responsibility in me.</p>
+                </div>
+
+                <!-- Alumni 4 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni4.jpg" 
+                         alt="Sneha Patil" class="alumni-image">
+                    <h3 class="alumni-name">Sneha Patil</h3>
+                    <p class="alumni-designation">Entrepreneur, Founder of EduTech Solutions</p>
+                    <p class="alumni-quote">My journey from HCC classroom to running my own startup has been incredible.</p>
+                </div>
+
+                <!-- Alumni 5 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni5.jpg" 
+                         alt="Vikram Joshi" class="alumni-image">
+                    <h3 class="alumni-name">Vikram Joshi</h3>
+                    <p class="alumni-designation">Chartered Accountant, KPMG Partner</p>
+                    <p class="alumni-quote">The strong mathematics foundation from HCC led me to excel in finance and accounting.</p>
+                </div>
+
+                <!-- Alumni 6 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni6.jpg" 
+                         alt="Anjali Mehta" class="alumni-image">
+                    <h3 class="alumni-name">Anjali Mehta</h3>
+                    <p class="alumni-designation">Architect, Award-Winning Designer</p>
+                    <p class="alumni-quote">HCC nurtured my creativity and gave me confidence to pursue architecture.</p>
+                </div>
+
+                <!-- Alumni 7 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni7.jpg" 
+                         alt="Rahul Pawar" class="alumni-image">
+                    <h3 class="alumni-name">Rahul Pawar</h3>
+                    <p class="alumni-designation">Professional Cricketer, Mumbai Indians</p>
+                    <p class="alumni-quote">HCC's sports program and supportive teachers helped me balance academics and cricket.</p>
+                </div>
+
+                <!-- Alumni 8 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni8.jpg" 
+                         alt="Kavita Reddy" class="alumni-image">
+                    <h3 class="alumni-name">Kavita Reddy</h3>
+                    <p class="alumni-designation">Research Scientist, ISRO</p>
+                    <p class="alumni-quote">HCC's science labs and inspiring teachers sparked my passion for space research.</p>
+                </div>
+
+                <!-- Alumni 9 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni9.jpg" 
+                         alt="Sandeep Kulkarni" class="alumni-image">
+                    <h3 class="alumni-name">Sandeep Kulkarni</h3>
+                    <p class="alumni-designation">Film Director, National Award Winner</p>
+                    <p class="alumni-quote">The cultural activities at HCC shaped my artistic vision and storytelling skills.</p>
+                </div>
+
+                <!-- Alumni 10 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni10.jpg" 
+                         alt="Meera Singh" class="alumni-image">
+                    <h3 class="alumni-name">Meera Singh</h3>
+                    <p class="alumni-designation">Banking Executive, HDFC Bank VP</p>
+                    <p class="alumni-quote">HCC taught me integrity and excellence that define my career in banking today.</p>
+                </div>
+            </div>
+
+            <button class="slider-arrow slider-arrow-right" id="nextAlumni" aria-label="Next alumni">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.59L10 18L16 12L10 6L8.59 7.41L13.17 12L8.59 16.59Z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="alumni-dots" id="alumniDots"></div>
+    </div>
+    
+</section>
 
     <!-- Quick Highlights -->
     <section class="highlights">
@@ -685,7 +2006,7 @@
     </section>
 
     <!-- Gallery Preview -->
-    <section class="gallery-preview">
+    <!-- <section class="gallery-preview">
         <div class="gallery-container">
             <h2 class="section-title">Campus Glimpses</h2>
             <div class="gallery-grid">
@@ -698,14 +2019,14 @@
                 <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-section">
                 <h3>HCC High School</h3>
-                <p>Excellence in education since 1999</p>
+                <p>Excellence in education since 1990</p>
                 <p>Shaping young minds for a brighter tomorrow</p>
             </div>
 
@@ -735,7 +2056,7 @@
 
             <div class="footer-section">
                 <h3>Notifications</h3>
-                <a href="javascript:void(0)" onclick="window.showNotificationSettings()">🔔 Notification Settings</a>
+                <a href="javascript:void(0)" onclick="showNotificationSettings()">🔔 Notification Settings</a>
                 <p style="font-size: 0.85rem; color: var(--neutral-light); margin-top: 0.5rem;">
                     Manage your notification preferences
                 </p>
@@ -746,7 +2067,6 @@
             <p>&copy; 2026 HCC High School, Solapur. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
         if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
             window.location.reload();
@@ -1164,6 +2484,427 @@
         });
     }
 
+
+
+
+
+
+
+
+// Video Data (Hardcoded) - SINGLE SOURCE OF TRUTH
+const videos = [
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/Hindustani%20Covenant%20Church%20High%20School%20and%20Junior%20College_%20Solapur._10th%20August%202014__hcc.%20_artcompetition_As%20we%20celebrate%20our%2025th%20Silver%20Jubilee%20year_%20we%20(.mp4',
+        caption: 'Art Competition',
+        icon: 'sports'
+    },
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/DRhAaD9kVbA(MP4).mp4',
+        caption: 'Grand Parents Day Celebration',
+        icon: 'science'
+    },
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/_HCC%20_preprimary%20_firstdayofschool%20__23rd%20June%202025_First%20day%20of%20our%20toddlers.%20_Our%20Secretary%20Dr.%20MRS.%20Mackenzie%20ma_am%20was%20the%20chief%20guest.__Tiny%20shoes%20and%20(.mp4',
+        caption: 'First Day Pre-Primary',
+        icon: 'music'
+    },
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/_hcc%20_rainyseason%20_rainydayfun%20_rainydayvibes%20_preprimary%20_rainactivity%20.%20%2025th%20July%202024_Pre-primary%20section._Rainy%20days%20can%20be%20a%20wonderful%20opportunity%20to%20(.mp4',
+        caption: 'Rainy Day',
+        icon: 'graduation'
+    },
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/DLH-DrKxXYa(MP4).mp4',
+        caption: 'International Yoga Day',
+        icon: 'campus'
+    }
+];
+
+let currentVideoIndex = 0;
+let currentAlumniIndex = 0;
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    initializeHamburgerMenu();
+    initializeVideoSlider();
+    initializeAlumniSlider();
+});
+
+// Hamburger Menu Toggle
+function initializeHamburgerMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+}
+
+// Initialize Video Slider with Dropdown Filter
+function initializeVideoSlider() {
+    const mainVideo = document.getElementById('mainVideo');
+    const videoCaption = document.getElementById('videoCaption');
+    const videoCounter = document.getElementById('videoCounter');
+    const prevBtn = document.getElementById('prevVideo');
+    const nextBtn = document.getElementById('nextVideo');
+    const videoContainer = document.querySelector('.video-container');
+    const videoSelect = document.getElementById('videoSelect');
+    
+    // Populate dropdown from videos array
+    populateVideoDropdown();
+    
+    // Load first video
+    loadVideo(0);
+    
+    // Dropdown change event
+    if (videoSelect) {
+        videoSelect.addEventListener('change', (e) => {
+            currentVideoIndex = parseInt(e.target.value);
+            loadVideo(currentVideoIndex);
+        });
+    }
+    
+    // Previous button
+    prevBtn.addEventListener('click', () => {
+        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+        loadVideo(currentVideoIndex);
+        updateVideoSelect();
+    });
+    
+    // Next button
+    nextBtn.addEventListener('click', () => {
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        loadVideo(currentVideoIndex);
+        updateVideoSelect();
+    });
+    
+    // Touch/Swipe Support for Video
+    let videoTouchStartX = 0;
+    let videoTouchEndX = 0;
+    let videoTouchStartY = 0;
+    let videoTouchEndY = 0;
+    
+    videoContainer.addEventListener('touchstart', (e) => {
+        videoTouchStartX = e.changedTouches[0].screenX;
+        videoTouchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    videoContainer.addEventListener('touchend', (e) => {
+        videoTouchEndX = e.changedTouches[0].screenX;
+        videoTouchEndY = e.changedTouches[0].screenY;
+        handleVideoSwipe();
+    }, { passive: true });
+    
+    function handleVideoSwipe() {
+        const swipeThreshold = 50;
+        const horizontalDistance = Math.abs(videoTouchEndX - videoTouchStartX);
+        const verticalDistance = Math.abs(videoTouchEndY - videoTouchStartY);
+        
+        // Only trigger if horizontal swipe is more significant than vertical
+        if (horizontalDistance > verticalDistance && horizontalDistance > swipeThreshold) {
+            if (videoTouchEndX < videoTouchStartX) {
+                // Swiped left - next video
+                currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                loadVideo(currentVideoIndex);
+                updateVideoSelect();
+            }
+            
+            if (videoTouchEndX > videoTouchStartX) {
+                // Swiped right - previous video
+                currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+                loadVideo(currentVideoIndex);
+                updateVideoSelect();
+            }
+        }
+    }
+  // Auto-play when video enters viewport, pause when it leaves
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Video is in view - auto-play
+            mainVideo.play().catch(err => {
+                console.log('Autoplay prevented:', err);
+            });
+        } else {
+            // Video scrolled out of view - pause it
+            mainVideo.pause();
+        }
+    });
+}, {
+    threshold: 0.5 // Trigger when 50% of video is visible
+});
+
+// Start observing the video container
+observer.observe(videoContainer);
+
+// Click anywhere on video to play/pause
+mainVideo.addEventListener('click', (e) => {
+    if (mainVideo.paused) {
+        mainVideo.play().catch(err => {
+            console.log('Play prevented:', err);
+        });
+    } else {
+        mainVideo.pause();
+    }
+});
+
+// Also pause when clicking outside arrows
+mainVideo.addEventListener('click', () => {
+    if (mainVideo.paused) {
+        mainVideo.play().catch(err => {
+            console.log('Play prevented:', err);
+        });
+    } else {
+        mainVideo.pause();
+    }
+});
+
+    
+    // Video ended - don't auto-play next
+    mainVideo.addEventListener('ended', () => {
+        mainVideo.controls = true;
+    });
+    
+    // Update dropdown selection
+    function updateVideoSelect() {
+        if (videoSelect) {
+            videoSelect.value = currentVideoIndex;
+        }
+    }
+}
+
+// Populate Video Dropdown from videos array
+function populateVideoDropdown() {
+    const videoSelect = document.getElementById('videoSelect');
+    
+    if (!videoSelect) return;
+    
+    // Clear existing options
+    videoSelect.innerHTML = '';
+    
+    // Add options from videos array
+    videos.forEach((video, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = video.caption;
+        videoSelect.appendChild(option);
+    });
+}
+
+// Load specific video
+function loadVideo(index) {
+    const mainVideo = document.getElementById('mainVideo');
+    const videoCaption = document.getElementById('videoCaption');
+    const videoCounter = document.getElementById('videoCounter');
+    
+    currentVideoIndex = index;
+    
+    // Pause current video before switching
+    mainVideo.pause();
+    
+    // Update video source from videos array
+    mainVideo.src = videos[index].url;
+    mainVideo.load();
+    
+    // Update caption and counter from videos array
+    videoCaption.textContent = videos[index].caption;
+    videoCounter.textContent = `${index + 1} / ${videos.length}`;
+    
+    // Auto-play new video (browser might block this)
+    mainVideo.play().catch(e => {
+        console.log('Autoplay prevented, user needs to click play');
+    });
+}
+
+// Initialize Alumni Slider with Touch Support
+function initializeAlumniSlider() {
+    const sliderTrack = document.getElementById('alumniSliderTrack');
+    const prevBtn = document.getElementById('prevAlumni');
+    const nextBtn = document.getElementById('nextAlumni');
+    const dotsContainer = document.getElementById('alumniDots');
+    const alumniCards = sliderTrack.querySelectorAll('.alumni-card');
+    const totalAlumni = alumniCards.length;
+    
+   if (!sliderTrack || !prevBtn || !nextBtn || !dotsContainer) {
+    console.log('Alumni slider elements not found');
+    return;
+}
+
+// Check if cards exist
+if (totalAlumni === 0) {
+    console.log('No alumni cards found');
+    return;
+}
+
+// FIXED: Always show 1 card at a time
+const cardsPerView = 1;
+let maxIndex = totalAlumni - 1; // 0 to 9 for 10 cards
+
+
+
+   // Create dots - one for each card
+function createDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalAlumni; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'alumni-dot';
+        dot.setAttribute('aria-label', `Go to alumni ${i + 1}`);
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+}
+ 
+    createDots();
+    
+    // Update slider position
+    function updateSlider() {
+        const cardWidth = alumniCards[0].offsetWidth;
+        const gap = parseFloat(getComputedStyle(sliderTrack).gap) || 0;
+        const offset = -(currentAlumniIndex * (cardWidth + gap));
+        sliderTrack.style.transform = `translateX(${offset}px)`;
+        
+        // Update dots
+        const dots = dotsContainer.querySelectorAll('.alumni-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentAlumniIndex);
+        });
+        
+        // Update button states
+        prevBtn.style.opacity = currentAlumniIndex === 0 ? '0.5' : '1';
+        prevBtn.style.cursor = currentAlumniIndex === 0 ? 'not-allowed' : 'pointer';
+        nextBtn.style.opacity = currentAlumniIndex === maxIndex ? '0.5' : '1';
+        nextBtn.style.cursor = currentAlumniIndex === maxIndex ? 'not-allowed' : 'pointer';
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+        currentAlumniIndex = Math.max(0, Math.min(index, maxIndex));
+        updateSlider();
+    }
+    
+   // Previous button
+prevBtn.addEventListener('click', () => {
+    if (currentAlumniIndex > 0) {
+        currentAlumniIndex--;
+        updateSlider();
+    }
+});
+
+// Next button
+nextBtn.addEventListener('click', () => {
+    if (currentAlumniIndex < maxIndex) {
+        currentAlumniIndex++;
+        updateSlider();
+    }
+});
+
+    
+    // Touch/Swipe Support for Alumni
+    let alumniTouchStartX = 0;
+    let alumniTouchEndX = 0;
+    let alumniTouchStartY = 0;
+    let alumniTouchEndY = 0;
+    
+    sliderTrack.addEventListener('touchstart', (e) => {
+        alumniTouchStartX = e.changedTouches[0].screenX;
+        alumniTouchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    sliderTrack.addEventListener('touchend', (e) => {
+        alumniTouchEndX = e.changedTouches[0].screenX;
+        alumniTouchEndY = e.changedTouches[0].screenY;
+        handleAlumniSwipe();
+    }, { passive: true });
+    
+    function handleAlumniSwipe() {
+        const swipeThreshold = 50;
+        const horizontalDistance = Math.abs(alumniTouchEndX - alumniTouchStartX);
+        const verticalDistance = Math.abs(alumniTouchEndY - alumniTouchStartY);
+        
+        // Only trigger if horizontal swipe is more significant than vertical
+        if (horizontalDistance > verticalDistance && horizontalDistance > swipeThreshold) {
+         if (alumniTouchEndX < alumniTouchStartX && currentAlumniIndex < maxIndex) {
+    // Swiped left - next slide
+    currentAlumniIndex++;
+    updateSlider();
+}
+
+if (alumniTouchEndX > alumniTouchStartX && currentAlumniIndex > 0) {
+    // Swiped right - previous slide
+    currentAlumniIndex--;
+    updateSlider();
+}
+
+        }
+    }
+    
+    // Handle window resize
+   // Handle window resize
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        updateSlider();
+    }, 250);
+});
+
+    
+    // Initial update
+  // Initial update
+updateSlider();
+
+// DEBUG - Check card visibility
+console.log('=== ALUMNI SLIDER DEBUG ===');
+console.log('Total alumni cards:', totalAlumni);
+console.log('Max index:', maxIndex);
+console.log('Current index:', currentAlumniIndex);
+console.log('Track width:', sliderTrack.offsetWidth);
+if (alumniCards[0]) {
+    console.log('First card width:', alumniCards[0].offsetWidth);
+}
+alumniCards.forEach((card, index) => {
+    console.log(`Card ${index + 1}:`, {
+        width: card.offsetWidth,
+        display: window.getComputedStyle(card).display,
+        minWidth: window.getComputedStyle(card).minWidth
+    });
+});
+console.log('========================');
+
+}
+
+// Notification Settings
+function showNotificationSettings() {
+    alert('Notification settings will be available soon!');
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+
     // ============================================
     // PWA INSTALL PROMPT
     // ============================================
@@ -1375,6 +3116,3 @@
 </script>
    </body>
 </html>
-
-
-
