@@ -525,6 +525,18 @@
             .hero-image {
                 order: -1;
             }
+            .hero-image {
+    width: 100vw; /* Uses 100% of the viewport width */
+    margin-left: calc(-50vw + 50%); /* Centers it if inside a narrow container */
+    margin-right: calc(-50vw + 50%);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0; /* Remove rounded corners for a full-bleed look */
+}
 
             .image-placeholder {
                 height: 350px;
@@ -1362,3 +1374,4 @@
 </script>
    </body>
 </html>
+
