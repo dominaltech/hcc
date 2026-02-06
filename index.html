@@ -1463,20 +1463,7 @@ html {
 
 /* Mobile Responsive (max-width: 768px) */
 @media (max-width: 768px) {
-    nav ul {
-        position: fixed;
-        top: 80px;
-        right: -100%;
-        width: 100%;
-        max-width: 400px;
-        height: calc(100vh - 80px);
-        background: var(--white);
-        flex-direction: column;
-        padding: 2rem;
-        box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
-        transition: right 0.4s ease;
-        gap: 1.5rem;
-    }
+  
 
     nav ul.active {
         right: 0;
@@ -1733,6 +1720,22 @@ html {
 
   
 }
+
+
+/* For smaller mobile devices */
+@media (max-width: 480px) {
+    /* Add your existing 480px styles here */
+    
+    /* IMPORTANT: Add these hamburger styles */
+    
+     nav ul {
+        max-width: 100%; /* Full width on small screens */
+        padding: 1.5rem;
+    }
+    
+    
+}
+
 /* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
     .alumni-card {
@@ -2121,7 +2124,7 @@ html {
     const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     // Mobile Menu Toggle
-    const hamburger = document.getElementById('hamburger');
+      const hamburger = document.getElementById('hamburger');
     const navMenu = document.getElementById('navMenu');
 
     hamburger.addEventListener('click', () => {
@@ -2136,6 +2139,7 @@ html {
             navMenu.classList.remove('active');
         }
     });
+
 
     // Header hide on scroll down, show on scroll up
     let lastScroll = 0;
@@ -2562,31 +2566,16 @@ let currentAlumniIndex = 0;
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-    initializeHamburgerMenu();
+   
     initializeVideoSlider();
     initializeAlumniSlider();
 });
 
-// Hamburger Menu Toggle
-function initializeHamburgerMenu() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('navMenu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            this.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
 
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    }
-}
+// KEEP THE EXISTING "Close menu when clicking outside" CODE
+
+
+// Hamburger Menu Toggle
 
 // Initialize Video Slider with Dropdown Filter
 function initializeVideoSlider() {
@@ -2665,22 +2654,19 @@ function initializeVideoSlider() {
             }
         }
     }
-  // Auto-play when video enters viewport, pause when it leaves
+  // Remove auto-play - user must manually play video
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Video is in view - auto-play
-            mainVideo.play().catch(err => {
-                console.log('Autoplay prevented:', err);
-            });
-        } else {
+        if (!entry.isIntersecting) {
             // Video scrolled out of view - pause it
             mainVideo.pause();
         }
+        // Removed auto-play when video enters viewport
     });
 }, {
     threshold: 0.5 // Trigger when 50% of video is visible
 });
+
 
 // Start observing the video container
 observer.observe(videoContainer);
@@ -3153,4 +3139,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 </script>
    </body>
 </html>
-
