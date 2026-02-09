@@ -1,0 +1,29 @@
+{
+  "@context": "https://schema.org",
+  "@type": "HighSchool",
+  "name": "Hindustan Covenant Church High School and Junior College",
+  "alternateName": "HCC High School Solapur",
+  "url": "https://hccsolapur.in",
+  "logo": "https://hccsolapur.in/hcclogo.jpg",
+  "image": "https://hccsolapur.in/hcc.jpg",
+  "description": "HCC High School and Junior College in Solapur, providing quality education",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Your Street Address",
+    "addressLocality": "Solapur",
+    "addressRegion": "Maharashtra",
+    "postalCode": "413001",
+    "addressCountry": "IN"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-8625902920",
+    "contactType": "Admissions",
+    "areaServed": "IN",
+    "availableLanguage": ["English", "Hindi", "Marathi"]
+  },
+  "sameAs": [
+    "YOUR_FACEBOOK_URL",
+    "https://www.instagram.com/hcc_high_school_/"
+  ]
+}
