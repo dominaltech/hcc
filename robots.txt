@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow admin page from search engines (optional)
+Disallow: /admin.html
+
+# Sitemap location
+Sitemap: https://hccsolapur.in/sitemap.xml

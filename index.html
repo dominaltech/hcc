@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="HCC High School, Solapur - Excellence in Education. Admissions Open for 2026-27.">
+    <meta name="keywords" content="HCC High School, Solapur, Education, Admissions, School">
+    <meta name="theme-color" content="#220707">
+
+
+    <!-- SEO Meta Tags - ADD THESE -->
+  <meta name="description" content="HCC High School and Junior College Solapur - Hindustan Covenant Church School providing quality education in Solapur, Maharashtra">
+  <meta name="keywords" content="HCC High School, Solapur school, Hindustan Covenant Church, Junior College Solapur, education Solapur">
+  <meta name="author" content="HCC High School Solapur">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph Tags - ADD THESE -->
+  <meta property="og:title" content="HCC High School Solapur">
+  <meta property="og:description" content="Hindustan Covenant Church High School and Junior College, Solapur">
+  <meta property="og:image" content="https://hccsolapur.in/hcclogo.jpg">
+  <meta property="og:url" content="https://hccsolapur.in">
+  <meta property="og:type" content="website">
+  
+  <!-- Canonical URL - ADD THIS (change URL for each page) -->
+  <link rel="canonical" href="https://hccsolapur.in/index.html">
+  <link rel="icon" type="image/png" href="/hcc.jpg">
+  <!-- Schema Markup - ADD THIS -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HighSchool",
+    "name": "Hindustan Covenant Church High School and Junior College",
+    "alternateName": "HCC High School Solapur",
+    "url": "https://hccsolapur.in",
+    "logo": "https://hccsolapur.in/hcclogo.jpg",
+    "image": "https://hccsolapur.in/hcc.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Solapur",
+      "addressRegion": "Maharashtra",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+    
+    <!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#220707">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="HCC School">
+<link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+
+    <title>HCC High School, Solapur | Excellence in Education</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --maroon-dark: #220707;
+            --maroon-primary: #531C22;
+            --neutral-warm: #AC9185;
+            --neutral-light: #E7D8CA;
+            --bg-light: #F9F3ED;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--maroon-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(249, 243, 237, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(34, 7, 7, 0.08);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 2rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .school-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--maroon-dark);
+            line-height: 1.2;
+        }
+
+        .school-location {
+            font-size: 0.9rem;
+            color: var(--neutral-warm);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--maroon-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--maroon-primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--maroon-primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--maroon-dark);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            background: linear-gradient(135deg, var(--neutral-light) 0%, var(--bg-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(83, 28, 34, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-30px, -30px); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--neutral-warm);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--maroon-primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--maroon-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(83, 28, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--maroon-primary);
+            border: 2px solid var(--maroon-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--maroon-primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 0.8s ease 0.3s backwards;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 500px;
+            /* background: linear-gradient(135deg, var(--neutral-warm), var(--neutral-light)); */
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* color: var(--white); */
+            font-size: 1.2rem;
+            box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Quick Highlights */
+        .highlights {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .highlights-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 3rem;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .highlight-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--maroon-primary);
+            box-shadow: 0 15px 40px rgba(83, 28, 34, 0.15);
+        }
+
+        .highlight-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-card:hover .highlight-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            color: var(--maroon-dark);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card p {
+            color: var(--neutral-warm);
+            line-height: 1.8;
+        }
+
+        /* Gallery Preview */
+        .gallery-preview {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(135deg, var(--neutral-light), var(--neutral-warm));
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item::after {
+            content: 'Gallery Image';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(34, 7, 7, 0.8), transparent);
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .view-all {
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon-dark);
+            color: var(--bg-light);
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--neutral-light);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--white);
+        }
+
+         .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.contact-icon {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon svg {
+    width: 100%;
+    height: 100%;
+   fill: #fff; /* WHITE SVGs */
+}
+
+.contact-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--maroon-primary);
+    text-decoration: underline;
+}
+
+/* Force icon + text alignment */
+.contact-item a {
+    display: flex;
+    align-items: center;          /* vertical alignment */
+    gap: 12px;
+}
+
+/* Align icon with first line of text */
+.contact-icon {
+    align-self: flex-start;       /* aligns with text top */
+    margin-top: 4px;              /* fine-tune baseline */
+}
+
+/* Prevent icon jumping during animation */
+.map-icon {
+    transform-origin: center;
+}
+
+/* Ensure text wraps nicely beside icon */
+.contact-item span:last-child {
+    display: inline;
+}
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--maroon-primary);
+            color: var(--neutral-light);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 968px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 100%;
+                max-width: 400px;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: -5px 0 20px rgba(34, 7, 7, 0.1);
+                transition: right 0.4s ease;
+                gap: 1.5rem;
+            }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .image-placeholder {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .school-name {
+                font-size: 1rem;
+            }
+
+            .school-location {
+                font-size: 0.75rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .highlights-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* SVG Icons Inline */
+        .svg-icon {
+            width: 40px;
+            height: 40px;
+            fill: var(--white);
+        }
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --maroon-dark: #220707;
+    --maroon-primary: #531C22;
+    --neutral-warm: #AC9185;
+    --neutral-light: #E7D8CA;
+    --bg-light: #F9F3ED;
+    --white: #FFFFFF;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--maroon-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(249, 243, 237, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(34, 7, 7, 0.08);
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.school-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--maroon-dark);
+    line-height: 1.2;
+}
+
+.school-location {
+    font-size: 0.9rem;
+    color: var(--neutral-warm);
+}
+
+.school-location {
+    font-size: 0.85rem;
+    color: var(--neutral-warm);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--maroon-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--maroon-primary);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--maroon-primary);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--maroon-dark);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Hero Section */
+.hero {
+    margin-top: 80px;
+    min-height: 90vh;
+    background: linear-gradient(135deg, var(--neutral-light) 0%, var(--bg-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(83, 28, 34, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-30px, -30px); }
+}
+
+.hero-content {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    color: var(--maroon-dark);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    animation: fadeInUp 0.8s ease;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--neutral-warm);
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.btn {
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--maroon-primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--maroon-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(83, 28, 34, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--maroon-primary);
+    border: 2px solid var(--maroon-primary);
+}
+
+.btn-secondary:hover {
+    background: var(--maroon-primary);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.hero-image {
+    position: relative;
+    animation: fadeInRight 0.8s ease 0.3s backwards;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 500px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+/* Video Slider Section */
+.video-slider-section {
+    padding: 5rem 2rem;
+    background: var(--white);
+}
+
+.video-slider-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Video Filter Dropdown */
+.video-filter-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--maroon-dark);
+    font-size: 1.1rem;
+}
+
+.filter-label-icon {
+    width: 24px;
+    height: 24px;
+    fill: var(--maroon-primary);
+}
+
+.video-select {
+    padding: 0.8rem 2.5rem 0.8rem 1.2rem;
+    font-size: 1rem;
+    border: 2px solid var(--neutral-light);
+    border-radius: 10px;
+    background: var(--white);
+    color: var(--maroon-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23531C22'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
+    background-size: 24px;
+    min-width: 280px;
+}
+
+.video-select:hover {
+    border-color: var(--maroon-primary);
+    box-shadow: 0 3px 12px rgba(83, 28, 34, 0.15);
+}
+
+.video-select:focus {
+    outline: none;
+    border-color: var(--maroon-primary);
+    box-shadow: 0 0 0 3px rgba(83, 28, 34, 0.1);
+}
+
+.video-slider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.video-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Limit maximum width */
+    margin: 0 auto; /* Center the video */
+    aspect-ratio: 16 / 9; /* Wide screen format */
+    background: var(--maroon-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(34, 7, 7, 0.25);
+    touch-action: pan-y pinch-zoom;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.video-caption {
+    text-align: center;
+    font-size: 1.3rem;
+    color: var(--maroon-dark);
+    font-weight: 600;
+    min-height: 2rem;
+}
+
+.video-counter {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--neutral-warm);
+    font-weight: 500;
+}
+
+.slider-arrow {
+    width: 60px;
+    height: 60px;
+    background: var(--maroon-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease, opacity 0.3s ease;
+    flex-shrink: 0;
+    z-index: 100;
+    box-shadow: 0 5px 20px rgba(83, 28, 34, 0.3);
+    position: relative;
+}
+
+.slider-arrow:hover {
+    background: var(--maroon-dark);
+    transform: scale(1.15);
+}
+
+.slider-arrow:active {
+    transform: scale(0.95);
+}
+
+.slider-arrow:disabled,
+.slider-arrow[style*="opacity: 0.5"] {
+    pointer-events: none;
+}
+
+.slider-arrow svg {
+    width: 28px;
+    height: 28px;
+    fill: var(--white);
+}
+
+/* Quick Highlights */
+.highlights {
+    padding: 5rem 2rem;
+    background: var(--white);
+}
+
+.highlights-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--maroon-dark);
+    margin-bottom: 3rem;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.highlight-card {
+    background: var(--bg-light);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+}
+
+.highlight-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--maroon-primary);
+    box-shadow: 0 15px 40px rgba(83, 28, 34, 0.15);
+}
+
+.highlight-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, var(--maroon-primary), var(--maroon-dark));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.highlight-card:hover .highlight-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.highlight-card h3 {
+    font-size: 1.5rem;
+    color: var(--maroon-dark);
+    margin-bottom: 1rem;
+}
+
+.highlight-card p {
+    color: var(--neutral-warm);
+    line-height: 1.8;
+}
+
+   /* ────────────────────────────────────────────────
+   ALUMNI SLIDER – Clean & Mobile-Friendly (2025)
+───────────────────────────────────────────────── */
+
+.alumni-section {
+    padding: 4rem 1.5rem;
+    background: var(--bg-light);
+}
+
+.alumni-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--maroon-dark);
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--neutral-warm);
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+}
+
+/* Slider Wrapper – contains arrows + track */
+.alumni-slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Track – contains all cards */
+.alumni-slider-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+    gap: 1.5rem;
+    will-change: transform;
+    touch-action: pan-y pinch-zoom;
+}
+
+/* Each Card */
+.alumni-card {
+    flex: 0 0 100%;               /* One card = full width */
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid var(--neutral-light);
+    box-shadow: 0 8px 25px rgba(34, 7, 7, 0.08);
+    transition: all 0.35s ease;
+}
+
+/* .alumni-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(83, 28, 34, 0.18);
+    border-color: var(--maroon-primary);
+} */
+
+/* Image */
+.alumni-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--maroon-primary);
+    margin: 0 auto 1.5rem;
+    background: #f5f5f5;
+}
+
+/* Text */
+.alumni-name {
+    font-size: 1.7rem;
+    color: var(--maroon-dark);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.alumni-designation {
+    font-size: 1.1rem;
+    color: var(--maroon-primary);
+    font-weight: 600;
+    margin-bottom: 1.3rem;
+}
+
+.alumni-quote {
+    font-style: italic;
+    color: var(--neutral-warm);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    position: relative;
+    padding: 1rem 0;
+}
+
+.alumni-quote::before,
+.alumni-quote::after {
+    content: '"';
+    font-size: 4rem;
+    color: var(--neutral-light);
+    opacity: 0.3;
+    position: absolute;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.alumni-quote::before { top: -10px; left: 0; }
+.alumni-quote::after  { bottom: -35px; right: 0; }
+
+/* ── Arrows ── */
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--maroon-primary);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+    transition: all 0.25s ease;
+}
+
+.slider-arrow:hover:not(:disabled) {
+    background: var(--maroon-dark);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.slider-arrow-left  { left: 10px; }
+.slider-arrow-right { right: 10px; }
+
+.slider-arrow svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+/* ── Dots ── */
+.alumni-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 2rem;
+}
+
+.alumni-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--neutral-light);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.alumni-dot:hover {
+    background: var(--neutral-warm);
+    transform: scale(1.4);
+}
+
+.alumni-dot.active {
+    background: var(--maroon-primary);
+    width: 28px;
+    border-radius: 14px;
+}
+
+/* ────────────────────────────────────────────────
+   MOBILE OPTIMIZATIONS
+───────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+    .alumni-section {
+        padding: 3rem 1rem;
+    }
+
+    .section-title {
+        font-size: 2.3rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .alumni-slider-wrapper {
+        padding: 0 55px;              /* space for arrows on sides */
+        box-sizing: border-box;
+    }
+
+    .alumni-card {
+    flex: 0 0 calc(100% - 10px);
+    padding: 2rem 1.5rem;
+}
+
+
+    .alumni-image {
+        width: 120px;
+        height: 120px;
+        border-width: 4px;
+    }
+
+    .alumni-name {
+        font-size: 1.45rem;
+    }
+
+    .alumni-designation {
+        font-size: 1rem;
+    }
+
+    .alumni-quote {
+        font-size: 0.96rem;
+    }
+
+    .alumni-quote::before,
+    .alumni-quote::after {
+        font-size: 3rem;
+    }
+
+    .slider-arrow {
+        width: 44px;
+        height: 44px;
+    }
+
+    .slider-arrow svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .slider-arrow-left  { left: 5px; }
+    .slider-arrow-right { right: 5px; }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+    .alumni-slider-wrapper {
+        padding: 0 50px;
+    }
+
+    .alumni-card {
+        padding: 1.8rem 1.2rem;
+    }
+
+    .alumni-image {
+        width: 110px;
+        height: 110px;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+    /* Gallery Preview */
+    .gallery-preview {
+        padding: 5rem 2rem;
+        background: var(--bg-light);
+    }
+
+    .gallery-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .gallery-item {
+        height: 250px;
+        background: linear-gradient(135deg, var(--neutral-light), var(--neutral-warm));
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.03);
+    }
+
+    .gallery-item::after {
+        content: 'Gallery Image';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+        background: linear-gradient(to top, rgba(34, 7, 7, 0.8), transparent);
+        color: var(--white);
+        font-weight: 500;
+    }
+
+    .view-all {
+        text-align: center;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--maroon-dark);
+        color: var(--bg-light);
+        padding: 3rem 2rem 1.5rem;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-section h3 {
+        color: var(--white);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .footer-section p, .footer-section a {
+        color: var(--neutral-light);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 0.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+        color: var(--white);
+    }
+
+   
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.contact-icon {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-icon svg {
+    width: 100%;
+    height: 100%;
+    fill: #fff; /* WHITE SVGs */
+}
+
+.footer-map-window {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-map-window iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%); /* Dark theme map */
+}
+
+.contact-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--maroon-primary);
+    text-decoration: underline;
+}
+/* Force icon + text alignment */
+.contact-item a {
+    display: flex;
+    align-items: center;          /* vertical alignment */
+    gap: 12px;
+}
+
+/* Align icon with first line of text */
+.contact-icon {
+    align-self: flex-start;       /* aligns with text top */
+    margin-top: 2px;              /* fine-tune baseline */
+}
+
+/* Prevent icon jumping during animation */
+.map-icon {
+    transform-origin: center;
+}
+
+/* Ensure text wraps nicely beside icon */
+.contact-item span:last-child {
+    display: inline;
+}
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid var(--maroon-primary);
+        color: var(--neutral-light);
+    }
+
+    /* SVG Icons Inline */
+    .svg-icon {
+        width: 40px;
+        height: 40px;
+        fill: var(--white);
+    }
+
+    /* Smooth Scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Tablet Responsive (769px - 1024px) */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .alumni-slider-wrapper {
+            padding: 0 4rem;
+            gap: 0;
+        }
+        
+        .alumni-slider-wrapper .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .alumni-slider-wrapper .slider-arrow-left {
+            left: 0;
+        }
+        
+        .alumni-slider-wrapper .slider-arrow-right {
+            right: 0;
+        }
+        
+        .alumni-slider-track {
+            gap: 2rem;
+        }
+        
+        .alumni-card {
+            min-width: 100%; /* FIXED: Show 1 card */
+            padding: 2.5rem 2rem;
+        }
+
+        
+        .alumni-image {
+            width: 130px;
+            height: 130px;
+        }
+        
+        .alumni-name {
+            font-size: 1.5rem;
+        }
+
+        .alumni-designation {
+            font-size: 1rem;
+        }
+        
+        .alumni-quote {
+            font-size: 0.95rem;
+        }
+
+        .slider-arrow {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    /* Mobile Responsive (max-width: 768px) */
+    @media (max-width: 768px) {
+    
+
+        nav ul.active {
+            right: 0;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+
+        .hero-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+        }
+
+        .cta-buttons {
+            justify-content: center;
+        }
+
+        .hero-image {
+            order: -1;
+        }
+
+        .image-placeholder {
+            height: 350px;
+        }
+
+        /* Video Filter Mobile */
+        .video-filter-container {
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .filter-label {
+            font-size: 1rem;
+        }
+
+        .filter-label-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .video-select {
+            min-width: 100%;
+            max-width: 100%;
+            font-size: 0.95rem;
+        }
+
+        .video-slider-section {
+            padding: 3rem 1rem;
+        }
+
+        .video-slider-wrapper {
+            gap: 0;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
+            min-height: 45px;
+            z-index: 100;
+        }
+
+        .video-slider-wrapper .slider-arrow-left {
+            left: 10px;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+
+        .video-slider-wrapper .slider-arrow-right {
+            right: 10px;
+            top: 40%;
+            transform: translateY(-50%);
+        }
+
+        .slider-arrow svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        .video-caption {
+            font-size: 1.1rem;
+        }
+
+        .video-counter {
+            font-size: 0.9rem;
+        }
+
+    }
+
+
+.hero-image {
+    width: 100%;
+}
+
+.hero-image img {
+    width: 100%;
+          /* Landscape on desktop */
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(34, 7, 7, 0.15);
+}
+
+/* 📱 Mobile: show FULL image, no crop */
+@media (max-width: 768px) {
+    .hero-image img {
+        aspect-ratio: auto;
+        height: auto;
+        max-height: 480px;     /* 🔥 big increase */
+        width: 108%;
+        margin-left: -4%;
+        object-fit: contain;
+        background: #f5f5f5;
+    }
+}
+
+
+/* Floating buttons wrapper */
+.mobile-fab {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 9999;
+}
+
+/* Common button style */
+.fab-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    text-decoration: none;
+}
+
+/* SVG icon */
+.fab-btn svg {
+    width: 26px;
+    height: 26px;
+    fill: #fff;
+}
+
+/* Specific colors */
+.call-btn {
+    background: #1f2937; /* dark gray */
+}
+
+.whatsapp-btn {
+    background: #25D366; /* WhatsApp green */
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+    .mobile-fab {
+        display: flex;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-section">
+                <img src="hcclogo.jpg" alt="HCC Logo" class="logo-img">
+                <div>
+                    <div class="school-name">HCC High School</div>
+                    <div class="school-location">Solapur</div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="admission.html">Admission</a></li>
+                    <li><a href="infrastructure.html">Infrastructure</a></li>
+                    <li><a href="gallery.html">Image Gallery</a></li>
+                    <li><a href="achievements.html">Achievements</a></li>
+                    <li><a href="notices.html">Notices</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Welcome to HINDUSTAN CONVENT CHURCH High School</h1>
+                <p>Nurturing minds, building character, and inspiring excellence for a brighter future.</p>
+                <div class="cta-buttons">
+                    <a href="admission.html" class="btn btn-primary">Admissions Open 2026-27</a>
+                    <a href="about.html" class="btn btn-secondary">About Us</a>
+                </div>
+            </div>
+            <div class="hero-image">
+    <img src="hcc.jpg" alt="HCC High School Building">
+</div>
+
+        </div>
+    </section>
+
+    <!-- Video Slider Section -->
+   <!-- Video Slider Section -->
+<!-- Video Slider Section --><!-- Video Slider Section -->
+<section class="video-slider-section">
+    <div class="video-slider-container">
+        <h2 class="section-title">School Life in Action</h2>
+        
+        <!-- Video Filter/Selector - Dropdown -->
+        <div class="video-filter-container">
+            <label for="videoSelect" class="filter-label">
+                <svg class="filter-label-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 3V5H16V3H8V5H6V3H4V21H6V19H8V21H16V19H18V21H20V3H18ZM12 15L8.5 12L12 9V15Z"/>
+                </svg>
+                Select Video:
+            </label>
+            <select id="videoSelect" class="video-select">
+                <!-- Options dynamically populated by JavaScript -->
+            </select>
+        </div>
+        
+        <!-- Video Player with Arrows -->
+        <div class="video-slider-wrapper">
+            <button class="slider-arrow slider-arrow-left" id="prevVideo" aria-label="Previous video">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"/>
+                </svg>
+            </button>
+
+            <div class="video-display">
+                <div class="video-container">
+                    <video id="mainVideo" controls playsinline>
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="video-caption" id="videoCaption">Loading...</div>
+                <div class="video-counter" id="videoCounter">0 / 0</div>
+            </div>
+
+            <button class="slider-arrow slider-arrow-right" id="nextVideo" aria-label="Next video">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.59L10 18L16 12L10 6L8.59 7.41L13.17 12L8.59 16.59Z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Alumni Section -->
+    <!-- Alumni Section -->
+<section class="alumni-section">
+    <div class="alumni-container">
+        <h2 class="section-title">Our Distinguished Alumni</h2>
+        <p class="section-subtitle">Proud graduates making an impact across the world</p>
+        
+       <div class="alumni-slider-wrapper">
+            <button class="slider-arrow slider-arrow-left" id="prevAlumni" aria-label="Previous alumni">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"/>
+                </svg>
+            </button>
+
+            <div class="alumni-slider-track" id="alumniSliderTrack">
+                <!-- Alumni 1 -->
+                <div class="alumni-card">
+                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/yahya.jpg"
+                         alt="Yahya Mundewadi" class="alumni-image">
+                    <h3 class="alumni-name">Yahya Mundewadi</h3>
+                    <p class="alumni-designation">
+  Founder of 
+  <a href="https://dominal.in" target="_blank" 
+     style="color: blue; text-decoration: none;">
+     Dominal Tech
+  </a> 
+  | Software Developer, Pune
+                    </p>
+                    <p class="alumni-quote">The confidence and communication skills I gained here contributed greatly to my growth. Today, I'm a Founder and Software Developer. Forever thankful to my school and teachers.</p>
+                </div>
+
+                <!-- Alumni 2 -->
+                <div class="alumni-card">
+                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/Azar%20Jahangirdar.png"
+                         alt="Azhar Jahagirdar" class="alumni-image">
+                    <h3 class="alumni-name">Azhar Jahagirdar</h3>
+                    <p class="alumni-designation">Aspiring Software Developer | Automotive Technology Enthusiast</p>
+                    <p class="alumni-quote">With strong self-belief and constant support, I strive to turn my dreams into impactful technology.</p>
+                </div>
+
+                <!-- Alumni 3 -->
+                <div class="alumni-card">
+                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/Dr%20Ashish%20VishwasSunita%20Paul.png"
+                         alt="Dr. Ashish VishwasSunita Paul" class="alumni-image">
+                    <h3 class="alumni-name">Dr. Ashish VishwasSunita Paul</h3>
+                    <p class="alumni-designation">Physiotherapist | Healthcare Professional</p>
+                    <p class="alumni-quote">HCC was not just an institution, but a second home that shaped my journey, values, and success.</p>
+                </div>
+
+                <!-- Alumni 4 -->
+                <div class="alumni-card">
+                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/Manish%20Gurbani.png"
+                         alt="Manish Gurbani" class="alumni-image">
+                    <h3 class="alumni-name">Manish Gurbani</h3>
+                    <p class="alumni-designation">Software Engineer at Paris</p>
+                    <p class="alumni-quote">From classroom concepts to real-world innovation, my journey shaped me into a global software professional.</p>
+                </div>
+
+                <!-- Alumni 5 -->
+                <div class="alumni-card">
+                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/FELIX%20JOHN.png"
+                         alt="Felix John" class="alumni-image">
+                    <h3 class="alumni-name">Felix John</h3>
+                    <p class="alumni-designation">Lab Assistant at St. Joseph</p>
+                    <p class="alumni-quote">Every experiment and lesson at HCC strengthened my foundation in learning and discipline.</p>
+                </div>
+
+                <!-- Alumni 6 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni6.jpg"
+                         alt="Anjali Mehta" class="alumni-image">
+                    <h3 class="alumni-name">Anjali Mehta</h3>
+                    <p class="alumni-designation">Architect, Award-Winning Designer</p>
+                    <p class="alumni-quote">HCC nurtured my creativity and gave me confidence to pursue architecture.</p>
+                </div>
+
+                <!-- Alumni 7 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni7.jpg"
+                         alt="Rahul Pawar" class="alumni-image">
+                    <h3 class="alumni-name">Rahul Pawar</h3>
+                    <p class="alumni-designation">Professional Cricketer, Mumbai Indians</p>
+                    <p class="alumni-quote">HCC's sports program and supportive teachers helped me balance academics and cricket.</p>
+                </div>
+
+                <!-- Alumni 8 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni8.jpg"
+                         alt="Kavita Reddy" class="alumni-image">
+                    <h3 class="alumni-name">Kavita Reddy</h3>
+                    <p class="alumni-designation">Research Scientist, ISRO</p>
+                    <p class="alumni-quote">HCC's science labs and inspiring teachers sparked my passion for space research.</p>
+                </div>
+
+                <!-- Alumni 9 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni9.jpg"
+                         alt="Sandeep Kulkarni" class="alumni-image">
+                    <h3 class="alumni-name">Sandeep Kulkarni</h3>
+                    <p class="alumni-designation">Film Director, National Award Winner</p>
+                    <p class="alumni-quote">The cultural activities at HCC shaped my artistic vision and storytelling skills.</p>
+                </div>
+
+                <!-- Alumni 10 -->
+                <div class="alumni-card">
+                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni10.jpg"
+                         alt="Meera Singh" class="alumni-image">
+                    <h3 class="alumni-name">Meera Singh</h3>
+                    <p class="alumni-designation">Banking Executive, HDFC Bank VP</p>
+                    <p class="alumni-quote">HCC taught me integrity and excellence that define my career in banking today.</p>
+                </div>
+            </div>
+
+            <button class="slider-arrow slider-arrow-right" id="nextAlumni" aria-label="Next alumni">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.59 16.59L10 18L16 12L10 6L8.59 7.41L13.17 12L8.59 16.59Z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="alumni-dots" id="alumniDots"></div>
+    </div>
+    
+</section>
+
+    <!-- Quick Highlights -->
+    <section class="highlights">
+        <div class="highlights-container">
+            <h2 class="section-title">Why Choose HCC High School</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z"/>
+                        </svg>
+                    </div>
+                    <h3>Expert Faculty</h3>
+                    <p>Highly qualified and experienced teachers dedicated to student success and holistic development.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7V11C2 16.55 6.84 21.74 12 23C17.16 21.74 22 16.55 22 11V7L12 2ZM12 11H20C19.91 15.13 16.88 18.78 12 19.93V13H4V8.3L12 4.19V11Z"/>
+                        </svg>
+                    </div>
+                    <h3>Modern Infrastructure</h3>
+                    <p>State-of-the-art classrooms, laboratories, library, and sports facilities for comprehensive learning.</p>
+                </div>
+
+                <div class="highlight-card">
+                    <div class="highlight-icon">
+                        <svg class="svg-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM10 17L5 12L6.41 10.59L10 14.17L17.59 6.58L19 8L10 17Z"/>
+                        </svg>
+                    </div>
+                    <h3>Academic Excellence</h3>
+                    <p>Consistent track record of outstanding results and successful alumni across diverse fields.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <!-- <section class="gallery-preview">
+        <div class="gallery-container">
+            <h2 class="section-title">Campus Glimpses</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+                <div class="gallery-item"></div>
+            </div>
+            <div class="view-all">
+                <a href="gallery.html" class="btn btn-primary">View Full Gallery</a>
+            </div>
+        </div>
+    </section> -->
+<!-- Mobile Floating Action Buttons -->
+<div class="mobile-fab">
+    <!-- Call -->
+    <a href="tel:+918625902920" class="fab-btn call-btn" aria-label="Call">
+        <!-- Phone SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.62 10.79a15.53 15.53 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.59a1 1 0 0 1-.25 1.01l-2.2 2.19z"/>
+        </svg>
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/918625902920" target="_blank" class="fab-btn whatsapp-btn" aria-label="WhatsApp">
+        <!-- WhatsApp SVG -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.52 3.48A11.86 11.86 0 0 0 12.04 0C5.39 0 .01 5.38 0 12.03c0 2.12.55 4.2 1.6 6.04L0 24l6.14-1.61a11.93 11.93 0 0 0 5.9 1.5h.01c6.65 0 12.03-5.38 12.03-12.03 0-3.2-1.25-6.2-3.56-8.38zM12.05 21.4h-.01a9.37 9.37 0 0 1-4.78-1.31l-.34-.2-3.65.96.97-3.55-.22-.36a9.38 9.38 0 1 1 8.03 4.46zm5.43-7.41c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.66.15-.2.3-.76.97-.93 1.17-.17.2-.34.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.89-.8-1.49-1.79-1.66-2.09-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.59-.9-2.18-.24-.58-.48-.5-.66-.51-.17-.01-.37-.01-.56-.01-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.27.5 1.7.64.71.22 1.36.19 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.56-.35z"/>
+        </svg>
+    </a>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>HCC High School</h3>
+                <p>Excellence in education since 2000</p>
+                <p>Shaping young minds for a brighter tomorrow</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="about.html">About Us</a>
+                <a href="admission.html">Admissions</a>
+                <a href="staff.html">Faculty</a>
+                <a href="achievements.html">Achievements</a>
+            </div>
+
+            <div class="footer-section">
+    <h3>Contact Information</h3>
+
+    <!-- Address -->
+    <div class="footer-map-window">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3801.408602640286!2d75.91264877494157!3d17.67825598325992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5da640306764d%3A0x6b447604473729e2!2sH.C.C.%20High%20School!5e0!3m2!1sen!2sin!4v1740193155106!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- Address -->
+    <div class="contact-item ">
+        <a href="https://maps.app.goo.gl/4A8v38nVbPxUxZrM8" target="_blank" rel="noopener">
+            <span>166, Church Street, Solapur, Maharashtra 413001</span>
+        </a>
+    </div>
+
+    <!-- Phone -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.62 10.79a15.53 15.53 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.59a1 1 0 0 1-.25 1.01l-2.2 2.19z"/>
+            </svg>
+        </span>
+        <a href="tel:+918625902920">+91 8625902920</a>
+    </div>
+
+    <!-- Instagram -->
+    <div class="contact-item">
+        <span class="contact-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 7.3A2.8 2.8 0 1 1 14.8 12 2.81 2.81 0 0 1 12 14.8zM17.2 6.3a1.05 1.05 0 1 0 1.05 1.05 1.05 1.05 0 0 0-1.05-1.05z"/>
+            </svg>
+        </span>
+        <a href="https://www.instagram.com/hcc_high_school_/" target="_blank" rel="noopener">
+            @hcc_high_school_
+        </a>
+    </div>
+</div>
+
+
+            <div class="footer-section">
+                <h3>Notifications</h3>
+                <a href="javascript:void(0)" onclick="showNotificationSettings()">🔔 Notification Settings</a>
+                <p style="font-size: 0.85rem; color: var(--neutral-light); margin-top: 0.5rem;">
+                    Manage your notification preferences
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 HCC High School, Solapur. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        if (window.performance && window.performance.navigation.type === window.performance.navigation.TYPE_BACK_FORWARD) {
+            window.location.reload();
+        }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script>
+    // ============================================
+    // SUPABASE CONFIGURATION
+    // ============================================
+    const SUPABASE_URL = 'https://tqpjyqrlawhjuzugosyh.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRxcGp5cXJsYXdoanV6dWdvc3loIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzAxOTI4NzQsImV4cCI6MjA4NTc2ODg3NH0.Qsajz9iar_Qu0N7UHTm5ltjnUtVzNSpapJf1xnqGJLQ';
+
+    const { createClient } = supabase;
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // Mobile Menu Toggle
+      const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+    });
+
+
+    // Header hide on scroll down, show on scroll up
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll <= 0) {
+            header.style.transform = 'translateY(0)';
+            return;
+        }
+        
+        if (currentScroll > lastScroll && currentScroll > 80) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+
+    // ============================================
+    // PUSH NOTIFICATION SETUP
+    // ============================================
+    const VAPID_PUBLIC_KEY = 'BMjWrT4Mo49qpPCXXx_qWNS8VJfVNE5-laD52FT-usDylWdolRBv4qU1EpzdwK-PUAqj2JKB4ZAFvfABhZxMyKs';
+
+    // Convert VAPID key
+    function urlBase64ToUint8Array(base64String) {
+        const padding = '='.repeat((4 - base64String.length % 4) % 4);
+        const base64 = (base64String + padding)
+            .replace(/\-/g, '+')
+            .replace(/_/g, '/');
+
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+
+        for (let i = 0; i < rawData.length; ++i) {
+            outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+    }
+
+    // Subscribe to push notifications
+    async function subscribeToPush() {
+        try {
+            const registration = await navigator.serviceWorker.ready;
+            
+            let subscription = await registration.pushManager.getSubscription();
+
+            if (!subscription) {
+                subscription = await registration.pushManager.subscribe({
+                    userVisibleOnly: true,
+                    applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
+                });
+            }
+
+            await saveSubscriptionToDatabase(subscription);
+            console.log('✅ Push subscription saved');
+            return subscription;
+
+        } catch (error) {
+            console.error('❌ Failed to subscribe to push:', error);
+            return null;
+        }
+    }
+
+    // Save subscription to Supabase
+    async function saveSubscriptionToDatabase(subscription) {
+        const subscriptionJson = subscription.toJSON();
+        
+        const deviceType = /Mobile|Android|iPhone/i.test(navigator.userAgent) 
+            ? 'mobile' 
+            : 'desktop';
+
+        const { data, error } = await supabaseClient
+            .from('push_subscriptions')
+            .upsert({
+                endpoint: subscription.endpoint,
+                p256dh: subscriptionJson.keys.p256dh,
+                auth: subscriptionJson.keys.auth,
+                user_agent: navigator.userAgent,
+                device_type: deviceType,
+                is_active: true,
+                last_used: new Date().toISOString()
+            }, {
+                onConflict: 'endpoint'
+            });
+
+        if (error) {
+            console.error('❌ Failed to save subscription:', error);
+        }
+    }
+
+    // Request notification permission
+    async function requestNotificationPermission() {
+        if (!('Notification' in window)) {
+            console.log('❌ Notifications not supported');
+            return false;
+        }
+
+        if (!('serviceWorker' in navigator) || !('PushManager' in window)) {
+            console.log('❌ Push notifications not supported');
+            return false;
+        }
+
+        const permission = await Notification.requestPermission();
+        
+        if (permission === 'granted') {
+            console.log('✅ Notification permission granted');
+            localStorage.setItem('notifications_enabled', 'true');
+            await subscribeToPush();
+            return true;
+        } else {
+            console.log('❌ Notification permission denied');
+            localStorage.setItem('notifications_enabled', 'false');
+            return false;
+        }
+    }
+
+    // Unsubscribe from push notifications
+    async function unsubscribeFromPush() {
+        try {
+            const registration = await navigator.serviceWorker.ready;
+            const subscription = await registration.pushManager.getSubscription();
+
+            if (subscription) {
+                await subscription.unsubscribe();
+                
+                await supabaseClient
+                    .from('push_subscriptions')
+                    .update({ is_active: false })
+                    .eq('endpoint', subscription.endpoint);
+                
+                console.log('✅ Unsubscribed from push notifications');
+            }
+
+            localStorage.setItem('notifications_enabled', 'false');
+        } catch (error) {
+            console.error('❌ Failed to unsubscribe:', error);
+        }
+    }
+
+    // Show notification settings modal
+    function showNotificationSettings() {
+        const modal = document.createElement('div');
+        modal.id = 'notificationSettingsModal';
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 7, 7, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        `;
+
+        const isEnabled = localStorage.getItem('notifications_enabled') === 'true';
+        const blogsEnabled = localStorage.getItem('notify_blogs') !== 'false';
+        const achievementsEnabled = localStorage.getItem('notify_achievements') !== 'false';
+
+        modal.innerHTML = `
+            <div style="
+                background: white;
+                padding: 2rem;
+                border-radius: 16px;
+                max-width: 450px;
+                width: 90%;
+                animation: slideUp 0.4s ease;
+            ">
+                <h2 style="color: #220707; margin-bottom: 1.5rem; font-size: 1.6rem;">Notification Settings</h2>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer; margin-bottom: 0.5rem;">
+                        <span style="color: #220707; font-weight: 600;">Enable Notifications</span>
+                        <input type="checkbox" id="enableNotifications" ${isEnabled ? 'checked' : ''} style="width: 20px; height: 20px; cursor: pointer;">
+                    </label>
+                    <p style="color: #AC9185; font-size: 0.85rem; padding-left: 1rem;">Receive updates about school notices and achievements</p>
+                </div>
+
+                <div style="margin-bottom: 1rem; opacity: ${isEnabled ? '1' : '0.5'};">
+                    <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer; margin-bottom: 0.5rem;">
+                        <div>
+                            <div style="color: #220707; font-weight: 600;">📢 Notices & Updates</div>
+                            <div style="color: #AC9185; font-size: 0.85rem;">Get notified about new school notices</div>
+                        </div>
+                        <input type="checkbox" id="notifyBlogs" ${blogsEnabled ? 'checked' : ''} ${!isEnabled ? 'disabled' : ''} style="width: 20px; height: 20px; cursor: pointer;">
+                    </label>
+
+                    <label style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background: #F9F3ED; border-radius: 8px; cursor: pointer;">
+                        <div>
+                            <div style="color: #220707; font-weight: 600;">🏆 Achievements</div>
+                            <div style="color: #AC9185; font-size: 0.85rem;">Get notified about new achievements</div>
+                        </div>
+                        <input type="checkbox" id="notifyAchievements" ${achievementsEnabled ? 'checked' : ''} ${!isEnabled ? 'disabled' : ''} style="width: 20px; height: 20px; cursor: pointer;">
+                    </label>
+                </div>
+
+                <button id="saveSettings" style="
+                    padding: 1rem 2rem;
+                    background: #531C22;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                ">Save Settings</button>
+                
+                <button id="closeSettings" style="
+                    padding: 1rem 2rem;
+                    background: transparent;
+                    color: #531C22;
+                    border: 2px solid #E7D8CA;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                ">Close</button>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Toggle dependent checkboxes
+        document.getElementById('enableNotifications').addEventListener('change', (e) => {
+            const isChecked = e.target.checked;
+            document.getElementById('notifyBlogs').disabled = !isChecked;
+            document.getElementById('notifyAchievements').disabled = !isChecked;
+            document.getElementById('notifyBlogs').parentElement.parentElement.style.opacity = isChecked ? '1' : '0.5';
+        });
+
+        // Save settings
+        document.getElementById('saveSettings').addEventListener('click', async () => {
+            const enableNotifications = document.getElementById('enableNotifications').checked;
+            const notifyBlogs = document.getElementById('notifyBlogs').checked;
+            const notifyAchievements = document.getElementById('notifyAchievements').checked;
+
+            if (enableNotifications) {
+                const granted = await requestNotificationPermission();
+                if (granted) {
+                    localStorage.setItem('notify_blogs', notifyBlogs);
+                    localStorage.setItem('notify_achievements', notifyAchievements);
+                    alert('✅ Notification settings saved!');
+                }
+            } else {
+                await unsubscribeFromPush();
+                alert('✅ Notifications disabled');
+            }
+
+            modal.remove();
+        });
+
+        // Close button
+        document.getElementById('closeSettings').addEventListener('click', () => {
+            modal.remove();
+        });
+    }
+
+    // Show notification permission prompt
+    function showNotificationPrompt() {
+        // Don't show if already answered
+        if (localStorage.getItem('notification_prompt_shown') === 'true') {
+            return;
+        }
+
+        // Don't show if permission already granted or denied
+        if (Notification.permission !== 'default') {
+            localStorage.setItem('notification_prompt_shown', 'true');
+            return;
+        }
+
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 7, 7, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        `;
+
+        modal.innerHTML = `
+            <div style="
+                background: white;
+                padding: 2rem;
+                border-radius: 16px;
+                max-width: 400px;
+                width: 90%;
+                text-align: center;
+                animation: slideUp 0.4s ease;
+            ">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🔔</div>
+                <h2 style="color: #220707; margin-bottom: 1rem; font-size: 1.5rem;">Stay Updated!</h2>
+                <p style="color: #AC9185; margin-bottom: 2rem; line-height: 1.6;">
+                    Enable notifications to receive important school notices, announcements, and achievement updates instantly - even when the app is closed.
+                </p>
+                <button id="allowNotifications" style="
+                    padding: 1rem 2rem;
+                    background: #531C22;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                ">Allow Notifications</button>
+                <button id="notNow" style="
+                    padding: 1rem 2rem;
+                    background: transparent;
+                    color: #531C22;
+                    border: 2px solid #E7D8CA;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                ">Not Now</button>
+                <button id="customizeNotifications" style="
+                    padding: 0.5rem;
+                    background: transparent;
+                    color: #AC9185;
+                    border: none;
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-top: 0.5rem;
+                    text-decoration: underline;
+                ">Customize Settings</button>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        // Allow button
+        document.getElementById('allowNotifications').addEventListener('click', async () => {
+            modal.remove();
+            localStorage.setItem('notification_prompt_shown', 'true');
+            await requestNotificationPermission();
+        });
+
+        // Not now button
+        document.getElementById('notNow').addEventListener('click', () => {
+            modal.remove();
+            localStorage.setItem('notification_prompt_shown', 'true');
+        });
+
+        // Customize button
+        document.getElementById('customizeNotifications').addEventListener('click', () => {
+            modal.remove();
+            localStorage.setItem('notification_prompt_shown', 'true');
+            showNotificationSettings();
+        });
+    }
+
+
+
+
+
+
+
+
+// Video Data (Hardcoded) - SINGLE SOURCE OF TRUTH
+const videos = [
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/Hindustani%20Covenant%20Church%20High%20School%20and%20Junior%20College_%20Solapur._10th%20August%202014__hcc.%20_artcompetition_As%20we%20celebrate%20our%2025th%20Silver%20Jubilee%20year_%20we%20(.mp4',
+        caption: 'Art Competition',
+        icon: 'sports'
+    },
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/DRhAaD9kVbA(MP4).mp4',
+        caption: 'Grand Parents Day Celebration',
+        icon: 'science'
+    },
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/_HCC%20_preprimary%20_firstdayofschool%20__23rd%20June%202025_First%20day%20of%20our%20toddlers.%20_Our%20Secretary%20Dr.%20MRS.%20Mackenzie%20ma_am%20was%20the%20chief%20guest.__Tiny%20shoes%20and%20(.mp4',
+        caption: 'First Day Pre-Primary',
+        icon: 'music'
+    },
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/_hcc%20_rainyseason%20_rainydayfun%20_rainydayvibes%20_preprimary%20_rainactivity%20.%20%2025th%20July%202024_Pre-primary%20section._Rainy%20days%20can%20be%20a%20wonderful%20opportunity%20to%20(.mp4',
+        caption: 'Rainy Day',
+        icon: 'graduation'
+    },
+    {
+        url: 'https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/DLH-DrKxXYa(MP4).mp4',
+        caption: 'International Yoga Day',
+        icon: 'campus'
+    }
+];
+
+let currentVideoIndex = 0;
+let currentAlumniIndex = 0;
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+   
+    initializeVideoSlider();
+    initializeAlumniSlider();
+});
+
+
+// KEEP THE EXISTING "Close menu when clicking outside" CODE
+
+
+// Hamburger Menu Toggle
+
+// Initialize Video Slider with Dropdown Filter
+function initializeVideoSlider() {
+    const mainVideo = document.getElementById('mainVideo');
+    const videoCaption = document.getElementById('videoCaption');
+    const videoCounter = document.getElementById('videoCounter');
+    const prevBtn = document.getElementById('prevVideo');
+    const nextBtn = document.getElementById('nextVideo');
+    const videoContainer = document.querySelector('.video-container');
+    const videoSelect = document.getElementById('videoSelect');
+    
+    // Populate dropdown from videos array
+    populateVideoDropdown();
+    
+    // Load first video
+    loadVideo(0);
+    
+    // Dropdown change event
+    if (videoSelect) {
+        videoSelect.addEventListener('change', (e) => {
+            currentVideoIndex = parseInt(e.target.value);
+            loadVideo(currentVideoIndex);
+        });
+    }
+    
+    // Previous button
+    prevBtn.addEventListener('click', () => {
+        currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+        loadVideo(currentVideoIndex);
+        updateVideoSelect();
+    });
+    
+    // Next button
+    nextBtn.addEventListener('click', () => {
+        currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+        loadVideo(currentVideoIndex);
+        updateVideoSelect();
+    });
+    
+    // Touch/Swipe Support for Video
+    let videoTouchStartX = 0;
+    let videoTouchEndX = 0;
+    let videoTouchStartY = 0;
+    let videoTouchEndY = 0;
+    
+    videoContainer.addEventListener('touchstart', (e) => {
+        videoTouchStartX = e.changedTouches[0].screenX;
+        videoTouchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    videoContainer.addEventListener('touchend', (e) => {
+        videoTouchEndX = e.changedTouches[0].screenX;
+        videoTouchEndY = e.changedTouches[0].screenY;
+        handleVideoSwipe();
+    }, { passive: true });
+    
+    function handleVideoSwipe() {
+        const swipeThreshold = 50;
+        const horizontalDistance = Math.abs(videoTouchEndX - videoTouchStartX);
+        const verticalDistance = Math.abs(videoTouchEndY - videoTouchStartY);
+        
+        // Only trigger if horizontal swipe is more significant than vertical
+        if (horizontalDistance > verticalDistance && horizontalDistance > swipeThreshold) {
+            if (videoTouchEndX < videoTouchStartX) {
+                // Swiped left - next video
+                currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                loadVideo(currentVideoIndex);
+                updateVideoSelect();
+            }
+            
+            if (videoTouchEndX > videoTouchStartX) {
+                // Swiped right - previous video
+                currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+                loadVideo(currentVideoIndex);
+                updateVideoSelect();
+            }
+        }
+    }
+  // Remove auto-play - user must manually play video
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+            // Video scrolled out of view - pause it
+            mainVideo.pause();
+        }
+        // Removed auto-play when video enters viewport
+    });
+}, {
+    threshold: 0.5 // Trigger when 50% of video is visible
+});
+
+
+// Start observing the video container
+observer.observe(videoContainer);
+
+// Click anywhere on video to play/pause
+mainVideo.addEventListener('click', (e) => {
+    if (mainVideo.paused) {
+        mainVideo.play().catch(err => {
+            console.log('Play prevented:', err);
+        });
+    } else {
+        mainVideo.pause();
+    }
+});
+
+// Also pause when clicking outside arrows
+mainVideo.addEventListener('click', () => {
+    if (mainVideo.paused) {
+        mainVideo.play().catch(err => {
+            console.log('Play prevented:', err);
+        });
+    } else {
+        mainVideo.pause();
+    }
+});
+
+    
+    // Video ended - don't auto-play next
+    mainVideo.addEventListener('ended', () => {
+        mainVideo.controls = true;
+    });
+    
+    // Update dropdown selection
+    function updateVideoSelect() {
+        if (videoSelect) {
+            videoSelect.value = currentVideoIndex;
+        }
+    }
+}
+
+// Populate Video Dropdown from videos array
+function populateVideoDropdown() {
+    const videoSelect = document.getElementById('videoSelect');
+    
+    if (!videoSelect) return;
+    
+    // Clear existing options
+    videoSelect.innerHTML = '';
+    
+    // Add options from videos array
+    videos.forEach((video, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = video.caption;
+        videoSelect.appendChild(option);
+    });
+}
+
+// Load specific video
+function loadVideo(index) {
+    const mainVideo = document.getElementById('mainVideo');
+    const videoCaption = document.getElementById('videoCaption');
+    const videoCounter = document.getElementById('videoCounter');
+    
+    currentVideoIndex = index;
+    
+    // Pause current video before switching
+    mainVideo.pause();
+    
+    // Update video source from videos array
+    mainVideo.src = videos[index].url;
+    mainVideo.load();
+    
+    // Update caption and counter from videos array
+    videoCaption.textContent = videos[index].caption;
+    videoCounter.textContent = `${index + 1} / ${videos.length}`;
+    
+    // Auto-play new video (browser might block this)
+    mainVideo.play().catch(e => {
+        console.log('Autoplay prevented, user needs to click play');
+    });
+}
+
+// Initialize Alumni Slider with Touch Support
+function initializeAlumniSlider() {
+    const sliderTrack = document.getElementById('alumniSliderTrack');
+    const prevBtn = document.getElementById('prevAlumni');
+    const nextBtn = document.getElementById('nextAlumni');
+    const dotsContainer = document.getElementById('alumniDots');
+    const alumniCards = sliderTrack.querySelectorAll('.alumni-card');
+    const totalAlumni = alumniCards.length;
+    
+   if (!sliderTrack || !prevBtn || !nextBtn || !dotsContainer) {
+    console.log('Alumni slider elements not found');
+    return;
+}
+
+// Check if cards exist
+if (totalAlumni === 0) {
+    console.log('No alumni cards found');
+    return;
+}
+
+// FIXED: Always show 1 card at a time
+const cardsPerView = 1;
+let maxIndex = totalAlumni - 1; // 0 to 9 for 10 cards
+
+
+
+   // Create dots - one for each card
+function createDots() {
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i < totalAlumni; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'alumni-dot';
+        dot.setAttribute('aria-label', `Go to alumni ${i + 1}`);
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+}
+ 
+    createDots();
+    
+    // Update slider position
+    function updateSlider() {
+        const cardWidth = alumniCards[0].offsetWidth;
+        const gap = parseFloat(getComputedStyle(sliderTrack).gap) || 0;
+        const offset = -(currentAlumniIndex * (cardWidth + gap));
+        sliderTrack.style.transform = `translateX(${offset}px)`;
+        
+        // Update dots
+        const dots = dotsContainer.querySelectorAll('.alumni-dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentAlumniIndex);
+        });
+        
+        // Update button states
+        prevBtn.style.opacity = currentAlumniIndex === 0 ? '0.5' : '1';
+        prevBtn.style.cursor = currentAlumniIndex === 0 ? 'not-allowed' : 'pointer';
+        nextBtn.style.opacity = currentAlumniIndex === maxIndex ? '0.5' : '1';
+        nextBtn.style.cursor = currentAlumniIndex === maxIndex ? 'not-allowed' : 'pointer';
+    }
+    
+    // Go to specific slide
+    function goToSlide(index) {
+        currentAlumniIndex = Math.max(0, Math.min(index, maxIndex));
+        updateSlider();
+    }
+    
+   // Previous button
+prevBtn.addEventListener('click', () => {
+    if (currentAlumniIndex > 0) {
+        currentAlumniIndex--;
+        updateSlider();
+    }
+});
+
+// Next button
+nextBtn.addEventListener('click', () => {
+    if (currentAlumniIndex < maxIndex) {
+        currentAlumniIndex++;
+        updateSlider();
+    }
+});
+
+    
+    // Touch/Swipe Support for Alumni
+    let alumniTouchStartX = 0;
+    let alumniTouchEndX = 0;
+    let alumniTouchStartY = 0;
+    let alumniTouchEndY = 0;
+    
+    sliderTrack.addEventListener('touchstart', (e) => {
+        alumniTouchStartX = e.changedTouches[0].screenX;
+        alumniTouchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    
+    sliderTrack.addEventListener('touchend', (e) => {
+        alumniTouchEndX = e.changedTouches[0].screenX;
+        alumniTouchEndY = e.changedTouches[0].screenY;
+        handleAlumniSwipe();
+    }, { passive: true });
+    
+    function handleAlumniSwipe() {
+        const swipeThreshold = 50;
+        const horizontalDistance = Math.abs(alumniTouchEndX - alumniTouchStartX);
+        const verticalDistance = Math.abs(alumniTouchEndY - alumniTouchStartY);
+        
+        // Only trigger if horizontal swipe is more significant than vertical
+        if (horizontalDistance > verticalDistance && horizontalDistance > swipeThreshold) {
+         if (alumniTouchEndX < alumniTouchStartX && currentAlumniIndex < maxIndex) {
+    // Swiped left - next slide
+    currentAlumniIndex++;
+    updateSlider();
+}
+
+if (alumniTouchEndX > alumniTouchStartX && currentAlumniIndex > 0) {
+    // Swiped right - previous slide
+    currentAlumniIndex--;
+    updateSlider();
+}
+
+        }
+    }
+    
+    // Handle window resize
+   // Handle window resize
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        updateSlider();
+    }, 250);
+});
+
+    
+    // Initial update
+  // Initial update
+updateSlider();
+
+// DEBUG - Check card visibility
+console.log('=== ALUMNI SLIDER DEBUG ===');
+console.log('Total alumni cards:', totalAlumni);
+console.log('Max index:', maxIndex);
+console.log('Current index:', currentAlumniIndex);
+console.log('Track width:', sliderTrack.offsetWidth);
+if (alumniCards[0]) {
+    console.log('First card width:', alumniCards[0].offsetWidth);
+}
+alumniCards.forEach((card, index) => {
+    console.log(`Card ${index + 1}:`, {
+        width: card.offsetWidth,
+        display: window.getComputedStyle(card).display,
+        minWidth: window.getComputedStyle(card).minWidth
+    });
+});
+console.log('========================');
+
+}
+
+// Notification Settings
+function showNotificationSettings() {
+    alert('Notification settings will be available soon!');
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+
+    // ============================================
+    // PWA INSTALL PROMPT
+    // ============================================
+    let deferredPrompt;
+    const MAX_PROMPTS_PER_DAY = 2;
+
+    // Initialize install stats
+    let installStats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+    const today = new Date().toDateString();
+
+    if (installStats.lastPromptDate !== today) {
+        installStats.lastPromptDate = today;
+        installStats.promptCount = 0;
+        localStorage.setItem('pwaInstallStats', JSON.stringify(installStats));
+    }
+
+    // Show install prompt
+    function showInstallPrompt() {
+        const stats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+
+        if (stats.promptCount >= MAX_PROMPTS_PER_DAY || !deferredPrompt) {
+            console.log('⏸️ Install prompt conditions not met');
+            return;
+        }
+
+        const modal = document.createElement('div');
+        modal.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(34, 7, 7, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
+        `;
+
+        modal.innerHTML = `
+            <div style="
+                background: white;
+                padding: 2rem;
+                border-radius: 16px;
+                max-width: 400px;
+                width: 90%;
+                text-align: center;
+                animation: slideUp 0.4s ease;
+            ">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📱</div>
+                <h2 style="color: #220707; margin-bottom: 1rem; font-size: 1.5rem;">Install HCC School App</h2>
+                <p style="color: #AC9185; margin-bottom: 2rem; line-height: 1.6;">
+                    Get quick access to admissions, gallery, and updates. Works offline!
+                </p>
+                <button id="installBtn" style="
+                    padding: 1rem 2rem;
+                    background: #531C22;
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                    margin-bottom: 0.5rem;
+                ">Install Now</button>
+                <button id="laterBtn" style="
+                    padding: 1rem 2rem;
+                    background: transparent;
+                    color: #531C22;
+                    border: 2px solid #E7D8CA;
+                    border-radius: 8px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    width: 100%;
+                ">Maybe Later</button>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        document.getElementById('installBtn').addEventListener('click', async () => {
+            modal.remove();
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            
+            if (outcome === 'accepted') {
+                console.log('✅ User installed the app');
+                localStorage.setItem('pwaInstalled', 'true');
+                // Show notification prompt after install
+                setTimeout(() => showNotificationPrompt(), 2000);
+            }
+            
+            deferredPrompt = null;
+        });
+
+        document.getElementById('laterBtn').addEventListener('click', () => {
+            modal.remove();
+        });
+
+        // Update stats
+        const newStats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+        newStats.promptCount = (newStats.promptCount || 0) + 1;
+        localStorage.setItem('pwaInstallStats', JSON.stringify(newStats));
+    }
+
+    // Capture install prompt event
+    window.addEventListener('beforeinstallprompt', (e) => {
+        console.log('📱 Install prompt event captured');
+        e.preventDefault();
+        deferredPrompt = e;
+
+        // Check if already installed
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            console.log('✅ App already installed');
+            return;
+        }
+
+        const currentHour = new Date().getHours();
+        const stats = JSON.parse(localStorage.getItem('pwaInstallStats') || '{}');
+
+        // First prompt: Before 3 PM (if not shown today)
+        if (currentHour < 15 && stats.promptCount === 0) {
+            console.log('📱 Scheduling first install prompt');
+            setTimeout(() => showInstallPrompt(), 5000);
+        }
+        
+        // Second prompt: After 3 PM (if only 1 shown today)
+        if (currentHour >= 15 && stats.promptCount === 1) {
+            console.log('📱 Scheduling second install prompt');
+            setTimeout(() => showInstallPrompt(), 10000);
+        }
+    });
+
+    // App installed event
+    window.addEventListener('appinstalled', () => {
+        console.log('✅ PWA was installed');
+        localStorage.setItem('pwaInstalled', 'true');
+        setTimeout(() => showNotificationPrompt(), 2000);
+    });
+
+    // Check if running as installed app
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        console.log('✅ Running as installed PWA');
+        document.body.classList.add('pwa-mode');
+    }
+
+    // ============================================
+    // SERVICE WORKER REGISTRATION
+    // ============================================
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('✅ SW registered:', registration.scope);
+
+                    // Check for updates every 5 minutes
+                    setInterval(() => {
+                        registration.update();
+                    }, 5 * 60 * 1000);
+
+                    // Listen for new service worker
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                if (confirm('New version available! Reload to update?')) {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch((error) => {
+                    console.error('❌ SW registration failed:', error);
+                });
+
+            // Reload when new SW takes control
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                window.location.reload();
+            });
+        });
+    }
+
+    // ============================================
+    // INITIALIZE ON PAGE LOAD
+    // ============================================
+    window.addEventListener('DOMContentLoaded', () => {
+        console.log('🚀 Page loaded, initializing...');
+
+        // Show notification prompt after 15 seconds if not already shown
+        setTimeout(() => {
+            console.log('⏰ Checking notification prompt conditions...');
+            if (Notification.permission === 'default' && 
+                localStorage.getItem('notification_prompt_shown') !== 'true') {
+                console.log('🔔 Showing notification prompt');
+                showNotificationPrompt();
+            } else {
+                console.log('⏸️ Notification prompt already shown or permission set');
+            }
+        }, 15000);
+    });
+
+    // Make showNotificationSettings available globally
+    window.showNotificationSettings = showNotificationSettings;
+</script>
+   </body>
+</html>
+
+
