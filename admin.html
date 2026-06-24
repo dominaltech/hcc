@@ -1525,7 +1525,9 @@
             });
         }
 
+        let isSavingStaff = false;
         async function saveStaff(isEdit) {
+            if (isSavingStaff) return;
             const data = {
                 name: document.getElementById('staffName').value.trim(),
                 qualification: document.getElementById('staffQualification').value.trim(),
@@ -1537,6 +1539,7 @@
             };
 
             try {
+                isSavingStaff = true;
                 if (isEdit) {
                     const { error } = await supabaseClient
                         .from('staff')
@@ -1560,6 +1563,8 @@
             } catch (err) {
                 console.error('Error saving staff:', err);
                 alert('Failed to save staff');
+            } finally {
+                isSavingStaff = false;
             }
         }
 
@@ -1689,7 +1694,9 @@
             });
         }
 
+        let isSavingInfra = false;
         async function saveInfra(isEdit) {
+            if (isSavingInfra) return;
             const data = {
                 title: document.getElementById('infraTitle').value.trim(),
                 description: document.getElementById('infraDescription').value.trim() || null,
@@ -1699,6 +1706,7 @@
             };
 
             try {
+                isSavingInfra = true;
                 if (isEdit) {
                     const { error } = await supabaseClient
                         .from('infrastructure')
@@ -1722,6 +1730,8 @@
             } catch (err) {
                 console.error('Error saving infrastructure:', err);
                 alert('Failed to save infrastructure');
+            } finally {
+                isSavingInfra = false;
             }
         }
 
@@ -1851,7 +1861,9 @@
             });
         }
 
+        let isSavingGallery = false;
         async function saveGallery(isEdit) {
+            if (isSavingGallery) return;
             const data = {
                 title: document.getElementById('galleryTitle').value.trim(),
                 category: document.getElementById('galleryCategory').value.trim() || null,
@@ -1861,6 +1873,7 @@
             };
 
             try {
+                isSavingGallery = true;
                 if (isEdit) {
                     const { error } = await supabaseClient
                         .from('gallery')
@@ -1884,6 +1897,8 @@
             } catch (err) {
                 console.error('Error saving gallery:', err);
                 alert('Failed to save gallery image');
+            } finally {
+                isSavingGallery = false;
             }
         }
 
@@ -2025,7 +2040,9 @@
             });
         }
 
+        let isSavingAchievement = false;
         async function saveAchievement(isEdit) {
+            if (isSavingAchievement) return;
             const data = {
                 title: document.getElementById('achievementTitle').value.trim(),
                 description: document.getElementById('achievementDescription').value.trim() || null,
@@ -2036,6 +2053,7 @@
             };
 
             try {
+                isSavingAchievement = true;
                 if (isEdit) {
                     const { error } = await supabaseClient
                         .from('achievements')
@@ -2059,6 +2077,8 @@
             } catch (err) {
                 console.error('Error saving achievement:', err);
                 alert('Failed to save achievement');
+            } finally {
+                isSavingAchievement = false;
             }
         }
 
@@ -2193,7 +2213,9 @@
             });
         }
 
+        let isSavingBlog = false;
         async function saveBlog(isEdit) {
+            if (isSavingBlog) return;
             const data = {
                 title: document.getElementById('blogTitle').value.trim(),
                 content: document.getElementById('blogContent').value.trim(),
@@ -2204,6 +2226,7 @@
             };
 
             try {
+                isSavingBlog = true;
                 if (isEdit) {
                     const { error } = await supabaseClient
                         .from('blogs')
@@ -2227,6 +2250,8 @@
             } catch (err) {
                 console.error('Error saving blog:', err);
                 alert('Failed to save notice');
+            } finally {
+                isSavingBlog = false;
             }
         }
 
