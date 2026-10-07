@@ -49,6 +49,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://hccsolapur.in/alumni.html</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://hccsolapur.in/admin.html</loc>
     <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>

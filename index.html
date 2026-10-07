@@ -1152,195 +1152,13 @@ nav a:hover::after {
     line-height: 1.8;
 }
 
-   /* ────────────────────────────────────────────────
-   ALUMNI SLIDER – Clean & Mobile-Friendly (2025)
-───────────────────────────────────────────────── */
 
-.alumni-section {
-    padding: 4rem 1.5rem;
-    background: var(--bg-light);
-}
-
-.alumni-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.8rem;
-    color: var(--maroon-dark);
-    margin-bottom: 1rem;
-}
-
-.section-subtitle {
-    text-align: center;
-    color: var(--neutral-warm);
-    font-size: 1.15rem;
-    margin-bottom: 2.5rem;
-}
-
-/* Slider Wrapper – contains arrows + track */
-.alumni-slider-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    overflow: hidden;
-}
-
-/* Track – contains all cards */
-.alumni-slider-track {
-    display: flex;
-    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-    gap: 1.5rem;
-    will-change: transform;
-    touch-action: pan-y pinch-zoom;
-}
-
-/* Each Card */
-.alumni-card {
-    flex: 0 0 100%;               /* One card = full width */
-    background: white;
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    border: 1px solid var(--neutral-light);
-    box-shadow: 0 8px 25px rgba(34, 7, 7, 0.08);
-    transition: all 0.35s ease;
-}
-
-/* .alumni-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(83, 28, 34, 0.18);
-    border-color: var(--maroon-primary);
-} */
-
-/* Image */
-.alumni-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--maroon-primary);
-    margin: 0 auto 1.5rem;
-    background: #f5f5f5;
-}
-
-/* Text */
-.alumni-name {
-    font-size: 1.7rem;
-    color: var(--maroon-dark);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-
-.alumni-designation {
-    font-size: 1.1rem;
-    color: var(--maroon-primary);
-    font-weight: 600;
-    margin-bottom: 1.3rem;
-}
-
-.alumni-quote {
-    font-style: italic;
-    color: var(--neutral-warm);
-    line-height: 1.7;
-    font-size: 1.05rem;
-    position: relative;
-    padding: 1rem 0;
-}
-
-.alumni-quote::before,
-.alumni-quote::after {
-    content: '"';
-    font-size: 4rem;
-    color: var(--neutral-light);
-    opacity: 0.3;
-    position: absolute;
-    font-family: Georgia, serif;
-    line-height: 1;
-}
-
-.alumni-quote::before { top: -10px; left: 0; }
-.alumni-quote::after  { bottom: -35px; right: 0; }
-
-/* ── Arrows ── */
-.slider-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: var(--maroon-primary);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-    transition: all 0.25s ease;
-}
-
-.slider-arrow:hover:not(:disabled) {
-    background: var(--maroon-dark);
-    transform: translateY(-50%) scale(1.1);
-}
-
-.slider-arrow:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
-
-.slider-arrow-left  { left: 10px; }
-.slider-arrow-right { right: 10px; }
-
-.slider-arrow svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-}
-
-/* ── Dots ── */
-.alumni-dots {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 2rem;
-}
-
-.alumni-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--neutral-light);
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.alumni-dot:hover {
-    background: var(--neutral-warm);
-    transform: scale(1.4);
-}
-
-.alumni-dot.active {
-    background: var(--maroon-primary);
-    width: 28px;
-    border-radius: 14px;
-}
 
 /* ────────────────────────────────────────────────
    MOBILE OPTIMIZATIONS
 ───────────────────────────────────────────────── */
 
 @media (max-width: 768px) {
-    .alumni-section {
-        padding: 3rem 1rem;
-    }
-
     .section-title {
         font-size: 2.3rem;
     }
@@ -1348,74 +1166,6 @@ nav a:hover::after {
     .section-subtitle {
         font-size: 1rem;
         margin-bottom: 2rem;
-    }
-
-    .alumni-slider-wrapper {
-        padding: 0 55px;              /* space for arrows on sides */
-        box-sizing: border-box;
-    }
-
-    .alumni-card {
-    flex: 0 0 calc(100% - 10px);
-    padding: 2rem 1.5rem;
-}
-
-
-    .alumni-image {
-        width: 120px;
-        height: 120px;
-        border-width: 4px;
-    }
-
-    .alumni-name {
-        font-size: 1.45rem;
-    }
-
-    .alumni-designation {
-        font-size: 1rem;
-    }
-
-    .alumni-quote {
-        font-size: 0.96rem;
-    }
-
-    .alumni-quote::before,
-    .alumni-quote::after {
-        font-size: 3rem;
-    }
-
-    .slider-arrow {
-        width: 44px;
-        height: 44px;
-    }
-
-    .slider-arrow svg {
-        width: 22px;
-        height: 22px;
-    }
-
-    .slider-arrow-left  { left: 5px; }
-    .slider-arrow-right { right: 5px; }
-}
-
-/* Very small phones */
-@media (max-width: 420px) {
-    .alumni-slider-wrapper {
-        padding: 0 50px;
-    }
-
-    .alumni-card {
-        padding: 1.8rem 1.2rem;
-    }
-
-    .alumni-image {
-        width: 110px;
-        height: 110px;
-    }
-
-    .slider-arrow {
-        width: 40px;
-        height: 40px;
     }
 }
 
@@ -1595,59 +1345,7 @@ nav a:hover::after {
         scroll-behavior: smooth;
     }
 
-    /* Tablet Responsive (769px - 1024px) */
-    @media (min-width: 769px) and (max-width: 1024px) {
-        .alumni-slider-wrapper {
-            padding: 0 4rem;
-            gap: 0;
-        }
-        
-        .alumni-slider-wrapper .slider-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        
-        .alumni-slider-wrapper .slider-arrow-left {
-            left: 0;
-        }
-        
-        .alumni-slider-wrapper .slider-arrow-right {
-            right: 0;
-        }
-        
-        .alumni-slider-track {
-            gap: 2rem;
-        }
-        
-        .alumni-card {
-            min-width: 100%; /* FIXED: Show 1 card */
-            padding: 2.5rem 2rem;
-        }
 
-        
-        .alumni-image {
-            width: 130px;
-            height: 130px;
-        }
-        
-        .alumni-name {
-            font-size: 1.5rem;
-        }
-
-        .alumni-designation {
-            font-size: 1rem;
-        }
-        
-        .alumni-quote {
-            font-size: 0.95rem;
-        }
-
-        .slider-arrow {
-            width: 50px;
-            height: 50px;
-        }
-    }
 
     /* Mobile Responsive (max-width: 768px) */
     @media (max-width: 768px) {
@@ -1848,6 +1546,7 @@ nav a:hover::after {
                     <li><a href="gallery.html">Image Gallery</a></li>
                     <li><a href="achievements.html">Achievements</a></li>
                     <li><a href="notices.html">Notices</a></li>
+                    <li><a href="alumni.html">Alumni</a></li>
                 </ul>
             </nav>
 
@@ -1863,7 +1562,7 @@ nav a:hover::after {
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>Welcome to HINDUSTAN CONVENT CHURCH High School</h1>
+                <h1>HINDUSTANI COVENANT CHURCH HIGH SCHOOL & JUNIOR COLLEGE, SOLAPUR.</h1>
                 <p>Nurturing minds, building character, and inspiring excellence for a brighter future.</p>
                 <div class="cta-buttons">
                     <a href="admission.html" class="btn btn-primary">Admissions Open 2026-27</a>
@@ -1923,132 +1622,6 @@ nav a:hover::after {
             </button>
         </div>
     </div>
-</section>
-
-
-    <!-- Alumni Section -->
-    <!-- Alumni Section -->
-<section class="alumni-section">
-    <div class="alumni-container">
-        <h2 class="section-title">Our Distinguished Alumni</h2>
-        <p class="section-subtitle">Proud graduates making an impact across the world</p>
-        
-       <div class="alumni-slider-wrapper">
-            <button class="slider-arrow slider-arrow-left" id="prevAlumni" aria-label="Previous alumni">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z"/>
-                </svg>
-            </button>
-
-            <div class="alumni-slider-track" id="alumniSliderTrack">
-                <!-- Alumni 1 -->
-                <div class="alumni-card">
-                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/yahya.jpg"
-                         alt="Yahya Mundewadi" class="alumni-image">
-                    <h3 class="alumni-name">Yahya Mundewadi</h3>
-                    <p class="alumni-designation">
-  Founder of 
-  <a href="https://dominal.in" target="_blank" 
-     style="color: blue; text-decoration: none;">
-     Dominal Tech
-  </a> 
-  | Software Developer, Pune
-                    </p>
-                    <p class="alumni-quote">The confidence and communication skills I gained here contributed greatly to my growth. Today, I'm a Founder and Software Developer. Forever thankful to my school and teachers.</p>
-                </div>
-
-                <!-- Alumni 2 -->
-                <div class="alumni-card">
-                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/Azar%20Jahangirdar.png"
-                         alt="Azhar Jahagirdar" class="alumni-image">
-                    <h3 class="alumni-name">Azhar Jahagirdar</h3>
-                    <p class="alumni-designation">Aspiring Software Developer | Automotive Technology Enthusiast</p>
-                    <p class="alumni-quote">With strong self-belief and constant support, I strive to turn my dreams into impactful technology.</p>
-                </div>
-
-                <!-- Alumni 3 -->
-                <div class="alumni-card">
-                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/Dr%20Ashish%20VishwasSunita%20Paul.png"
-                         alt="Dr. Ashish VishwasSunita Paul" class="alumni-image">
-                    <h3 class="alumni-name">Dr. Ashish VishwasSunita Paul</h3>
-                    <p class="alumni-designation">Physiotherapist | Healthcare Professional</p>
-                    <p class="alumni-quote">HCC was not just an institution, but a second home that shaped my journey, values, and success.</p>
-                </div>
-
-                <!-- Alumni 4 -->
-                <div class="alumni-card">
-                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/Manish%20Gurbani.png"
-                         alt="Manish Gurbani" class="alumni-image">
-                    <h3 class="alumni-name">Manish Gurbani</h3>
-                    <p class="alumni-designation">Software Engineer at Paris</p>
-                    <p class="alumni-quote">From classroom concepts to real-world innovation, my journey shaped me into a global software professional.</p>
-                </div>
-
-                <!-- Alumni 5 -->
-                <div class="alumni-card">
-                    <img src="https://tqpjyqrlawhjuzugosyh.supabase.co/storage/v1/object/public/site_videos/FELIX%20JOHN.png"
-                         alt="Felix John" class="alumni-image">
-                    <h3 class="alumni-name">Felix John</h3>
-                    <p class="alumni-designation">Lab Assistant at St. Joseph</p>
-                    <p class="alumni-quote">Every experiment and lesson at HCC strengthened my foundation in learning and discipline.</p>
-                </div>
-
-                <!-- Alumni 6 -->
-                <div class="alumni-card">
-                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni6.jpg"
-                         alt="Anjali Mehta" class="alumni-image">
-                    <h3 class="alumni-name">Anjali Mehta</h3>
-                    <p class="alumni-designation">Architect, Award-Winning Designer</p>
-                    <p class="alumni-quote">HCC nurtured my creativity and gave me confidence to pursue architecture.</p>
-                </div>
-
-                <!-- Alumni 7 -->
-                <div class="alumni-card">
-                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni7.jpg"
-                         alt="Rahul Pawar" class="alumni-image">
-                    <h3 class="alumni-name">Rahul Pawar</h3>
-                    <p class="alumni-designation">Professional Cricketer, Mumbai Indians</p>
-                    <p class="alumni-quote">HCC's sports program and supportive teachers helped me balance academics and cricket.</p>
-                </div>
-
-                <!-- Alumni 8 -->
-                <div class="alumni-card">
-                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni8.jpg"
-                         alt="Kavita Reddy" class="alumni-image">
-                    <h3 class="alumni-name">Kavita Reddy</h3>
-                    <p class="alumni-designation">Research Scientist, ISRO</p>
-                    <p class="alumni-quote">HCC's science labs and inspiring teachers sparked my passion for space research.</p>
-                </div>
-
-                <!-- Alumni 9 -->
-                <div class="alumni-card">
-                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni9.jpg"
-                         alt="Sandeep Kulkarni" class="alumni-image">
-                    <h3 class="alumni-name">Sandeep Kulkarni</h3>
-                    <p class="alumni-designation">Film Director, National Award Winner</p>
-                    <p class="alumni-quote">The cultural activities at HCC shaped my artistic vision and storytelling skills.</p>
-                </div>
-
-                <!-- Alumni 10 -->
-                <div class="alumni-card">
-                    <img src="https://YOUR_SUPABASE_URL/storage/v1/object/public/alumni/alumni10.jpg"
-                         alt="Meera Singh" class="alumni-image">
-                    <h3 class="alumni-name">Meera Singh</h3>
-                    <p class="alumni-designation">Banking Executive, HDFC Bank VP</p>
-                    <p class="alumni-quote">HCC taught me integrity and excellence that define my career in banking today.</p>
-                </div>
-            </div>
-
-            <button class="slider-arrow slider-arrow-right" id="nextAlumni" aria-label="Next alumni">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M8.59 16.59L10 18L16 12L10 6L8.59 7.41L13.17 12L8.59 16.59Z"/>
-                </svg>
-            </button>
-        </div>
-
-        <div class="alumni-dots" id="alumniDots"></div>
-    </div>
-    
 </section>
 
     <!-- Quick Highlights -->
@@ -2138,6 +1711,7 @@ nav a:hover::after {
                 <a href="admission.html">Admissions</a>
                 <a href="staff.html">Faculty</a>
                 <a href="achievements.html">Achievements</a>
+                <a href="alumni.html">Alumni</a>
             </div>
 
             <div class="footer-section">
@@ -2647,13 +2221,11 @@ const videos = [
 ];
 
 let currentVideoIndex = 0;
-let currentAlumniIndex = 0;
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
    
     initializeVideoSlider();
-    initializeAlumniSlider();
 });
 
 
@@ -2833,164 +2405,6 @@ function loadVideo(index) {
     mainVideo.play().catch(e => {
         console.log('Autoplay prevented, user needs to click play');
     });
-}
-
-// Initialize Alumni Slider with Touch Support
-function initializeAlumniSlider() {
-    const sliderTrack = document.getElementById('alumniSliderTrack');
-    const prevBtn = document.getElementById('prevAlumni');
-    const nextBtn = document.getElementById('nextAlumni');
-    const dotsContainer = document.getElementById('alumniDots');
-    const alumniCards = sliderTrack.querySelectorAll('.alumni-card');
-    const totalAlumni = alumniCards.length;
-    
-   if (!sliderTrack || !prevBtn || !nextBtn || !dotsContainer) {
-    console.log('Alumni slider elements not found');
-    return;
-}
-
-// Check if cards exist
-if (totalAlumni === 0) {
-    console.log('No alumni cards found');
-    return;
-}
-
-// FIXED: Always show 1 card at a time
-const cardsPerView = 1;
-let maxIndex = totalAlumni - 1; // 0 to 9 for 10 cards
-
-
-
-   // Create dots - one for each card
-function createDots() {
-    dotsContainer.innerHTML = '';
-    for (let i = 0; i < totalAlumni; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'alumni-dot';
-        dot.setAttribute('aria-label', `Go to alumni ${i + 1}`);
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    }
-}
- 
-    createDots();
-    
-    // Update slider position
-    function updateSlider() {
-        const cardWidth = alumniCards[0].offsetWidth;
-        const gap = parseFloat(getComputedStyle(sliderTrack).gap) || 0;
-        const offset = -(currentAlumniIndex * (cardWidth + gap));
-        sliderTrack.style.transform = `translateX(${offset}px)`;
-        
-        // Update dots
-        const dots = dotsContainer.querySelectorAll('.alumni-dot');
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentAlumniIndex);
-        });
-        
-        // Update button states
-        prevBtn.style.opacity = currentAlumniIndex === 0 ? '0.5' : '1';
-        prevBtn.style.cursor = currentAlumniIndex === 0 ? 'not-allowed' : 'pointer';
-        nextBtn.style.opacity = currentAlumniIndex === maxIndex ? '0.5' : '1';
-        nextBtn.style.cursor = currentAlumniIndex === maxIndex ? 'not-allowed' : 'pointer';
-    }
-    
-    // Go to specific slide
-    function goToSlide(index) {
-        currentAlumniIndex = Math.max(0, Math.min(index, maxIndex));
-        updateSlider();
-    }
-    
-   // Previous button
-prevBtn.addEventListener('click', () => {
-    if (currentAlumniIndex > 0) {
-        currentAlumniIndex--;
-        updateSlider();
-    }
-});
-
-// Next button
-nextBtn.addEventListener('click', () => {
-    if (currentAlumniIndex < maxIndex) {
-        currentAlumniIndex++;
-        updateSlider();
-    }
-});
-
-    
-    // Touch/Swipe Support for Alumni
-    let alumniTouchStartX = 0;
-    let alumniTouchEndX = 0;
-    let alumniTouchStartY = 0;
-    let alumniTouchEndY = 0;
-    
-    sliderTrack.addEventListener('touchstart', (e) => {
-        alumniTouchStartX = e.changedTouches[0].screenX;
-        alumniTouchStartY = e.changedTouches[0].screenY;
-    }, { passive: true });
-    
-    sliderTrack.addEventListener('touchend', (e) => {
-        alumniTouchEndX = e.changedTouches[0].screenX;
-        alumniTouchEndY = e.changedTouches[0].screenY;
-        handleAlumniSwipe();
-    }, { passive: true });
-    
-    function handleAlumniSwipe() {
-        const swipeThreshold = 50;
-        const horizontalDistance = Math.abs(alumniTouchEndX - alumniTouchStartX);
-        const verticalDistance = Math.abs(alumniTouchEndY - alumniTouchStartY);
-        
-        // Only trigger if horizontal swipe is more significant than vertical
-        if (horizontalDistance > verticalDistance && horizontalDistance > swipeThreshold) {
-         if (alumniTouchEndX < alumniTouchStartX && currentAlumniIndex < maxIndex) {
-    // Swiped left - next slide
-    currentAlumniIndex++;
-    updateSlider();
-}
-
-if (alumniTouchEndX > alumniTouchStartX && currentAlumniIndex > 0) {
-    // Swiped right - previous slide
-    currentAlumniIndex--;
-    updateSlider();
-}
-
-        }
-    }
-    
-    // Handle window resize
-   // Handle window resize
-let resizeTimeout;
-window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        updateSlider();
-    }, 250);
-});
-
-    
-    // Initial update
-  // Initial update
-updateSlider();
-
-// DEBUG - Check card visibility
-console.log('=== ALUMNI SLIDER DEBUG ===');
-console.log('Total alumni cards:', totalAlumni);
-console.log('Max index:', maxIndex);
-console.log('Current index:', currentAlumniIndex);
-console.log('Track width:', sliderTrack.offsetWidth);
-if (alumniCards[0]) {
-    console.log('First card width:', alumniCards[0].offsetWidth);
-}
-alumniCards.forEach((card, index) => {
-    console.log(`Card ${index + 1}:`, {
-        width: card.offsetWidth,
-        display: window.getComputedStyle(card).display,
-        minWidth: window.getComputedStyle(card).minWidth
-    });
-});
-console.log('========================');
-
 }
 
 // Notification Settings
